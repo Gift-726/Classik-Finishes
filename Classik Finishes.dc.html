@@ -35,24 +35,48 @@ a:hover { color: #E01E83; }
 .cf-cap { opacity: 0; transform: translateY(14px); transition: opacity 240ms ease, transform 240ms ease; }
 .cf-tile:hover .cf-cap, .cf-tile:focus-within .cf-cap { opacity: 1; transform: translateY(0); }
 @media (hover: none) { .cf-cap { opacity: 1; transform: translateY(0); } .cf-tile img { transform: none; } }
+.cf-nav-toggle { display: none; }
+.cf-nav-toggle span { display: block; width: 20px; height: 2px; background: #040529; margin: 4px 0; transition: transform 200ms ease, opacity 200ms ease; }
+.cf-nav-toggle.cf-open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.cf-nav-toggle.cf-open span:nth-child(2) { opacity: 0; }
+.cf-nav-toggle.cf-open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+@media (max-width: 720px) {
+  .cf-nav { flex-wrap: wrap; }
+  .cf-nav-toggle { display: flex; align-items: center; justify-content: center; width: 40px; height: 32px; margin-left: auto; background: transparent; border: 0; padding: 0; cursor: pointer; }
+  .cf-nav-links { display: none; width: 100%; flex-direction: column; align-items: stretch; gap: 0; padding: 8px 0 18px; }
+  .cf-nav-links.cf-open { display: flex; }
+  .cf-nav-links a:not(.btn) { padding: 12px 0; border-top: 1px solid #dcdde6; font-size: 15px; }
+  .cf-nav-links .btn { margin-top: 12px; }
+  .cf-hero-grid { grid-template-columns: 1fr !important; }
+  .cf-services-head { grid-template-columns: 1fr !important; }
+  .cf-work-featured { grid-template-columns: 1fr !important; }
+  .cf-gallery-grid { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
+}
 </style>
 </helmet>
 
 <div style="font-family: var(--font-body); color: #040529; background: #ffffff">
 
-  <nav class="nav" style="padding-inline: clamp(20px, 5vw, 72px); border-bottom: 2px solid #040529; background: #ffffff">
+  <nav class="nav cf-nav" style="padding-inline: clamp(20px, 5vw, 72px); border-bottom: 2px solid #040529; background: #ffffff">
     <a href="#top" style="display:flex; align-items:center; margin-right:auto">
       <img src="uploads/horizontal logo png.png" alt="Classik Finishes" style="height:38px; width:auto; display:block" />
     </a>
-    <a href="#work" style="color:#040529">Work</a>
-    <a href="#offer" style="color:#040529">What we offer</a>
-    <a href="#services" style="color:#040529">Rates</a>
-    <a href="#quote" style="color:#040529">Contact</a>
-    <a class="btn btn-primary" href="#quote" style="background:#E01E83; border-color:#E01E83; color:#ffffff">Get an estimate</a>
+    <button type="button" class="cf-nav-toggle{{ navOpenSuffix }}" onClick="{{ onToggleNav }}" aria-label="Menu" aria-expanded="{{ navOpen }}">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="cf-nav-links{{ navOpenSuffix }}">
+      <a href="#work" style="color:#040529">Work</a>
+      <a href="#offer" style="color:#040529">What we offer</a>
+      <a href="#services" style="color:#040529">Rates</a>
+      <a href="#quote" style="color:#040529">Contact</a>
+      <a class="btn btn-primary" href="#quote" style="background:#E01E83; border-color:#E01E83; color:#ffffff">Get an estimate</a>
+    </div>
   </nav>
 
   <section id="top" style="position:relative; overflow:hidden; background:#ffffff; border-bottom:2px solid #040529; display:flex; align-items:center">
-    <div style="position:relative; width:100%; max-width:1240px; margin:0 auto; padding:clamp(48px,6vw,72px) clamp(20px,5vw,72px); display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,0.85fr); gap:clamp(28px,4vw,64px); align-items:center">
+    <div class="cf-hero-grid" style="position:relative; width:100%; max-width:1240px; margin:0 auto; padding:clamp(48px,6vw,72px) clamp(20px,5vw,72px); display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,0.85fr); gap:clamp(28px,4vw,64px); align-items:center">
 
       <div ref="{{ heroText }}" style="position:relative; z-index:2; transition:transform 420ms cubic-bezier(.2,.7,.2,1)">
         <div style="display:flex; gap:0; height:10px; width:min(100%,420px); margin-bottom:28px; animation:cfWipe 900ms cubic-bezier(.2,.8,.2,1) both">
@@ -163,7 +187,7 @@ a:hover { color: #E01E83; }
     <hr style="height:2px; border:0; margin:0; background:#040529" />
 
     <section id="services" style="padding:clamp(56px,7vw,96px) 0 clamp(48px,6vw,80px)">
-      <div style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,auto); gap:20px 48px; align-items:end; margin-bottom:clamp(44px,5vw,64px)">
+      <div class="cf-services-head" style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,auto); gap:20px 48px; align-items:end; margin-bottom:clamp(44px,5vw,64px)">
         <div>
           <span style="display:block; font-size:13px; line-height:1.3; letter-spacing:0.08em; text-transform:uppercase; color:#B01166; margin:0 0 20px">What we do</span>
           <h2 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:clamp(30px,3.8vw,48px); line-height:1.08; letter-spacing:-0.022em; margin:0 0 0 -0.048em; max-width:24ch">Two trades, priced by the square metre.</h2>
@@ -225,7 +249,7 @@ a:hover { color: #E01E83; }
         <span style="display:block; font-size:13px; line-height:1.3; letter-spacing:0.08em; text-transform:uppercase; color:#B01166">Recent work</span>
         <p style="font-size:15.5px; line-height:1.7; margin:0; max-width:44ch; color:#2a2b45">Photographed as delivered — no staging, no filters. Hover any photo below for what was done.</p>
       </div>
-      <div style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:2px; background:#040529; border:2px solid #040529; margin-bottom:2px">
+      <div class="cf-work-featured" style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:2px; background:#040529; border:2px solid #040529; margin-bottom:2px">
         <figure class="cf-tile" tabindex="0" style="margin:0; position:relative; aspect-ratio:1/1; overflow:hidden; background:#E2F8FF">
           <img src="uploads/When%20it%20comes%20to%20delivering%20the%20best,%20trust%20us%20to%20deliver%20Thank%20you%20@jomavhomesofficial%20constr.webp" alt="Empire City entrance gatehouse finished by Classik Finishes" style="width:100%; height:100%; object-fit:cover; display:block" />
           <figcaption class="cf-cap" style="position:absolute; inset:auto 0 0 0; padding:18px 20px 20px; background:linear-gradient(to top, rgba(4,5,41,0.92), rgba(4,5,41,0))">
@@ -245,7 +269,7 @@ a:hover { color: #E01E83; }
           </figcaption>
         </figure>
       </div>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:2px; background:#040529; border:2px solid #040529; border-top:0">
+      <div class="cf-gallery-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:2px; background:#040529; border:2px solid #040529; border-top:0">
         <figure class="cf-tile" tabindex="0" style="margin:0; position:relative; aspect-ratio:1/1; overflow:hidden; background:#E2F8FF">
           <img src="recents-work/classik1.jpg" alt="Corridor POP ceiling and wall paneling" style="width:100%; height:100%; object-fit:cover; display:block" />
           <figcaption class="cf-cap" style="position:absolute; inset:auto 0 0 0; padding:16px 18px 14px; background:linear-gradient(to top, rgba(4,5,41,0.92), rgba(4,5,41,0))">
@@ -444,12 +468,16 @@ const SERVICES = {
 };
 
 class Component extends DCLogic {
-  state = { selected: {}, contactName: "", contactReach: "", contactDetail: "", contactMessage: "" };
+  state = { selected: {}, contactName: "", contactReach: "", contactDetail: "", contactMessage: "", navOpen: false };
   workVideo = React.createRef();
   heroArt = React.createRef();
   heroText = React.createRef();
 
   fmt(n) { return "₦" + n.toLocaleString("en-NG"); }
+
+  toggleNav() {
+    this.setState(s => ({ navOpen: !s.navOpen }));
+  }
 
   selectAndQuote(id) {
     const turningOn = !this.state.selected[id];
@@ -516,6 +544,15 @@ class Component extends DCLogic {
   componentDidMount() {
     this.playWork();
 
+    const navLinks = document.querySelector(".cf-nav-links");
+    if (navLinks) {
+      this._onNavLinkClick = e => {
+        if (e.target.closest("a")) this.setState({ navOpen: false });
+      };
+      navLinks.addEventListener("click", this._onNavLinkClick);
+      this._navLinks = navLinks;
+    }
+
     const hero = document.getElementById("top");
     if (hero && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       this._onMove = e => {
@@ -546,6 +583,9 @@ class Component extends DCLogic {
       this._hero.removeEventListener("pointermove", this._onMove);
       this._hero.removeEventListener("pointerleave", this._onLeave);
     }
+    if (this._navLinks && this._onNavLinkClick) {
+      this._navLinks.removeEventListener("click", this._onNavLinkClick);
+    }
   }
   renderVals() {
     const bodyLines = [];
@@ -556,6 +596,9 @@ class Component extends DCLogic {
     const mailBody = bodyLines.length ? bodyLines.join("\n") : "Hello Classik Finishes, I'd like to enquire about a project.";
 
     return {
+      navOpen: !!this.state.navOpen,
+      navOpenSuffix: this.state.navOpen ? " cf-open" : "",
+      onToggleNav: () => this.toggleNav(),
       videoControls: true,
       workVideoRef: this.workVideo,
       workPlaying: !!this.state.workPlaying,
