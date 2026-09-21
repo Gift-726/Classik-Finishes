@@ -27,14 +27,24 @@ body { margin: 0; background: #ffffff; text-wrap: pretty; }
 @keyframes cfFloat { 0%,100% { transform: translateY(-10px) rotate(-1.2deg) } 50% { transform: translateY(14px) rotate(1.2deg) } }
 @keyframes cfDrift { 0%,100% { transform: translate(0,0) } 50% { transform: translate(-14px,18px) } }
 @keyframes cfStroke { 0% { transform: scaleX(0); opacity: 0 } 55% { transform: scaleX(1); opacity: 1 } 100% { transform: scaleX(1); opacity: 1 } }
-@media (prefers-reduced-motion: reduce) { #top * { animation: none !important } }
+@media (prefers-reduced-motion: reduce) { #top *, .cf-drift-shape { animation: none !important } }
 a { color: #B01166; text-decoration: none; }
 a:hover { color: #E01E83; }
-.cf-tile img { transition: transform 420ms cubic-bezier(.2,.7,.2,1); }
-.cf-tile:hover img, .cf-tile:focus-within img { transform: scale(1.05); }
+.cf-tile { border-radius: 16px; transition: transform 260ms ease, box-shadow 260ms ease; }
+.cf-tile:hover, .cf-tile:focus-within { transform: translateY(-6px); box-shadow: var(--shadow-lg); z-index: 2; }
+.cf-tile img, .cf-tile video { transition: transform 420ms cubic-bezier(.2,.7,.2,1); }
+.cf-tile:hover img, .cf-tile:focus-within img, .cf-tile:hover video, .cf-tile:focus-within video { transform: scale(1.05); }
 .cf-cap { opacity: 0; transform: translateY(14px); transition: opacity 240ms ease, transform 240ms ease; }
 .cf-tile:hover .cf-cap, .cf-tile:focus-within .cf-cap { opacity: 1; transform: translateY(0); }
 @media (hover: none) { .cf-cap { opacity: 1; transform: translateY(0); } .cf-tile img { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .cf-tile { transition: none; } .cf-tile:hover, .cf-tile:focus-within { transform: none; } }
+.cf-offer-card { transition: transform 260ms ease, box-shadow 260ms ease; position: relative; }
+.cf-offer-card:hover, .cf-offer-card:focus-within { transform: translateY(-6px); box-shadow: var(--shadow-lg); z-index: 2; }
+.cf-offer-card img { transition: transform 420ms cubic-bezier(.2,.7,.2,1); }
+.cf-offer-card:hover img, .cf-offer-card:focus-within img { transform: scale(1.06); }
+.cf-rate-card { transition: transform 260ms ease, box-shadow 260ms ease; }
+.cf-rate-card:hover, .cf-rate-card:focus-within { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+@media (prefers-reduced-motion: reduce) { .cf-offer-card, .cf-offer-card img, .cf-rate-card { transition: none; } .cf-offer-card:hover, .cf-offer-card:focus-within, .cf-rate-card:hover, .cf-rate-card:focus-within { transform: none; } }
 .cf-nav-links { display: flex; align-items: center; gap: var(--space-4); }
 .cf-nav-toggle { display: none; }
 .cf-nav-toggle span { display: block; width: 20px; height: 2px; background: #040529; margin: 4px 0; transition: transform 200ms ease, opacity 200ms ease; }
@@ -50,7 +60,6 @@ a:hover { color: #E01E83; }
   .cf-nav-links .btn { margin-top: 12px; }
   .cf-hero-grid { grid-template-columns: 1fr !important; }
   .cf-services-head { grid-template-columns: 1fr !important; }
-  .cf-work-featured { grid-template-columns: 1fr !important; }
   .cf-gallery-grid { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
 }
 </style>
@@ -89,10 +98,10 @@ a:hover { color: #E01E83; }
         </div>
         <span style="display:block; font-size:13.5px; line-height:1.3; letter-spacing:0.12em; text-transform:uppercase; color:#B01166; font-weight:700; margin:0 0 18px">Towards aesthetics and value</span>
         <h1 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:clamp(38px,5.6vw,76px); line-height:1.04; letter-spacing:-0.025em; margin:0 0 0 -0.055em; color:#040529; max-width:16ch">
-          <span style="display:block; animation:cfRise 760ms cubic-bezier(.2,.8,.2,1) 80ms both">Finishes built for</span>
-          <span style="display:block; animation:cfRise 760ms cubic-bezier(.2,.8,.2,1) 200ms both"><span style="color:#E01E83">aesthetics and value.</span></span>
+          <span style="display:block; animation:cfRise 760ms cubic-bezier(.2,.8,.2,1) 80ms both">Finishes that</span>
+          <span style="display:block; animation:cfRise 760ms cubic-bezier(.2,.8,.2,1) 200ms both"><span style="color:#E01E83">transform spaces.</span></span>
         </h1>
-        <p style="font-size:17px; line-height:1.65; max-width:48ch; margin:30px 0 0; color:#3c3d55; animation:cfRise 760ms cubic-bezier(.2,.8,.2,1) 560ms both">Screeding, textured and marble-stone wall finishes, Tyrollean, POP and gypsum ceilings — surface work delivered end to end for homes, estates and commercial builds across Nigeria.</p>
+        <p style="font-size:17px; line-height:1.65; max-width:48ch; margin:30px 0 0; color:#3c3d55; animation:cfRise 760ms cubic-bezier(.2,.8,.2,1) 560ms both">From overheads to walls and surfaces to details, we deliver quality finishing solutions that bring aesthetics, durability, and value to homes, estates, and commercial spaces.</p>
         <div style="display:flex; gap:var(--space-3); flex-wrap:wrap; margin-top:32px; animation:cfRise 760ms cubic-bezier(.2,.8,.2,1) 660ms both">
           <a class="btn btn-primary" href="#services" style="background:#E01E83; border-color:#E01E83; color:#ffffff">See rates &amp; book</a>
           <a class="btn btn-ghost" href="#work" style="color:#040529; border-color:#040529">See recent work</a>
@@ -106,7 +115,7 @@ a:hover { color: #E01E83; }
         <div style="position:absolute; inset:clamp(20px,4vw,52px) clamp(14px,3vw,34px); border:2px solid #040529; background:#E2F8FF; animation:cfFloat 7.5s ease-in-out infinite; z-index:1">
           <!-- <image-slot id="cf-hero-photo" shape="rect" placeholder="Drop a hero photo — finished room, facade or ceiling"></image-slot>
             -->
-          <img src="uploads/hero-img.png" alt="Classik Finishes crew rendering and screeding a facade on site" style="width:100%; height:100%; object-fit:cover; display:block" />
+          <img src="recents-work/classik1.jpg" alt="Finished hallway with POP ceiling, wall paneling and marble flooring" style="width:100%; height:100%; object-fit:cover; display:block" />
         </div>
       </div>
     </div>
@@ -133,59 +142,68 @@ a:hover { color: #E01E83; }
       </div>
     </section>
 
-    <hr style="height:2px; border:0; margin:0; background:#040529" />
+  </div>
 
-    <section id="offer" style="padding:clamp(52px,6vw,84px) 0 clamp(44px,5vw,64px)">
-      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:clamp(28px,4vw,64px); align-items:stretch">
-        <div style="position:relative; min-height:320px; background:#E2F8FF; outline:2px solid #040529">
-          <img src="uploads/what-we-offer.png" alt="Classik Finishes crew rendering and screeding a facade on site" style="width:100%; height:100%; object-fit:cover; display:block" />
+  <section id="offer" style="background:#E2F8FF; border-top:2px solid #040529; border-bottom:2px solid #040529">
+    <div style="max-width:1240px; margin:0 auto; padding:clamp(52px,6vw,84px) clamp(20px,5vw,72px) clamp(44px,5vw,64px)">
+      <div style="max-width:60ch; margin-bottom:clamp(32px,4vw,48px)">
+        <span style="display:block; font-size:13px; line-height:1.3; letter-spacing:0.1em; text-transform:uppercase; color:#B01166; margin:0 0 16px">Our offerings</span>
+        <h2 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:clamp(28px,3.4vw,44px); line-height:1.06; letter-spacing:-0.022em; margin:0 0 12px -0.045em">Everything your space needs to stand out.</h2>
+        <p style="font-size:14.5px; line-height:1.7; margin:0; max-width:42ch; color:#3c3d55">Five capabilities, one crew. Take them separately or as a full package.</p>
+      </div>
+      <div class="cf-offer-grid" style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:2px; background:#040529; border:2px solid #040529">
+        <div class="cf-offer-card" tabindex="0" style="background:#ffffff; display:flex; flex-direction:column">
+          <div style="position:relative; aspect-ratio:4/3; overflow:hidden; background:#E2F8FF">
+            <img src="recents-work/Proof%20that%20Classik%20Finishes%20changes%20everything.%20Bringing%20this%20exterior%20back%20to%20life.%20What%20a%20dif%20(2).webp" alt="Finished entrance porch, cream render and brick columns" style="width:100%; height:100%; object-fit:cover; display:block" />
+            <span style="position:absolute; left:0; bottom:0; width:32px; height:8px; background:#8FC706"></span>
+          </div>
+          <div style="padding:20px 22px 24px; flex:1">
+            <h3 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:17px; line-height:1.25; margin:0 0 8px">Paint application on walls and objects</h3>
+            <p style="font-size:14px; line-height:1.6; margin:0; color:#5a5b70">Interior, exterior and joinery — primed and finished in two coats.</p>
+          </div>
         </div>
-        <div>
-          <span style="display:block; font-size:13px; line-height:1.3; letter-spacing:0.1em; text-transform:uppercase; color:#B01166; margin:0 0 16px">We offer these</span>
-          <h2 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:clamp(28px,3.4vw,44px); line-height:1.06; letter-spacing:-0.022em; margin:0 0 12px -0.045em; max-width:22ch">Surfaces your building can rely on.</h2>
-          <p style="font-size:14.5px; line-height:1.7; margin:0 0 22px; max-width:42ch; color:#3c3d55">Five capabilities, one crew. Take them separately or as a full package.</p>
-          <div style="display:grid; gap:0">
-            <div style="display:grid; grid-template-columns:auto minmax(0,1fr); gap:14px; align-items:start; padding:15px 0; border-top:2px solid #040529">
-              <span style="width:14px; height:14px; background:#8FC706; display:block; margin-top:5px"></span>
-              <div>
-                <h3 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:17px; line-height:1.25; margin:0 0 4px">Paint application on walls and objects</h3>
-                <p style="font-size:14px; line-height:1.6; margin:0; color:#5a5b70; max-width:44ch">Interior, exterior and joinery — primed and finished in two coats.</p>
-              </div>
-            </div>
-            <div style="display:grid; grid-template-columns:auto minmax(0,1fr); gap:14px; align-items:start; padding:15px 0; border-top:1px solid #dcdde6">
-              <span style="width:14px; height:14px; background:#32C0F0; display:block; margin-top:5px"></span>
-              <div>
-                <h3 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:17px; line-height:1.25; margin:0 0 4px">Effective wall screeding</h3>
-                <p style="font-size:14px; line-height:1.6; margin:0; color:#5a5b70; max-width:44ch">Flat, sanded substrate so every finish above it sits true.</p>
-              </div>
-            </div>
-            <div style="display:grid; grid-template-columns:auto minmax(0,1fr); gap:14px; align-items:start; padding:15px 0; border-top:1px solid #dcdde6">
-              <span style="width:14px; height:14px; background:#BB5AD7; display:block; margin-top:5px"></span>
-              <div>
-                <h3 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:17px; line-height:1.25; margin:0 0 4px">Gypsum board &amp; POP ceiling installation</h3>
-                <p style="font-size:14px; line-height:1.6; margin:0; color:#5a5b70; max-width:44ch">Framed, boarded and cast in-house, lighting set out first.</p>
-              </div>
-            </div>
-            <div style="display:grid; grid-template-columns:auto minmax(0,1fr); gap:14px; align-items:start; padding:15px 0; border-top:1px solid #dcdde6">
-              <span style="width:14px; height:14px; background:#E01E83; display:block; margin-top:5px"></span>
-              <div>
-                <h3 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:17px; line-height:1.25; margin:0 0 4px">Decorative wall designs</h3>
-                <p style="font-size:14px; line-height:1.6; margin:0; color:#5a5b70; max-width:44ch">Textured, Tyrollean and marble-stone feature work to an approved sample.</p>
-              </div>
-            </div>
-            <div style="display:grid; grid-template-columns:auto minmax(0,1fr); gap:14px; align-items:start; padding:15px 0; border-top:1px solid #dcdde6; border-bottom:2px solid #040529">
-              <span style="width:14px; height:14px; background:#FD5206; display:block; margin-top:5px"></span>
-              <div>
-                <h3 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:17px; line-height:1.25; margin:0 0 4px">Project support</h3>
-                <p style="font-size:14px; line-height:1.6; margin:0; color:#5a5b70; max-width:44ch">Scheduling, measurement and site coordination alongside your builders.</p>
-              </div>
-            </div>
+        <div class="cf-offer-card" tabindex="0" style="background:#ffffff; display:flex; flex-direction:column">
+          <div style="position:relative; aspect-ratio:4/3; overflow:hidden; background:#E2F8FF">
+            <img src="recents-work/Another%20space%20coming%20to%20life.From%20bare%20walls%20to%20refined%20finishes,%20we%20deliver%20craftsmanship%20that%20(3).webp" alt="Screeded walls and cast coving around a window" style="width:100%; height:100%; object-fit:cover; display:block" />
+            <span style="position:absolute; left:0; bottom:0; width:32px; height:8px; background:#32C0F0"></span>
+          </div>
+          <div style="padding:20px 22px 24px; flex:1">
+            <h3 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:17px; line-height:1.25; margin:0 0 8px">Effective wall screeding</h3>
+            <p style="font-size:14px; line-height:1.6; margin:0; color:#5a5b70">Flat, sanded substrate so every finish above it sits true.</p>
+          </div>
+        </div>
+        <div class="cf-offer-card" tabindex="0" style="background:#ffffff; display:flex; flex-direction:column">
+          <div style="position:relative; aspect-ratio:4/3; overflow:hidden; background:#E2F8FF">
+            <img src="recents-work/Check%20out%20our%20new%20project!Quality%20craftsmanship%20Classik%20Finishes%20🤝🤝.jpg" alt="Angular geometric POP ceiling design" style="width:100%; height:100%; object-fit:cover; display:block" />
+            <span style="position:absolute; left:0; bottom:0; width:32px; height:8px; background:#BB5AD7"></span>
+          </div>
+          <div style="padding:20px 22px 24px; flex:1">
+            <h3 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:17px; line-height:1.25; margin:0 0 8px">Gypsum board &amp; POP ceiling installation</h3>
+            <p style="font-size:14px; line-height:1.6; margin:0; color:#5a5b70">Framed, boarded and cast in-house, lighting set out first.</p>
+          </div>
+        </div>
+        <div class="cf-offer-card" tabindex="0" style="background:#ffffff; display:flex; flex-direction:column">
+          <div style="position:relative; aspect-ratio:4/3; overflow:hidden; background:#E2F8FF">
+            <img src="recents-work/Proof%20that%20Classik%20Finishes%20changes%20everything.%20Bringing%20this%20exterior%20back%20to%20life.%20What%20a%20dif%20(1).webp" alt="Brick banding and cladding detail" style="width:100%; height:100%; object-fit:cover; display:block" />
+            <span style="position:absolute; left:0; bottom:0; width:32px; height:8px; background:#E01E83"></span>
+          </div>
+          <div style="padding:20px 22px 24px; flex:1">
+            <h3 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:17px; line-height:1.25; margin:0 0 8px">Decorative wall designs</h3>
+            <p style="font-size:14px; line-height:1.6; margin:0; color:#5a5b70">Textured, Tyrollean and marble-stone feature work to an approved sample.</p>
           </div>
         </div>
       </div>
-    </section>
+      <div class="cf-offer-card" tabindex="0" style="background:#ffffff; border:2px solid #040529; border-top:0; display:flex; align-items:center; gap:20px; padding:22px 28px; flex-wrap:wrap">
+        <span style="width:40px; height:40px; background:#FD5206; flex-shrink:0"></span>
+        <div style="flex:1; min-width:200px">
+          <h3 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:17px; line-height:1.25; margin:0 0 6px">Project support</h3>
+          <p style="font-size:14px; line-height:1.6; margin:0; color:#5a5b70">Scheduling, measurement and site coordination alongside your builders.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <hr style="height:2px; border:0; margin:0; background:#040529" />
+  <div style="max-width:1240px; margin:0 auto; padding:0 clamp(20px, 5vw, 72px)">
 
     <section id="services" style="padding:clamp(56px,7vw,96px) 0 clamp(48px,6vw,80px)">
       <div class="cf-services-head" style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,auto); gap:20px 48px; align-items:end; margin-bottom:clamp(44px,5vw,64px)">
@@ -203,14 +221,11 @@ a:hover { color: #E01E83; }
       </div>
       <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(265px,1fr)); gap:clamp(16px,2vw,24px); margin-bottom:clamp(44px,5vw,64px)">
         <sc-for list="{{ overheadRows }}" as="row" hint-placeholder-count="3">
-          <div style="background:{{ row.cardBg }}; border:2px solid {{ row.cardBorder }}; padding:26px 24px 22px; display:grid; grid-template-rows:auto auto 1fr auto; gap:0; min-height:290px">
-            <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:22px">
-              <span style="width:26px; height:6px; background:{{ row.color }}; display:block"></span>
-              <span style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:12px; letter-spacing:0.1em; color:#5a5b70">{{ row.num }}</span>
-            </div>
-            <h4 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:clamp(20px,2vw,24px); line-height:1.15; letter-spacing:-0.015em; margin:0 0 12px">{{ row.name }}</h4>
-            <p style="font-size:14px; line-height:1.65; margin:0 0 24px; color:#5a5b70">{{ row.note }}</p>
-            <div>
+          <div class="cf-rate-card" style="position:relative; overflow:hidden; background:{{ row.cardBg }}; border:2px solid {{ row.cardBorder }}; border-top:6px solid {{ row.color }}; padding:26px 24px 22px; display:grid; grid-template-rows:auto 1fr auto; gap:0; min-height:290px">
+            <span aria-hidden="true" style="position:absolute; right:10px; top:-18px; font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:96px; line-height:1; color:{{ row.color }}; opacity:0.14; pointer-events:none">{{ row.num }}</span>
+            <h4 style="position:relative; font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:clamp(20px,2vw,24px); line-height:1.15; letter-spacing:-0.015em; margin:0 0 12px; max-width:80%">{{ row.name }}</h4>
+            <p style="position:relative; font-size:14px; line-height:1.65; margin:0 0 24px; color:#5a5b70; max-width:90%">{{ row.note }}</p>
+            <div style="position:relative">
               <p style="font-size:11.5px; letter-spacing:0.09em; text-transform:uppercase; margin:0 0 6px; color:#3c3d55">{{ row.unit }}</p>
               <p style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:clamp(24px,2.6vw,30px); line-height:1.1; letter-spacing:-0.02em; margin:0 0 18px -0.03em; color:#040529">{{ row.amount }}</p>
               <button type="button" onClick="{{ row.toggle }}" style="background:transparent; color:{{ row.actionFg }}; border:0; border-top:2px solid #dcdde6; width:100%; text-align:left; font-family:var(--font-body); font-size:12px; letter-spacing:0.09em; text-transform:uppercase; padding:14px 0 0; cursor:pointer">{{ row.action }}</button>
@@ -226,14 +241,11 @@ a:hover { color: #E01E83; }
       </div>
       <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(265px,1fr)); gap:clamp(16px,2vw,24px)">
         <sc-for list="{{ wallRows }}" as="row" hint-placeholder-count="5">
-          <div style="background:{{ row.cardBg }}; border:2px solid {{ row.cardBorder }}; padding:26px 24px 22px; display:grid; grid-template-rows:auto auto 1fr auto; gap:0; min-height:290px">
-            <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:22px">
-              <span style="width:26px; height:6px; background:{{ row.color }}; display:block"></span>
-              <span style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:12px; letter-spacing:0.1em; color:#5a5b70">{{ row.num }}</span>
-            </div>
-            <h4 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:clamp(20px,2vw,24px); line-height:1.15; letter-spacing:-0.015em; margin:0 0 12px">{{ row.name }}</h4>
-            <p style="font-size:14px; line-height:1.65; margin:0 0 24px; color:#5a5b70">{{ row.note }}</p>
-            <div>
+          <div class="cf-rate-card" style="position:relative; overflow:hidden; background:{{ row.cardBg }}; border:2px solid {{ row.cardBorder }}; border-top:6px solid {{ row.color }}; padding:26px 24px 22px; display:grid; grid-template-rows:auto 1fr auto; gap:0; min-height:290px">
+            <span aria-hidden="true" style="position:absolute; right:10px; top:-18px; font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:96px; line-height:1; color:{{ row.color }}; opacity:0.14; pointer-events:none">{{ row.num }}</span>
+            <h4 style="position:relative; font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:clamp(20px,2vw,24px); line-height:1.15; letter-spacing:-0.015em; margin:0 0 12px; max-width:80%">{{ row.name }}</h4>
+            <p style="position:relative; font-size:14px; line-height:1.65; margin:0 0 24px; color:#5a5b70; max-width:90%">{{ row.note }}</p>
+            <div style="position:relative">
               <p style="font-size:11.5px; letter-spacing:0.09em; text-transform:uppercase; margin:0 0 6px; color:#3c3d55">{{ row.unit }}</p>
               <p style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:clamp(24px,2.6vw,30px); line-height:1.1; letter-spacing:-0.02em; margin:0 0 18px -0.03em; color:#040529">{{ row.amount }}</p>
               <button type="button" onClick="{{ row.toggle }}" style="background:transparent; color:{{ row.actionFg }}; border:0; border-top:2px solid #dcdde6; width:100%; text-align:left; font-family:var(--font-body); font-size:12px; letter-spacing:0.09em; text-transform:uppercase; padding:14px 0 0; cursor:pointer">{{ row.action }}</button>
@@ -250,27 +262,14 @@ a:hover { color: #E01E83; }
         <span style="display:block; font-size:13px; line-height:1.3; letter-spacing:0.08em; text-transform:uppercase; color:#B01166">Recent work</span>
         <p style="font-size:15.5px; line-height:1.7; margin:0; max-width:44ch; color:#2a2b45">Photographed as delivered — no staging, no filters. Hover any photo below for what was done.</p>
       </div>
-      <div class="cf-work-featured" style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:2px; background:#040529; border:2px solid #040529; margin-bottom:2px">
-        <figure class="cf-tile" tabindex="0" style="margin:0; position:relative; aspect-ratio:1/1; overflow:hidden; background:#E2F8FF">
-          <img src="uploads/When%20it%20comes%20to%20delivering%20the%20best,%20trust%20us%20to%20deliver%20Thank%20you%20@jomavhomesofficial%20constr.webp" alt="Empire City entrance gatehouse finished by Classik Finishes" style="width:100%; height:100%; object-fit:cover; display:block" />
-          <figcaption class="cf-cap" style="position:absolute; inset:auto 0 0 0; padding:18px 20px 20px; background:linear-gradient(to top, rgba(4,5,41,0.92), rgba(4,5,41,0))">
-            <p style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:18px; line-height:1.25; margin:0; color:#ffffff">Empire City — entrance gatehouse</p>
-            <p style="font-size:14.5px; line-height:1.6; margin:8px 0 0; color:#E2F8FF">Exterior coating and feature walls for <a href="https://www.instagram.com/jomavhomesofficial/" target="_blank" rel="noreferrer" style="color:#32C0F0">@jomavhomesofficial</a> on the newly launched estate.</p>
-          </figcaption>
-        </figure>
+      <div class="cf-gallery-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:clamp(14px,2vw,22px)">
         <figure class="cf-tile" tabindex="0" style="margin:0; position:relative; aspect-ratio:1/1; overflow:hidden; background:#040529">
-          <video ref="{{ workVideoRef }}" src="{{ workVideo }}" muted="{{ videoControls }}" loop="{{ videoControls }}" playsInline="{{ videoControls }}" preload="auto" style="width:100%; height:100%; object-fit:cover; display:block"></video>
-          <button type="button" onClick="{{ onToggleWork }}" style="position:absolute; left:0; bottom:0; display:flex; align-items:center; gap:10px; background:#E01E83; color:#ffffff; border:0; border-top:2px solid #ffffff; border-right:2px solid #ffffff; font-family:var(--font-body); font-size:11.5px; letter-spacing:0.09em; text-transform:uppercase; padding:12px 18px; cursor:pointer; z-index:3">{{ workToggleLabel }}</button>
-          <label style="position:absolute; right:0; top:0; display:flex; align-items:center; gap:8px; background:#040529; color:#ffffff; border-bottom:2px solid #ffffff; border-left:2px solid #ffffff; font-size:11.5px; letter-spacing:0.09em; text-transform:uppercase; padding:9px 14px; cursor:pointer; z-index:3">Replace video
-            <input type="file" accept="video/*" onChange="{{ onPickVideo }}" style="position:absolute; width:1px; height:1px; opacity:0; pointer-events:none" />
-          </label>
-          <figcaption class="cf-cap" style="position:absolute; inset:auto 0 0 0; padding:18px 20px 52px; background:linear-gradient(to top, rgba(4,5,41,0.92), rgba(4,5,41,0))">
-            <p style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:18px; line-height:1.25; margin:0; color:#ffffff">{{ workVideoTitle }}</p>
-            <p style="font-size:14.5px; line-height:1.6; margin:8px 0 0; color:#E2F8FF">{{ workVideoNote }}</p>
+          <video src="{{ workVideo }}" autoPlay muted loop playsInline preload="auto" style="width:100%; height:100%; object-fit:cover; display:block"></video>
+          <figcaption class="cf-cap" style="position:absolute; inset:auto 0 0 0; padding:16px 18px 14px; background:linear-gradient(to top, rgba(4,5,41,0.92), rgba(4,5,41,0))">
+            <p style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:14.5px; line-height:1.3; margin:0; color:#ffffff">Empire City — entrance gatehouse</p>
+            <p style="font-size:12px; line-height:1.5; margin:5px 0 0; color:#E2F8FF">Exterior coating and feature walls for <a href="https://www.instagram.com/jomavhomesofficial/" target="_blank" rel="noreferrer" style="color:#32C0F0">@jomavhomesofficial</a> on the newly launched estate.</p>
           </figcaption>
         </figure>
-      </div>
-      <div class="cf-gallery-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:2px; background:#040529; border:2px solid #040529; border-top:0">
         <figure class="cf-tile" tabindex="0" style="margin:0; position:relative; aspect-ratio:1/1; overflow:hidden; background:#E2F8FF">
           <img src="recents-work/classik1.jpg" alt="Corridor POP ceiling and wall paneling" style="width:100%; height:100%; object-fit:cover; display:block" />
           <figcaption class="cf-cap" style="position:absolute; inset:auto 0 0 0; padding:16px 18px 14px; background:linear-gradient(to top, rgba(4,5,41,0.92), rgba(4,5,41,0))">
@@ -300,20 +299,6 @@ a:hover { color: #E01E83; }
           </figcaption>
         </figure>
         <figure class="cf-tile" tabindex="0" style="margin:0; position:relative; aspect-ratio:1/1; overflow:hidden; background:#E2F8FF">
-          <img src="recents-work/Proof%20that%20Classik%20Finishes%20changes%20everything.%20Bringing%20this%20exterior%20back%20to%20life.%20What%20a%20dif%20(1).webp" alt="Brick banding and cladding detail mid-render" style="width:100%; height:100%; object-fit:cover; display:block" />
-          <figcaption class="cf-cap" style="position:absolute; inset:auto 0 0 0; padding:16px 18px 14px; background:linear-gradient(to top, rgba(4,5,41,0.92), rgba(4,5,41,0))">
-            <p style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:14.5px; line-height:1.3; margin:0; color:#ffffff">Brick banding detail</p>
-            <p style="font-size:12px; line-height:1.5; margin:5px 0 0; color:#E2F8FF">Cladding and brickwork taking shape, mid-render.</p>
-          </figcaption>
-        </figure>
-        <figure class="cf-tile" tabindex="0" style="margin:0; position:relative; aspect-ratio:1/1; overflow:hidden; background:#E2F8FF">
-          <img src="recents-work/Proof%20that%20Classik%20Finishes%20changes%20everything.%20Bringing%20this%20exterior%20back%20to%20life.%20What%20a%20dif%20(2).webp" alt="Finished entrance porch with brick columns" style="width:100%; height:100%; object-fit:cover; display:block" />
-          <figcaption class="cf-cap" style="position:absolute; inset:auto 0 0 0; padding:16px 18px 14px; background:linear-gradient(to top, rgba(4,5,41,0.92), rgba(4,5,41,0))">
-            <p style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:14.5px; line-height:1.3; margin:0; color:#ffffff">Finished entrance porch</p>
-            <p style="font-size:12px; line-height:1.5; margin:5px 0 0; color:#E2F8FF">Brick columns and cream render, handed over.</p>
-          </figcaption>
-        </figure>
-        <figure class="cf-tile" tabindex="0" style="margin:0; position:relative; aspect-ratio:1/1; overflow:hidden; background:#E2F8FF">
           <img src="recents-work/Proof%20that%20Classik%20Finishes%20changes%20everything.%20Bringing%20this%20exterior%20back%20to%20life.%20What%20a%20dif%20(3).webp" alt="Completed bungalow front elevation" style="width:100%; height:100%; object-fit:cover; display:block" />
           <figcaption class="cf-cap" style="position:absolute; inset:auto 0 0 0; padding:16px 18px 14px; background:linear-gradient(to top, rgba(4,5,41,0.92), rgba(4,5,41,0))">
             <p style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:14.5px; line-height:1.3; margin:0; color:#ffffff">Completed bungalow</p>
@@ -332,27 +317,6 @@ a:hover { color: #E01E83; }
           <figcaption class="cf-cap" style="position:absolute; inset:auto 0 0 0; padding:16px 18px 14px; background:linear-gradient(to top, rgba(4,5,41,0.92), rgba(4,5,41,0))">
             <p style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:14.5px; line-height:1.3; margin:0; color:#ffffff">Living room ceiling &amp; walls</p>
             <p style="font-size:12px; line-height:1.5; margin:5px 0 0; color:#E2F8FF">Render complete across ceiling and walls, pre-paint.</p>
-          </figcaption>
-        </figure>
-        <figure class="cf-tile" tabindex="0" style="margin:0; position:relative; aspect-ratio:1/1; overflow:hidden; background:#E2F8FF">
-          <img src="recents-work/Another%20space%20coming%20to%20life.From%20bare%20walls%20to%20refined%20finishes,%20we%20deliver%20craftsmanship%20that%20(3).webp" alt="Bedroom recessed ceiling coving" style="width:100%; height:100%; object-fit:cover; display:block" />
-          <figcaption class="cf-cap" style="position:absolute; inset:auto 0 0 0; padding:16px 18px 14px; background:linear-gradient(to top, rgba(4,5,41,0.92), rgba(4,5,41,0))">
-            <p style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:14.5px; line-height:1.3; margin:0; color:#ffffff">Bedroom ceiling coving</p>
-            <p style="font-size:12px; line-height:1.5; margin:5px 0 0; color:#E2F8FF">Screeded walls and cast coving, set out around the window.</p>
-          </figcaption>
-        </figure>
-        <figure class="cf-tile" tabindex="0" style="margin:0; position:relative; aspect-ratio:1/1; overflow:hidden; background:#E2F8FF">
-          <img src="recents-work/Check%20out%20our%20new%20project!Quality%20craftsmanship%20Classik%20Finishes%20🤝🤝.jpg" alt="Angular geometric POP ceiling design" style="width:100%; height:100%; object-fit:cover; display:block" />
-          <figcaption class="cf-cap" style="position:absolute; inset:auto 0 0 0; padding:16px 18px 14px; background:linear-gradient(to top, rgba(4,5,41,0.92), rgba(4,5,41,0))">
-            <p style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:14.5px; line-height:1.3; margin:0; color:#ffffff">Angular POP ceiling</p>
-            <p style="font-size:12px; line-height:1.5; margin:5px 0 0; color:#E2F8FF">Geometric tray design, framework cast and squared off.</p>
-          </figcaption>
-        </figure>
-        <figure class="cf-tile" tabindex="0" style="margin:0; position:relative; aspect-ratio:1/1; overflow:hidden; background:#E2F8FF">
-          <img src="recents-work/Check%20out%20our%20new%20project!Quality%20craftsmanship%20Classik%20Finishes%20🤝🤝%20(1).jpg" alt="Crew hand-finishing a zigzag POP ceiling" style="width:100%; height:100%; object-fit:cover; display:block" />
-          <figcaption class="cf-cap" style="position:absolute; inset:auto 0 0 0; padding:16px 18px 14px; background:linear-gradient(to top, rgba(4,5,41,0.92), rgba(4,5,41,0))">
-            <p style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:14.5px; line-height:1.3; margin:0; color:#ffffff">Zigzag ceiling — finishing</p>
-            <p style="font-size:12px; line-height:1.5; margin:5px 0 0; color:#E2F8FF">Edges hand-finished before sanding.</p>
           </figcaption>
         </figure>
       </div>
@@ -395,15 +359,19 @@ a:hover { color: #E01E83; }
 
   <div style="max-width:1240px; margin:0 auto; padding:0 clamp(20px,5vw,72px)">
     <section style="padding:52px 0 60px">
-      <figure style="margin:0; border-left:10px solid #8FC706; padding-left:24px">
-        <blockquote style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:clamp(24px,2.6vw,34px); line-height:1.25; letter-spacing:-0.015em; max-width:34ch; margin:0; color:#040529">“Client testimonial goes here — send us the wording from a job you're proud of.”</blockquote>
-        <figcaption style="font-size:15.5px; line-height:1.7; margin:32px 0 0; color:#3c3d55">— Client name, project, location</figcaption>
+      <figure style="margin:0; position:relative; overflow:hidden; background:#E2F8FF; border:2px solid #040529; border-left:10px solid #8FC706; padding:clamp(30px,4vw,46px) clamp(28px,4vw,54px)">
+        <span aria-hidden="true" style="position:absolute; top:-18px; right:20px; font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:clamp(100px,15vw,190px); line-height:1; color:#040529; opacity:0.07; pointer-events:none">”</span>
+        <blockquote style="position:relative; font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:clamp(24px,2.6vw,34px); line-height:1.25; letter-spacing:-0.015em; max-width:34ch; margin:0; color:#040529">“Client testimonial goes here — send us the wording from a job you're proud of.”</blockquote>
+        <figcaption style="position:relative; font-size:15.5px; line-height:1.7; margin:32px 0 0; color:#3c3d55">— Client name, project, location</figcaption>
       </figure>
     </section>
   </div>
 
-  <section id="quote" style="background:#040529; color:#ffffff">
-    <div style="max-width:1240px; margin:0 auto; padding:clamp(44px,6vw,84px) clamp(20px,5vw,72px); display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:44px clamp(32px,6vw,88px); align-items:start">
+  <section id="quote" style="background:#040529; color:#ffffff; position:relative; overflow:hidden">
+    <span class="cf-drift-shape" style="position:absolute; left:4%; top:10%; width:clamp(70px,9vw,120px); height:clamp(70px,9vw,120px); background:#8FC706; opacity:0.14; animation:cfDrift 10s ease-in-out infinite; z-index:0"></span>
+    <span class="cf-drift-shape" style="position:absolute; right:6%; bottom:8%; width:clamp(60px,8vw,100px); height:clamp(60px,8vw,100px); background:#32C0F0; opacity:0.14; animation:cfDrift 12s ease-in-out infinite reverse; z-index:0"></span>
+    <span class="cf-drift-shape" style="position:absolute; right:24%; top:-6%; width:8px; height:clamp(100px,14vw,180px); background:#E01E83; opacity:0.18; animation:cfDrift 14s ease-in-out infinite; z-index:0"></span>
+    <div style="position:relative; z-index:1; max-width:1240px; margin:0 auto; padding:clamp(44px,6vw,84px) clamp(20px,5vw,72px); display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:44px clamp(32px,6vw,88px); align-items:start">
       <div>
         <div style="display:flex; height:10px; width:min(100%,360px); margin-bottom:30px">
           <span style="flex:1; background:#8FC706"></span>
@@ -417,13 +385,13 @@ a:hover { color: #E01E83; }
           <span style="display:block; color:#32C0F0">the job.</span>
         </h3>
         <p style="font-size:16px; line-height:1.6; margin:26px 0 0; max-width:36ch; color:#E2F8FF">A few lines is enough — the space, the finish you're after, roughly when. We'll follow up with next steps and a site visit.</p>
-        <div style="display:grid; gap:6px; margin:26px 0 0">
+        <div style="display:grid; gap:6px; margin:26px 0 0; background:rgba(255,255,255,0.06); border:2px solid rgba(255,255,255,0.28); padding:20px 22px">
           <p style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:clamp(22px,2.3vw,28px); line-height:1.2; margin:0; color:#ffffff">{{ phone }}</p>
           <p style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:clamp(22px,2.3vw,28px); line-height:1.2; margin:0; color:#ffffff">{{ phone2 }}</p>
           <p style="font-size:16px; line-height:1.5; margin:6px 0 0; color:#32C0F0">{{ email }}</p>
         </div>
       </div>
-      <div style="display:grid; gap:16px">
+      <div style="display:grid; gap:16px; background:rgba(255,255,255,0.05); border:2px solid rgba(255,255,255,0.22); padding:clamp(22px,3vw,30px)">
         <label style="display:grid; gap:8px; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:#E2F8FF">Name
           <input class="input" type="text" placeholder="Your name" value="{{ contactName }}" onChange="{{ onContactName }}" style="background:#ffffff; border-color:#ffffff; color:#040529" />
         </label>
@@ -441,18 +409,32 @@ a:hover { color: #E01E83; }
     </div>
   </section>
 
-  <footer style="max-width:1240px; margin:0 auto; padding:36px clamp(20px,5vw,72px); display:flex; justify-content:space-between; align-items:center; gap:20px 32px; flex-wrap:wrap; font-size:13px; line-height:1.6; color:#3c3d55">
-    <div style="display:flex; align-items:center; gap:18px; flex-wrap:wrap">
-      <img src="uploads/horizontal logo png.png" alt="Classik Finishes" style="height:34px; width:auto; display:block" />
-      <span style="font-size:12.5px; letter-spacing:0.1em; text-transform:uppercase; color:#B01166; font-weight:700; border-left:2px solid #040529; padding-left:18px">Towards aesthetics and value</span>
+  <footer style="max-width:1240px; margin:0 auto; padding:0 clamp(20px,5vw,72px) 36px">
+    <div style="display:flex; height:6px; margin-bottom:28px">
+      <span style="flex:1; background:#8FC706"></span>
+      <span style="flex:1; background:#BB5AD7"></span>
+      <span style="flex:1; background:#32C0F0"></span>
+      <span style="flex:1; background:#E01E83"></span>
+      <span style="flex:1; background:#FD5206"></span>
     </div>
-    <span>Licensed and insured. {{ serviceArea }} — {{ phone }} · {{ phone2 }} · {{ email }}</span>
+    <div style="display:flex; justify-content:space-between; align-items:center; gap:14px 32px; flex-wrap:wrap; font-size:13px; line-height:1.6; color:#3c3d55">
+      <div style="display:flex; align-items:center; gap:18px; flex-wrap:wrap">
+        <img src="uploads/horizontal logo png.png" alt="Classik Finishes" style="height:34px; width:auto; display:block" />
+        <span style="font-size:12.5px; letter-spacing:0.1em; text-transform:uppercase; color:#B01166; font-weight:700; border-left:2px solid #040529; padding-left:18px">Towards aesthetics and value</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap">
+        <span style="display:flex; align-items:center; gap:8px"><span style="width:8px; height:8px; background:#8FC706; display:block"></span>Licensed &amp; insured — {{ serviceArea }}</span>
+        <span style="display:flex; align-items:center; gap:8px"><span style="width:8px; height:8px; background:#E01E83; display:block"></span>{{ phone }} · {{ phone2 }}</span>
+        <span style="display:flex; align-items:center; gap:8px"><span style="width:8px; height:8px; background:#FD5206; display:block"></span>{{ email }}</span>
+        <a href="https://www.instagram.com/classik_finishes/" target="_blank" rel="noreferrer" style="display:flex; align-items:center; gap:8px"><span style="width:8px; height:8px; background:#BB5AD7; display:block"></span>@classik_finishes</a>
+      </div>
+    </div>
   </footer>
 
 </div>
 
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;phone&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;0704 502 2891&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;phone2&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;0912 399 3079&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;email&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Classikfinishesltd@gmail.com&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;serviceArea&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Nigeria&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;workVideo&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;uploads/Thank you @jomavhomesofficial for trusting Classik Finishes on the Newly launched Emipre City.r.mp4&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Recent work video&quot;},&quot;workVideoTitle&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Site walkthrough — Empire City&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Recent work video&quot;},&quot;workVideoNote&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Finished elevations on film, shot the week we handed the phase over.&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Recent work video&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;phone&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;0704 502 2891&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;phone2&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;0912 399 3079&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;email&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Classikfinishesltd@gmail.com&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;serviceArea&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Nigeria&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;workVideo&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;uploads/Thank you @jomavhomesofficial for trusting Classik Finishes on the Newly launched Emipre City.r.mp4&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Recent work video&quot;}}">
 const SERVICES = {
   overhead: [
     { id: "pop", name: "POP ceilings", price: 11920, note: "Coving, trays and recesses cast to your drawing or ours, finished smooth." },
@@ -470,7 +452,6 @@ const SERVICES = {
 
 class Component extends DCLogic {
   state = { selected: {}, contactName: "", contactReach: "", contactDetail: "", contactMessage: "", navOpen: false };
-  workVideo = React.createRef();
   heroArt = React.createRef();
   heroText = React.createRef();
 
@@ -515,36 +496,7 @@ class Component extends DCLogic {
       };
     });
   }
-  playWork() {
-    const w = this.workVideo.current;
-    if (!w) return;
-    w.muted = true;
-    w.defaultMuted = true;
-    w.loop = true;
-  }
-  toggleWork() {
-    const w = this.workVideo.current;
-    if (!w) return;
-    if (w.paused) {
-      w.muted = true;
-      w.play().then(() => this.setState({ workPlaying: true })).catch(() => {});
-    } else {
-      w.pause();
-      this.setState({ workPlaying: false });
-    }
-  }
-  componentWillUnmount() {
-    if (this._onMove) document.removeEventListener("mousemove", this._onMove);
-  }
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.pickedVideo !== this.state.pickedVideo) {
-      this.playWork();
-      this.setState({ workPlaying: false });
-    }
-  }
   componentDidMount() {
-    this.playWork();
-
     const navLinks = document.querySelector(".cf-nav-links");
     if (navLinks) {
       this._onNavLinkClick = e => {
@@ -600,18 +552,7 @@ class Component extends DCLogic {
       navOpen: !!this.state.navOpen,
       navOpenSuffix: this.state.navOpen ? " cf-open" : "",
       onToggleNav: () => this.toggleNav(),
-      videoControls: true,
-      workVideoRef: this.workVideo,
-      workPlaying: !!this.state.workPlaying,
-      workToggleLabel: this.state.workPlaying ? "Pause" : "Play walkthrough",
-      onToggleWork: () => this.toggleWork(),
-      onPickVideo: e => {
-        const f = e.target.files && e.target.files[0];
-        if (f) { this.setState({ pickedVideo: URL.createObjectURL(f) }); }
-      },
-      workVideo: this.state.pickedVideo || this.props.workVideo || "uploads/Thank you @jomavhomesofficial for trusting Classik Finishes on the Newly launched Emipre City.r.mp4",
-      workVideoTitle: this.props.workVideoTitle ?? "Site walkthrough — Empire City",
-      workVideoNote: this.props.workVideoNote ?? "Finished elevations on film, shot the week we handed the phase over.",
+      workVideo: this.props.workVideo || "uploads/Thank you @jomavhomesofficial for trusting Classik Finishes on the Newly launched Emipre City.r.mp4",
       heroArt: this.heroArt,
       heroText: this.heroText,
       overheadRows: this.buildRows(SERVICES.overhead, "Overhead", "#32C0F0"),
