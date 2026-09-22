@@ -43,6 +43,11 @@ a:hover { color: #E01E83; }
 .cf-rate-card { transition: transform 260ms ease, box-shadow 260ms ease; }
 .cf-rate-card:hover, .cf-rate-card:focus-within { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
 @media (prefers-reduced-motion: reduce) { .cf-offer-card, .cf-rate-card { transition: none; } .cf-offer-card:hover, .cf-offer-card:focus-within, .cf-rate-card:hover, .cf-rate-card:focus-within { transform: none; } }
+.cf-hero-btn { transition: transform 220ms ease, box-shadow 220ms ease, background 220ms ease; }
+.cf-hero-btn:hover { transform: translateY(-3px); }
+.btn-primary.cf-hero-btn:hover { box-shadow: 0 12px 30px rgba(224,30,131,0.6); }
+.btn-ghost.cf-hero-btn:hover { background: rgba(255,255,255,0.18); }
+@media (prefers-reduced-motion: reduce) { .cf-hero-btn { transition: none; } .cf-hero-btn:hover { transform: none; } }
 .cf-nav-links { display: flex; align-items: center; gap: var(--space-4); }
 .cf-nav-toggle { display: none; }
 .cf-nav-toggle span { display: block; width: 20px; height: 2px; background: #040529; margin: 4px 0; transition: transform 200ms ease, opacity 200ms ease; }
@@ -83,39 +88,28 @@ a:hover { color: #E01E83; }
     </div>
   </nav>
 
-  <section id="top" style="position:relative; overflow:hidden; background:#FDF0F6; border-bottom:2px solid #040529; display:flex; align-items:center">
+  <section id="top" style="position:relative; overflow:hidden; background:#040529; border-bottom:2px solid #040529; display:flex; align-items:center">
     <video ref="{{ heroVideoRef }}" src="{{ heroVideo }}" muted loop playsInline preload="auto" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.8"></video>
-    <div style="position:absolute; inset:0; background:rgba(253,240,246,0.32)"></div>
-    <div class="cf-hero-grid" style="position:relative; z-index:1; width:100%; max-width:1240px; margin:0 auto; padding:clamp(48px,6vw,72px) clamp(20px,5vw,72px); display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,0.85fr); gap:clamp(28px,4vw,64px); align-items:center">
+    <div style="position:absolute; inset:0; background:rgba(4,5,41,0.55)"></div>
+    <div class="cf-hero-grid" style="position:relative; z-index:1; width:100%; max-width:1240px; margin:0 auto; padding:clamp(48px,6vw,72px) clamp(20px,5vw,72px)">
 
-      <div ref="{{ heroText }}" style="position:relative; z-index:2; transition:transform 420ms cubic-bezier(.2,.7,.2,1)">
-        <div style="display:flex; gap:0; height:10px; width:min(100%,420px); margin-bottom:28px; animation:cfWipe 900ms cubic-bezier(.2,.8,.2,1) both">
+      <div ref="{{ heroText }}" style="position:relative; z-index:2; max-width:860px; margin:0 auto; text-align:center; transition:transform 420ms cubic-bezier(.2,.7,.2,1)">
+        <div style="display:flex; gap:0; height:10px; width:min(100%,420px); margin:0 auto 28px; animation:cfWipe 900ms cubic-bezier(.2,.8,.2,1) both">
           <span style="flex:1; background:#8FC706"></span>
           <span style="flex:1; background:#BB5AD7"></span>
           <span style="flex:1; background:#32C0F0"></span>
           <span style="flex:1; background:#E01E83"></span>
           <span style="flex:1; background:#FD5206"></span>
         </div>
-        <span style="display:block; font-size:13.5px; line-height:1.3; letter-spacing:0.12em; text-transform:uppercase; color:#B01166; font-weight:700; margin:0 0 18px">Towards aesthetics and value</span>
-        <h1 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:clamp(38px,5.6vw,76px); line-height:1.04; letter-spacing:-0.025em; margin:0 0 0 -0.055em; color:#040529; max-width:16ch">
+        <span style="display:block; font-size:13.5px; line-height:1.3; letter-spacing:0.12em; text-transform:uppercase; color:#32C0F0; font-weight:700; margin:0 0 18px">Towards aesthetics and value</span>
+        <h1 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:clamp(38px,5.6vw,76px); line-height:1.04; letter-spacing:-0.025em; margin:0; color:#ffffff">
           <span style="display:block; animation:cfRise 760ms cubic-bezier(.2,.8,.2,1) 80ms both">Finishes that</span>
-          <span style="display:block; animation:cfRise 760ms cubic-bezier(.2,.8,.2,1) 200ms both"><span style="color:#E01E83">transform spaces.</span></span>
+          <span style="display:block; animation:cfRise 760ms cubic-bezier(.2,.8,.2,1) 200ms both"><span style="color:#32C0F0">transform spaces.</span></span>
         </h1>
-        <p style="font-size:17px; line-height:1.65; max-width:48ch; margin:30px 0 0; color:#3c3d55; animation:cfRise 760ms cubic-bezier(.2,.8,.2,1) 560ms both">From overheads to walls and surfaces to details, we deliver quality finishing solutions that bring aesthetics, durability, and value to homes, estates, and commercial spaces.</p>
-        <div style="display:flex; gap:var(--space-3); flex-wrap:wrap; margin-top:32px; animation:cfRise 760ms cubic-bezier(.2,.8,.2,1) 660ms both">
-          <a class="btn btn-primary" href="#services" style="background:#E01E83; border-color:#E01E83; color:#ffffff">See rates &amp; book</a>
-          <a class="btn btn-ghost" href="#work" style="color:#040529; border-color:#040529">See recent work</a>
-        </div>
-      </div>
-
-      <div ref="{{ heroArt }}" style="position:relative; z-index:1; min-height:clamp(300px,42vw,520px); transition:transform 420ms cubic-bezier(.2,.7,.2,1)">
-        <span style="position:absolute; left:6%; top:4%; width:clamp(90px,13vw,150px); height:clamp(90px,13vw,150px); background:#32C0F0; animation:cfDrift 9s ease-in-out infinite; z-index:0"></span>
-        <span style="position:absolute; right:2%; bottom:6%; width:clamp(70px,10vw,120px); height:clamp(70px,10vw,120px); background:#8FC706; animation:cfDrift 11s ease-in-out infinite reverse; z-index:0"></span>
-        <span style="position:absolute; right:26%; top:0; width:10px; height:clamp(120px,18vw,220px); background:#FD5206; animation:cfDrift 13s ease-in-out infinite; z-index:0"></span>
-        <div style="position:absolute; inset:clamp(20px,4vw,52px) clamp(14px,3vw,34px); border:2px solid #040529; background:#E2F8FF; animation:cfFloat 7.5s ease-in-out infinite; z-index:1">
-          <!-- <image-slot id="cf-hero-photo" shape="rect" placeholder="Drop a hero photo — finished room, facade or ceiling"></image-slot>
-            -->
-          <video ref="{{ heroFrameVideoRef }}" src="{{ heroVideo }}" poster="uploads/hero-img.png" muted loop playsInline preload="auto" style="width:100%; height:100%; object-fit:cover; display:block"></video>
+        <p style="font-size:17px; line-height:1.65; margin:30px 0 0; color:#E2F8FF; animation:cfRise 760ms cubic-bezier(.2,.8,.2,1) 560ms both">From overheads to walls and surfaces to details, we deliver quality finishing solutions that bring aesthetics, durability, and value to homes, estates, and commercial spaces.</p>
+        <div style="display:flex; justify-content:center; gap:var(--space-3); flex-wrap:wrap; margin-top:32px; animation:cfRise 760ms cubic-bezier(.2,.8,.2,1) 660ms both">
+          <a class="btn btn-primary cf-hero-btn" href="#services" style="background:#E01E83; border-color:#E01E83; color:#ffffff; border-radius:10px; padding:16px 30px; font-size:15px; box-shadow:0 8px 24px rgba(224,30,131,0.45)">See rates &amp; book</a>
+          <a class="btn btn-ghost cf-hero-btn" href="#work" style="color:#ffffff; border-color:#ffffff; border-width:2px; border-radius:10px; padding:15px 30px; font-size:15px; background:rgba(255,255,255,0.08)">See recent work</a>
         </div>
       </div>
     </div>
@@ -185,7 +179,7 @@ a:hover { color: #E01E83; }
       <div class="cf-services-head" style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,auto); gap:20px 48px; align-items:end; margin-bottom:clamp(44px,5vw,64px)">
         <div>
           <span style="display:block; font-size:13px; line-height:1.3; letter-spacing:0.08em; text-transform:uppercase; color:#B01166; margin:0 0 20px">What we do</span>
-          <h2 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:clamp(30px,3.8vw,48px); line-height:1.08; letter-spacing:-0.022em; margin:0 0 0 -0.048em; max-width:24ch">Two trades, priced by the square metre.</h2>
+          <h2 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:clamp(30px,3.8vw,48px); line-height:1.08; letter-spacing:-0.022em; margin:0 0 0 -0.048em; max-width:24ch">Three trades, priced by the square metre.</h2>
         </div>
         <p style="font-size:14.5px; line-height:1.7; margin:0; max-width:34ch; color:#3c3d55">Materials and labour included. Rates start from the figures shown and are confirmed after a site measure.</p>
       </div>
@@ -217,6 +211,26 @@ a:hover { color: #E01E83; }
       </div>
       <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(265px,1fr)); gap:clamp(16px,2vw,24px)">
         <sc-for list="{{ wallRows }}" as="row" hint-placeholder-count="5">
+          <div class="cf-rate-card" style="position:relative; overflow:hidden; background:{{ row.cardBg }}; border:2px solid {{ row.cardBorder }}; border-top:6px solid {{ row.color }}; padding:26px 24px 22px; display:grid; grid-template-rows:auto 1fr auto; gap:0; min-height:290px">
+            <span aria-hidden="true" style="position:absolute; right:10px; top:-18px; font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:96px; line-height:1; color:{{ row.color }}; opacity:0.14; pointer-events:none">{{ row.num }}</span>
+            <h4 style="position:relative; font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:clamp(20px,2vw,24px); line-height:1.15; letter-spacing:-0.015em; margin:0 0 12px; max-width:80%">{{ row.name }}</h4>
+            <p style="position:relative; font-size:14px; line-height:1.65; margin:0 0 24px; color:#5a5b70; max-width:90%">{{ row.note }}</p>
+            <div style="position:relative">
+              <p style="font-size:11.5px; letter-spacing:0.09em; text-transform:uppercase; margin:0 0 6px; color:#3c3d55">{{ row.unit }}</p>
+              <p style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:clamp(24px,2.6vw,30px); line-height:1.1; letter-spacing:-0.02em; margin:0 0 18px -0.03em; color:#040529">{{ row.amount }}</p>
+              <button type="button" onClick="{{ row.toggle }}" style="background:transparent; color:{{ row.actionFg }}; border:0; border-top:2px solid #dcdde6; width:100%; text-align:left; font-family:var(--font-body); font-size:12px; letter-spacing:0.09em; text-transform:uppercase; padding:14px 0 0; cursor:pointer">{{ row.action }}</button>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="display:flex; align-items:baseline; gap:16px; margin:clamp(44px,5vw,64px) 0 22px">
+        <span style="width:44px; height:10px; background:#FD5206; display:block"></span>
+        <h3 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:clamp(22px,2.4vw,30px); line-height:1.1; letter-spacing:-0.02em; margin:0">Under Foot</h3>
+        <p style="font-size:14px; line-height:1.5; margin:0; color:#5a5b70">Tiled, epoxy-sealed or painted, built to handle footfall</p>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(265px,1fr)); gap:clamp(16px,2vw,24px)">
+        <sc-for list="{{ underfootRows }}" as="row" hint-placeholder-count="3">
           <div class="cf-rate-card" style="position:relative; overflow:hidden; background:{{ row.cardBg }}; border:2px solid {{ row.cardBorder }}; border-top:6px solid {{ row.color }}; padding:26px 24px 22px; display:grid; grid-template-rows:auto 1fr auto; gap:0; min-height:290px">
             <span aria-hidden="true" style="position:absolute; right:10px; top:-18px; font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:96px; line-height:1; color:{{ row.color }}; opacity:0.14; pointer-events:none">{{ row.num }}</span>
             <h4 style="position:relative; font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:clamp(20px,2vw,24px); line-height:1.15; letter-spacing:-0.015em; margin:0 0 12px; max-width:80%">{{ row.name }}</h4>
@@ -419,6 +433,11 @@ const SERVICES = {
     { id: "tyrollean", name: "Tyrollean application", price: 1400, note: "Hard-wearing sprayed exterior render that holds up to sun and rain." },
     { id: "textured", name: "Textured designs", price: 13000, note: "Feature walls worked to a sample you approve before we touch the room." },
     { id: "marble", name: "Marble stone designs", price: null, note: "Stone-effect finishes for lobbies, gate houses and statement elevations." }
+  ],
+  underfoot: [
+    { id: "tiling", name: "Tiling", price: 2500, note: "Floor and wall tiles set true, grouted and cleaned before handover." },
+    { id: "epoxy", name: "Epoxy flooring", price: null, note: "Seamless, chemical-resistant coating for garages, warehouses and wet areas." },
+    { id: "floorpaint", name: "Floor paint", price: null, note: "Durable floor coating finished to a smooth, easy-clean surface." }
   ]
 };
 
@@ -427,7 +446,6 @@ class Component extends DCLogic {
   heroArt = React.createRef();
   heroText = React.createRef();
   heroVideo = React.createRef();
-  heroFrameVideo = React.createRef();
   galleryVideo = React.createRef();
 
   fmt(n) { return "₦" + n.toLocaleString("en-NG"); }
@@ -441,7 +459,7 @@ class Component extends DCLogic {
     this.setState(s => {
       const next = Object.assign({}, s.selected);
       if (turningOn) { next[id] = true; } else { delete next[id]; }
-      const all = SERVICES.overhead.concat(SERVICES.walls);
+      const all = SERVICES.overhead.concat(SERVICES.walls, SERVICES.underfoot);
       const names = all.filter(i => next[i.id]).map(i => i.name).join(", ");
       return { selected: next, contactDetail: names };
     });
@@ -482,13 +500,10 @@ class Component extends DCLogic {
       });
     };
 
-    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      [this.heroVideo.current, this.heroFrameVideo.current].forEach(v => {
-        if (!v) return;
-        armVideo(v);
-        v.playbackRate = 0.5;
-        v.play().catch(() => {});
-      });
+    if (this.heroVideo.current && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      armVideo(this.heroVideo.current);
+      this.heroVideo.current.playbackRate = 0.5;
+      this.heroVideo.current.play().catch(() => {});
     }
 
     if (this.galleryVideo.current) {
@@ -565,12 +580,12 @@ class Component extends DCLogic {
       workVideo: this.props.workVideo || "uploads/videos/empire-city-walkthrough-web.mp4",
       heroArt: this.heroArt,
       heroVideoRef: this.heroVideo,
-      heroFrameVideoRef: this.heroFrameVideo,
       heroVideo: this.props.heroVideo || "uploads/videos/new-heroVideo-web.mp4",
       galleryVideoRef: this.galleryVideo,
       heroText: this.heroText,
       overheadRows: this.buildRows(SERVICES.overhead, "Overhead", "#32C0F0"),
       wallRows: this.buildRows(SERVICES.walls, "Walls", "#E01E83"),
+      underfootRows: this.buildRows(SERVICES.underfoot, "Under Foot", "#FD5206"),
       contactName: this.state.contactName,
       onContactName: e => this.setState({ contactName: e.target.value }),
       contactReach: this.state.contactReach,
