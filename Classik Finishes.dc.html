@@ -84,7 +84,9 @@ a:hover { color: #E01E83; }
   </nav>
 
   <section id="top" style="position:relative; overflow:hidden; background:#FDF0F6; border-bottom:2px solid #040529; display:flex; align-items:center">
-    <div class="cf-hero-grid" style="position:relative; width:100%; max-width:1240px; margin:0 auto; padding:clamp(48px,6vw,72px) clamp(20px,5vw,72px); display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,0.85fr); gap:clamp(28px,4vw,64px); align-items:center">
+    <video ref="{{ heroVideoRef }}" src="{{ heroVideo }}" muted loop playsInline preload="auto" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover"></video>
+    <div style="position:absolute; inset:0; background:rgba(253,240,246,0.32)"></div>
+    <div class="cf-hero-grid" style="position:relative; z-index:1; width:100%; max-width:1240px; margin:0 auto; padding:clamp(48px,6vw,72px) clamp(20px,5vw,72px); display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,0.85fr); gap:clamp(28px,4vw,64px); align-items:center">
 
       <div ref="{{ heroText }}" style="position:relative; z-index:2; transition:transform 420ms cubic-bezier(.2,.7,.2,1)">
         <div style="display:flex; gap:0; height:10px; width:min(100%,420px); margin-bottom:28px; animation:cfWipe 900ms cubic-bezier(.2,.8,.2,1) both">
@@ -113,7 +115,7 @@ a:hover { color: #E01E83; }
         <div style="position:absolute; inset:clamp(20px,4vw,52px) clamp(14px,3vw,34px); border:2px solid #040529; background:#E2F8FF; animation:cfFloat 7.5s ease-in-out infinite; z-index:1">
           <!-- <image-slot id="cf-hero-photo" shape="rect" placeholder="Drop a hero photo — finished room, facade or ceiling"></image-slot>
             -->
-          <video ref="{{ heroVideoRef }}" src="{{ heroVideo }}" muted loop playsInline preload="auto" style="width:100%; height:100%; object-fit:cover; display:block"></video>
+          <img src="uploads/hero-img.png" alt="Finished two-storey home exterior render and landscaping" style="width:100%; height:100%; object-fit:cover; display:block" />
         </div>
       </div>
     </div>
@@ -408,7 +410,7 @@ a:hover { color: #E01E83; }
 </div>
 
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;phone&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;0704 502 2891&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;phone2&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;0912 399 3079&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;email&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Classikfinishesltd@gmail.com&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;serviceArea&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Nigeria&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;workVideo&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;uploads/videos/empire-city-walkthrough-web.mp4&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Recent work video&quot;},&quot;heroVideo&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;uploads/videos/shiju-video1-web.mp4&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Hero video&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;phone&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;0704 502 2891&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;phone2&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;0912 399 3079&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;email&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Classikfinishesltd@gmail.com&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;serviceArea&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Nigeria&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;workVideo&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;uploads/videos/empire-city-walkthrough-web.mp4&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Recent work video&quot;},&quot;heroVideo&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;uploads/videos/new-heroVideo-web.mp4&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Hero video&quot;}}">
 const SERVICES = {
   overhead: [
     { id: "pop", name: "POP ceilings", price: 11920, note: "Coving, trays and recesses cast to your drawing or ours, finished smooth." },
@@ -483,7 +485,7 @@ class Component extends DCLogic {
       });
     };
 
-    if (this.heroVideo.current) {
+    if (this.heroVideo.current && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       armVideo(this.heroVideo.current);
       this.heroVideo.current.play().catch(() => {});
     }
@@ -562,7 +564,7 @@ class Component extends DCLogic {
       workVideo: this.props.workVideo || "uploads/videos/empire-city-walkthrough-web.mp4",
       heroArt: this.heroArt,
       heroVideoRef: this.heroVideo,
-      heroVideo: this.props.heroVideo || "uploads/videos/shiju-video1-web.mp4",
+      heroVideo: this.props.heroVideo || "uploads/videos/new-heroVideo-web.mp4",
       galleryVideoRef: this.galleryVideo,
       heroText: this.heroText,
       overheadRows: this.buildRows(SERVICES.overhead, "Overhead", "#32C0F0"),
