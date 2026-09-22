@@ -85,10 +85,9 @@ a:hover { color: #E01E83; }
 
   <section id="top" style="position:relative; overflow:hidden; background:#FDF0F6; border-bottom:2px solid #040529; display:flex; align-items:center">
     <video ref="{{ heroVideoRef }}" src="{{ heroVideo }}" muted loop playsInline preload="auto" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover"></video>
-    <div style="position:absolute; inset:0; background:rgba(253,240,246,0.32)"></div>
     <div class="cf-hero-grid" style="position:relative; z-index:1; width:100%; max-width:1240px; margin:0 auto; padding:clamp(48px,6vw,72px) clamp(20px,5vw,72px); display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,0.85fr); gap:clamp(28px,4vw,64px); align-items:center">
 
-      <div ref="{{ heroText }}" style="position:relative; z-index:2; transition:transform 420ms cubic-bezier(.2,.7,.2,1)">
+      <div ref="{{ heroText }}" style="position:relative; z-index:2; background:rgba(253,240,246,0.85); padding:clamp(28px,4vw,44px); transition:transform 420ms cubic-bezier(.2,.7,.2,1)">
         <div style="display:flex; gap:0; height:10px; width:min(100%,420px); margin-bottom:28px; animation:cfWipe 900ms cubic-bezier(.2,.8,.2,1) both">
           <span style="flex:1; background:#8FC706"></span>
           <span style="flex:1; background:#BB5AD7"></span>
@@ -483,6 +482,7 @@ class Component extends DCLogic {
 
     if (this.heroVideo.current && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       armVideo(this.heroVideo.current);
+      this.heroVideo.current.playbackRate = 0.5;
       this.heroVideo.current.play().catch(() => {});
     }
 
