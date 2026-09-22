@@ -40,11 +40,9 @@ a:hover { color: #E01E83; }
 @media (prefers-reduced-motion: reduce) { .cf-tile { transition: none; } .cf-tile:hover, .cf-tile:focus-within { transform: none; } }
 .cf-offer-card { transition: transform 260ms ease, box-shadow 260ms ease; position: relative; }
 .cf-offer-card:hover, .cf-offer-card:focus-within { transform: translateY(-6px); box-shadow: var(--shadow-lg); z-index: 2; }
-.cf-offer-card img { transition: transform 420ms cubic-bezier(.2,.7,.2,1); }
-.cf-offer-card:hover img, .cf-offer-card:focus-within img { transform: scale(1.06); }
 .cf-rate-card { transition: transform 260ms ease, box-shadow 260ms ease; }
 .cf-rate-card:hover, .cf-rate-card:focus-within { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
-@media (prefers-reduced-motion: reduce) { .cf-offer-card, .cf-offer-card img, .cf-rate-card { transition: none; } .cf-offer-card:hover, .cf-offer-card:focus-within, .cf-rate-card:hover, .cf-rate-card:focus-within { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .cf-offer-card, .cf-rate-card { transition: none; } .cf-offer-card:hover, .cf-offer-card:focus-within, .cf-rate-card:hover, .cf-rate-card:focus-within { transform: none; } }
 .cf-nav-links { display: flex; align-items: center; gap: var(--space-4); }
 .cf-nav-toggle { display: none; }
 .cf-nav-toggle span { display: block; width: 20px; height: 2px; background: #040529; margin: 4px 0; transition: transform 200ms ease, opacity 200ms ease; }
@@ -115,7 +113,7 @@ a:hover { color: #E01E83; }
         <div style="position:absolute; inset:clamp(20px,4vw,52px) clamp(14px,3vw,34px); border:2px solid #040529; background:#E2F8FF; animation:cfFloat 7.5s ease-in-out infinite; z-index:1">
           <!-- <image-slot id="cf-hero-photo" shape="rect" placeholder="Drop a hero photo — finished room, facade or ceiling"></image-slot>
             -->
-          <img src="uploads/hero-img.png" alt="Finished two-storey home exterior render and landscaping" style="width:100%; height:100%; object-fit:cover; display:block" />
+          <video ref="{{ heroVideoRef }}" src="{{ heroVideo }}" muted loop playsInline preload="auto" style="width:100%; height:100%; object-fit:cover; display:block"></video>
         </div>
       </div>
     </div>
@@ -152,45 +150,21 @@ a:hover { color: #E01E83; }
         <p style="font-size:14.5px; line-height:1.7; margin:0; max-width:42ch; color:#3c3d55">Five capabilities, one crew. Take them separately or as a full package.</p>
       </div>
       <div class="cf-offer-grid" style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:2px; background:#040529; border:2px solid #040529">
-        <div class="cf-offer-card" tabindex="0" style="background:#ffffff; display:flex; flex-direction:column">
-          <div style="position:relative; aspect-ratio:4/3; overflow:hidden; background:#E2F8FF">
-            <img src="recents-work/Proof%20that%20Classik%20Finishes%20changes%20everything.%20Bringing%20this%20exterior%20back%20to%20life.%20What%20a%20dif%20(2).webp" alt="Finished entrance porch, cream render and brick columns" style="width:100%; height:100%; object-fit:cover; display:block" />
-            <span style="position:absolute; left:0; bottom:0; width:32px; height:8px; background:#8FC706"></span>
-          </div>
-          <div style="padding:20px 22px 24px; flex:1">
-            <h3 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:17px; line-height:1.25; margin:0 0 8px">Paint application on walls and objects</h3>
-            <p style="font-size:14px; line-height:1.6; margin:0; color:#5a5b70">Interior, exterior and joinery — primed and finished in two coats.</p>
-          </div>
+        <div class="cf-offer-card" tabindex="0" style="background:#8FC706; border-top:6px solid #8FC706; padding:clamp(24px,4vw,34px) clamp(20px,4vw,28px); min-height:210px; display:flex; flex-direction:column; justify-content:center">
+          <h3 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:17px; line-height:1.25; margin:0 0 8px; color:#040529">Paint application on walls and objects</h3>
+          <p style="font-size:14px; line-height:1.6; margin:0; color:#1a2b08">Interior, exterior and joinery — primed and finished in two coats.</p>
         </div>
-        <div class="cf-offer-card" tabindex="0" style="background:#ffffff; display:flex; flex-direction:column">
-          <div style="position:relative; aspect-ratio:4/3; overflow:hidden; background:#E2F8FF">
-            <img src="recents-work/Another%20space%20coming%20to%20life.From%20bare%20walls%20to%20refined%20finishes,%20we%20deliver%20craftsmanship%20that%20(3).webp" alt="Screeded walls and cast coving around a window" style="width:100%; height:100%; object-fit:cover; display:block" />
-            <span style="position:absolute; left:0; bottom:0; width:32px; height:8px; background:#32C0F0"></span>
-          </div>
-          <div style="padding:20px 22px 24px; flex:1">
-            <h3 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:17px; line-height:1.25; margin:0 0 8px">Effective wall screeding</h3>
-            <p style="font-size:14px; line-height:1.6; margin:0; color:#5a5b70">Flat, sanded substrate so every finish above it sits true.</p>
-          </div>
+        <div class="cf-offer-card" tabindex="0" style="background:#32C0F0; border-top:6px solid #32C0F0; padding:clamp(24px,4vw,34px) clamp(20px,4vw,28px); min-height:210px; display:flex; flex-direction:column; justify-content:center">
+          <h3 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:17px; line-height:1.25; margin:0 0 8px; color:#040529">Effective wall screeding</h3>
+          <p style="font-size:14px; line-height:1.6; margin:0; color:#062733">Flat, sanded substrate so every finish above it sits true.</p>
         </div>
-        <div class="cf-offer-card" tabindex="0" style="background:#ffffff; display:flex; flex-direction:column">
-          <div style="position:relative; aspect-ratio:4/3; overflow:hidden; background:#E2F8FF">
-            <img src="recents-work/Check%20out%20our%20new%20project!Quality%20craftsmanship%20Classik%20Finishes%20🤝🤝.jpg" alt="Angular geometric POP ceiling design" style="width:100%; height:100%; object-fit:cover; display:block" />
-            <span style="position:absolute; left:0; bottom:0; width:32px; height:8px; background:#BB5AD7"></span>
-          </div>
-          <div style="padding:20px 22px 24px; flex:1">
-            <h3 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:17px; line-height:1.25; margin:0 0 8px">Gypsum board &amp; POP ceiling installation</h3>
-            <p style="font-size:14px; line-height:1.6; margin:0; color:#5a5b70">Framed, boarded and cast in-house, lighting set out first.</p>
-          </div>
+        <div class="cf-offer-card" tabindex="0" style="background:#BB5AD7; border-top:6px solid #BB5AD7; padding:clamp(24px,4vw,34px) clamp(20px,4vw,28px); min-height:210px; display:flex; flex-direction:column; justify-content:center">
+          <h3 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:17px; line-height:1.25; margin:0 0 8px; color:#040529">Gypsum board &amp; POP ceiling installation</h3>
+          <p style="font-size:14px; line-height:1.6; margin:0; color:#040529">Framed, boarded and cast in-house, lighting set out first.</p>
         </div>
-        <div class="cf-offer-card" tabindex="0" style="background:#ffffff; display:flex; flex-direction:column">
-          <div style="position:relative; aspect-ratio:4/3; overflow:hidden; background:#E2F8FF">
-            <img src="recents-work/Proof%20that%20Classik%20Finishes%20changes%20everything.%20Bringing%20this%20exterior%20back%20to%20life.%20What%20a%20dif%20(1).webp" alt="Brick banding and cladding detail" style="width:100%; height:100%; object-fit:cover; display:block" />
-            <span style="position:absolute; left:0; bottom:0; width:32px; height:8px; background:#E01E83"></span>
-          </div>
-          <div style="padding:20px 22px 24px; flex:1">
-            <h3 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:17px; line-height:1.25; margin:0 0 8px">Decorative wall designs</h3>
-            <p style="font-size:14px; line-height:1.6; margin:0; color:#5a5b70">Textured, Tyrollean and marble-stone feature work to an approved sample.</p>
-          </div>
+        <div class="cf-offer-card" tabindex="0" style="background:#E01E83; border-top:6px solid #E01E83; padding:clamp(24px,4vw,34px) clamp(20px,4vw,28px); min-height:210px; display:flex; flex-direction:column; justify-content:center">
+          <h3 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:17px; line-height:1.25; margin:0 0 8px; color:#ffffff">Decorative wall designs</h3>
+          <p style="font-size:14px; line-height:1.6; margin:0; color:#FDE7F1">Textured, Tyrollean and marble-stone feature work to an approved sample.</p>
         </div>
       </div>
       <div class="cf-offer-card" tabindex="0" style="background:#ffffff; border:2px solid #040529; border-top:0; display:flex; align-items:center; gap:20px; padding:22px 28px; flex-wrap:wrap">
@@ -264,7 +238,7 @@ a:hover { color: #E01E83; }
       </div>
       <div class="cf-gallery-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:clamp(14px,2vw,22px)">
         <figure class="cf-tile" tabindex="0" style="margin:0; position:relative; aspect-ratio:1/1; overflow:hidden; background:#040529">
-          <video src="{{ workVideo }}" autoPlay muted loop playsInline preload="auto" style="width:100%; height:100%; object-fit:cover; display:block"></video>
+          <video ref="{{ galleryVideoRef }}" src="{{ workVideo }}" muted loop playsInline preload="none" style="width:100%; height:100%; object-fit:cover; display:block"></video>
           <figcaption class="cf-cap" style="position:absolute; inset:auto 0 0 0; padding:16px 18px 14px; background:linear-gradient(to top, rgba(4,5,41,0.92), rgba(4,5,41,0))">
             <p style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:14.5px; line-height:1.3; margin:0; color:#ffffff">Empire City — entrance gatehouse</p>
             <p style="font-size:12px; line-height:1.5; margin:5px 0 0; color:#E2F8FF">Exterior coating and feature walls for <a href="https://www.instagram.com/jomavhomesofficial/" target="_blank" rel="noreferrer" style="color:#32C0F0">@jomavhomesofficial</a> on the newly launched estate.</p>
@@ -434,7 +408,7 @@ a:hover { color: #E01E83; }
 </div>
 
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;phone&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;0704 502 2891&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;phone2&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;0912 399 3079&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;email&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Classikfinishesltd@gmail.com&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;serviceArea&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Nigeria&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;workVideo&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;uploads/Thank you @jomavhomesofficial for trusting Classik Finishes on the Newly launched Emipre City.r.mp4&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Recent work video&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;phone&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;0704 502 2891&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;phone2&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;0912 399 3079&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;email&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Classikfinishesltd@gmail.com&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;serviceArea&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Nigeria&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;workVideo&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;uploads/videos/empire-city-walkthrough-web.mp4&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Recent work video&quot;},&quot;heroVideo&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;uploads/videos/shiju-video1-web.mp4&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Hero video&quot;}}">
 const SERVICES = {
   overhead: [
     { id: "pop", name: "POP ceilings", price: 11920, note: "Coving, trays and recesses cast to your drawing or ours, finished smooth." },
@@ -454,6 +428,8 @@ class Component extends DCLogic {
   state = { selected: {}, contactName: "", contactReach: "", contactDetail: "", contactMessage: "", navOpen: false };
   heroArt = React.createRef();
   heroText = React.createRef();
+  heroVideo = React.createRef();
+  galleryVideo = React.createRef();
 
   fmt(n) { return "₦" + n.toLocaleString("en-NG"); }
 
@@ -497,6 +473,37 @@ class Component extends DCLogic {
     });
   }
   componentDidMount() {
+    const armVideo = v => {
+      v.muted = true;
+      v.defaultMuted = true;
+      v.loop = true;
+      v.addEventListener("ended", () => {
+        v.currentTime = 0;
+        v.play().catch(() => {});
+      });
+    };
+
+    if (this.heroVideo.current) {
+      armVideo(this.heroVideo.current);
+      this.heroVideo.current.play().catch(() => {});
+    }
+
+    if (this.galleryVideo.current) {
+      const gv = this.galleryVideo.current;
+      armVideo(gv);
+      if ("IntersectionObserver" in window) {
+        const io = new IntersectionObserver(entries => {
+          if (entries.some(e => e.isIntersecting)) {
+            gv.play().catch(() => {});
+            io.disconnect();
+          }
+        }, { rootMargin: "200px" });
+        io.observe(gv);
+      } else {
+        gv.play().catch(() => {});
+      }
+    }
+
     const navLinks = document.querySelector(".cf-nav-links");
     if (navLinks) {
       this._onNavLinkClick = e => {
@@ -552,8 +559,11 @@ class Component extends DCLogic {
       navOpen: !!this.state.navOpen,
       navOpenSuffix: this.state.navOpen ? " cf-open" : "",
       onToggleNav: () => this.toggleNav(),
-      workVideo: this.props.workVideo || "uploads/Thank you @jomavhomesofficial for trusting Classik Finishes on the Newly launched Emipre City.r.mp4",
+      workVideo: this.props.workVideo || "uploads/videos/empire-city-walkthrough-web.mp4",
       heroArt: this.heroArt,
+      heroVideoRef: this.heroVideo,
+      heroVideo: this.props.heroVideo || "uploads/videos/shiju-video1-web.mp4",
+      galleryVideoRef: this.galleryVideo,
       heroText: this.heroText,
       overheadRows: this.buildRows(SERVICES.overhead, "Overhead", "#32C0F0"),
       wallRows: this.buildRows(SERVICES.walls, "Walls", "#E01E83"),
