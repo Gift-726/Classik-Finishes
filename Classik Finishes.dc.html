@@ -64,6 +64,9 @@ a:hover { color: #E01E83; }
   .cf-hero-grid { grid-template-columns: 1fr !important; }
   .cf-services-head { grid-template-columns: 1fr !important; }
   .cf-gallery-grid { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
+  .cf-offer-grid { grid-template-columns: 1fr !important; }
+  .cf-gallery-grid .cf-tile { aspect-ratio: 3/4 !important; }
+  .cf-gallery-grid .cf-cap p:last-child { display: -webkit-box !important; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 }
 </style>
 </helmet>
@@ -80,9 +83,10 @@ a:hover { color: #E01E83; }
       <span></span>
     </button>
     <div class="cf-nav-links{{ navOpenSuffix }}">
-      <a href="#work" style="color:#040529">Work</a>
-      <a href="#offer" style="color:#040529">What we offer</a>
       <a href="#services" style="color:#040529">Rates</a>
+      <a href="#products" style="color:#040529">Products</a>
+      <a href="#offer" style="color:#040529">What we offer</a>
+      <a href="#work" style="color:#040529">Work</a>
       <a href="#quote" style="color:#040529">Contact</a>
       <a class="btn btn-primary" href="#quote" style="background:#E01E83; border-color:#E01E83; color:#ffffff">Get an estimate</a>
     </div>
@@ -119,61 +123,28 @@ a:hover { color: #E01E83; }
 
     <section style="display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:32px 28px; padding:42px 0">
       <div>
-        <p style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:clamp(32px,3.4vw,46px); line-height:1.1; color:#E01E83; margin:0 0 0 -0.045em">18</p>
+        <p style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:clamp(32px,3.4vw,46px); line-height:1.1; color:#E01E83; margin:0 0 0 -0.045em">3</p>
         <p style="font-size:13px; line-height:1.35; letter-spacing:0.08em; text-transform:uppercase; color:#3c3d55; margin:14px 0 0">Years in the trade</p>
       </div>
       <div>
-        <p style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:clamp(32px,3.4vw,46px); line-height:1.1; color:#FD5206; margin:0 0 0 -0.045em">940+</p>
-        <p style="font-size:13px; line-height:1.35; letter-spacing:0.08em; text-transform:uppercase; color:#3c3d55; margin:14px 0 0">Rooms and facades finished</p>
+        <p style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:clamp(32px,3.4vw,46px); line-height:1.1; color:#FD5206; margin:0 0 0 -0.045em">65+</p>
+        <p style="font-size:13px; line-height:1.35; letter-spacing:0.08em; text-transform:uppercase; color:#3c3d55; margin:14px 0 0">Projects delivered</p>
       </div>
       <div>
-        <p style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:clamp(32px,3.4vw,46px); line-height:1.1; color:#BB5AD7; margin:0 0 0 -0.045em">2yr</p>
-        <p style="font-size:13px; line-height:1.35; letter-spacing:0.08em; text-transform:uppercase; color:#3c3d55; margin:14px 0 0">Written workmanship warranty</p>
+        <p style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:clamp(32px,3.4vw,46px); line-height:1.1; color:#BB5AD7; margin:0 0 0 -0.045em">9</p>
+        <p style="font-size:13px; line-height:1.35; letter-spacing:0.08em; text-transform:uppercase; color:#3c3d55; margin:14px 0 0">States covered</p>
       </div>
       <div>
-        <p style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:clamp(32px,3.4vw,46px); line-height:1.1; color:#040529; margin:0 0 0 -0.045em">0</p>
-        <p style="font-size:13px; line-height:1.35; letter-spacing:0.08em; text-transform:uppercase; color:#3c3d55; margin:14px 0 0">Subcontracted crews</p>
+        <p style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:clamp(32px,3.4vw,46px); line-height:1.1; color:#040529; margin:0 0 0 -0.045em">17+</p>
+        <p style="font-size:13px; line-height:1.35; letter-spacing:0.08em; text-transform:uppercase; color:#3c3d55; margin:14px 0 0">Team size</p>
       </div>
     </section>
 
   </div>
 
-  <section id="offer" style="background:#E2F8FF; border-top:2px solid #040529; border-bottom:2px solid #040529">
-    <div style="max-width:1240px; margin:0 auto; padding:clamp(52px,6vw,84px) clamp(20px,5vw,72px) clamp(44px,5vw,64px)">
-      <div style="max-width:60ch; margin-bottom:clamp(32px,4vw,48px)">
-        <span style="display:block; font-size:13px; line-height:1.3; letter-spacing:0.1em; text-transform:uppercase; color:#B01166; margin:0 0 16px">Our offerings</span>
-        <h2 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:clamp(28px,3.4vw,44px); line-height:1.06; letter-spacing:-0.022em; margin:0 0 12px -0.045em">Everything your space needs to stand out.</h2>
-        <p style="font-size:14.5px; line-height:1.7; margin:0; max-width:42ch; color:#3c3d55">Five capabilities, one crew. Take them separately or as a full package.</p>
-      </div>
-      <div class="cf-offer-grid" style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:2px; background:#040529; border:2px solid #040529">
-        <div class="cf-offer-card" tabindex="0" style="background:#8FC706; border-top:6px solid #8FC706; padding:clamp(24px,4vw,34px) clamp(20px,4vw,28px); min-height:210px; display:flex; flex-direction:column; justify-content:center">
-          <h3 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:17px; line-height:1.25; margin:0 0 8px; color:#040529">Paint application on walls and objects</h3>
-          <p style="font-size:14px; line-height:1.6; margin:0; color:#1a2b08">Interior, exterior and joinery — primed and finished in two coats.</p>
-        </div>
-        <div class="cf-offer-card" tabindex="0" style="background:#32C0F0; border-top:6px solid #32C0F0; padding:clamp(24px,4vw,34px) clamp(20px,4vw,28px); min-height:210px; display:flex; flex-direction:column; justify-content:center">
-          <h3 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:17px; line-height:1.25; margin:0 0 8px; color:#040529">Effective wall screeding</h3>
-          <p style="font-size:14px; line-height:1.6; margin:0; color:#062733">Flat, sanded substrate so every finish above it sits true.</p>
-        </div>
-        <div class="cf-offer-card" tabindex="0" style="background:#BB5AD7; border-top:6px solid #BB5AD7; padding:clamp(24px,4vw,34px) clamp(20px,4vw,28px); min-height:210px; display:flex; flex-direction:column; justify-content:center">
-          <h3 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:17px; line-height:1.25; margin:0 0 8px; color:#040529">Gypsum board &amp; POP ceiling installation</h3>
-          <p style="font-size:14px; line-height:1.6; margin:0; color:#040529">Framed, boarded and cast in-house, lighting set out first.</p>
-        </div>
-        <div class="cf-offer-card" tabindex="0" style="background:#E01E83; border-top:6px solid #E01E83; padding:clamp(24px,4vw,34px) clamp(20px,4vw,28px); min-height:210px; display:flex; flex-direction:column; justify-content:center">
-          <h3 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:17px; line-height:1.25; margin:0 0 8px; color:#ffffff">Decorative wall designs</h3>
-          <p style="font-size:14px; line-height:1.6; margin:0; color:#FDE7F1">Textured, Tyrollean and marble-stone feature work to an approved sample.</p>
-        </div>
-      </div>
-      <div class="cf-offer-card" tabindex="0" style="background:#ffffff; border:2px solid #040529; border-top:0; display:flex; align-items:center; gap:20px; padding:22px 28px; flex-wrap:wrap">
-        <span style="width:40px; height:40px; background:#FD5206; flex-shrink:0"></span>
-        <div style="flex:1; min-width:200px">
-          <h3 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:17px; line-height:1.25; margin:0 0 6px">Project support</h3>
-          <p style="font-size:14px; line-height:1.6; margin:0; color:#5a5b70">Scheduling, measurement and site coordination alongside your builders.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <div style="max-width:1240px; margin:0 auto; padding:0 clamp(20px, 5vw, 72px)">
+
+    <hr style="height:2px; border:0; margin:0; background:#040529" />
 
     <section id="services" style="padding:clamp(56px,7vw,96px) 0 clamp(48px,6vw,80px)">
       <div class="cf-services-head" style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,auto); gap:20px 48px; align-items:end; margin-bottom:clamp(44px,5vw,64px)">
@@ -187,7 +158,7 @@ a:hover { color: #E01E83; }
       <div style="display:flex; align-items:baseline; gap:16px; margin-bottom:22px">
         <span style="width:44px; height:10px; background:#32C0F0; display:block"></span>
         <h3 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:clamp(22px,2.4vw,30px); line-height:1.1; letter-spacing:-0.02em; margin:0">Overhead</h3>
-        <p style="font-size:14px; line-height:1.5; margin:0; color:#5a5b70">Ceilings, framed and finished in-house</p>
+        <!-- <p style="font-size:14px; line-height:1.5; margin:0; color:#5a5b70">Ceilings, framed and finished in-house</p> -->
       </div>
       <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(265px,1fr)); gap:clamp(16px,2vw,24px); margin-bottom:clamp(44px,5vw,64px)">
         <sc-for list="{{ overheadRows }}" as="row" hint-placeholder-count="3">
@@ -207,10 +178,10 @@ a:hover { color: #E01E83; }
       <div style="display:flex; align-items:baseline; gap:16px; margin-bottom:22px">
         <span style="width:44px; height:10px; background:#E01E83; display:block"></span>
         <h3 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:clamp(22px,2.4vw,30px); line-height:1.1; letter-spacing:-0.02em; margin:0">Walls</h3>
-        <p style="font-size:14px; line-height:1.5; margin:0; color:#5a5b70">Screeded flat, then the finish the room calls for</p>
+        <p style="font-size:14px; line-height:1.5; margin:0; color:#5a5b70"></p>
       </div>
       <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(265px,1fr)); gap:clamp(16px,2vw,24px)">
-        <sc-for list="{{ wallRows }}" as="row" hint-placeholder-count="5">
+        <sc-for list="{{ wallRows }}" as="row" hint-placeholder-count="4">
           <div class="cf-rate-card" style="position:relative; overflow:hidden; background:{{ row.cardBg }}; border:2px solid {{ row.cardBorder }}; border-top:6px solid {{ row.color }}; padding:26px 24px 22px; display:grid; grid-template-rows:auto 1fr auto; gap:0; min-height:290px">
             <span aria-hidden="true" style="position:absolute; right:10px; top:-18px; font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:96px; line-height:1; color:{{ row.color }}; opacity:0.14; pointer-events:none">{{ row.num }}</span>
             <h4 style="position:relative; font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:clamp(20px,2vw,24px); line-height:1.15; letter-spacing:-0.015em; margin:0 0 12px; max-width:80%">{{ row.name }}</h4>
@@ -226,8 +197,8 @@ a:hover { color: #E01E83; }
 
       <div style="display:flex; align-items:baseline; gap:16px; margin:clamp(44px,5vw,64px) 0 22px">
         <span style="width:44px; height:10px; background:#FD5206; display:block"></span>
-        <h3 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:clamp(22px,2.4vw,30px); line-height:1.1; letter-spacing:-0.02em; margin:0">Under Foot</h3>
-        <p style="font-size:14px; line-height:1.5; margin:0; color:#5a5b70">Tiled, epoxy-sealed or painted, built to handle footfall</p>
+        <h3 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:clamp(22px,2.4vw,30px); line-height:1.1; letter-spacing:-0.02em; margin:0">Floors</h3>
+        <!-- <p style="font-size:14px; line-height:1.5; margin:0; color:#5a5b70">Floor finishes that complete your space.</p> -->
       </div>
       <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(265px,1fr)); gap:clamp(16px,2vw,24px)">
         <sc-for list="{{ underfootRows }}" as="row" hint-placeholder-count="3">
@@ -245,7 +216,75 @@ a:hover { color: #E01E83; }
       </div>
     </section>
 
-    <hr style="height:2px; border:0; margin:0; background:#040529" />
+  </div>
+
+  <section id="offer" style="background:#E2F8FF; border-top:2px solid #040529; border-bottom:2px solid #040529">
+    <div style="max-width:1240px; margin:0 auto; padding:clamp(52px,6vw,84px) clamp(20px,5vw,72px) clamp(44px,5vw,64px)">
+      <div style="max-width:60ch; margin-bottom:clamp(32px,4vw,48px)">
+        <span style="display:block; font-size:13px; line-height:1.3; letter-spacing:0.1em; text-transform:uppercase; color:#B01166; margin:0 0 16px">Our offerings</span>
+        <h2 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:clamp(28px,3.4vw,44px); line-height:1.06; letter-spacing:-0.022em; margin:0 0 12px -0.045em">Everything your space needs to stand out.</h2>
+        <p style="font-size:14.5px; line-height:1.7; margin:0; max-width:42ch; color:#3c3d55">Many capabilities, one crew. Take them separately or as a full package.</p>
+      </div>
+      <div class="cf-offer-grid" style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:2px; background:#040529; border:2px solid #040529">
+        <div class="cf-offer-card" tabindex="0" style="background:#8FC706; border-top:6px solid #8FC706; padding:clamp(24px,4vw,34px) clamp(20px,4vw,28px); min-height:210px; display:flex; flex-direction:column; justify-content:center">
+          <h3 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:17px; line-height:1.25; margin:0 0 8px; color:#040529">Paint application on walls and objects</h3>
+          <p style="font-size:14px; line-height:1.6; margin:0; color:#1a2b08">Interior, exterior and joinery — primed and finished in two coats.</p>
+        </div>
+        <div class="cf-offer-card" tabindex="0" style="background:#32C0F0; border-top:6px solid #32C0F0; padding:clamp(24px,4vw,34px) clamp(20px,4vw,28px); min-height:210px; display:flex; flex-direction:column; justify-content:center">
+          <h3 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:17px; line-height:1.25; margin:0 0 8px; color:#040529">Effective wall screeding</h3>
+          <p style="font-size:14px; line-height:1.6; margin:0; color:#062733">Flat, sanded substrate so every finish above it sits true.</p>
+        </div>
+        <div class="cf-offer-card" tabindex="0" style="background:#BB5AD7; border-top:6px solid #BB5AD7; padding:clamp(24px,4vw,34px) clamp(20px,4vw,28px); min-height:210px; display:flex; flex-direction:column; justify-content:center">
+          <h3 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:17px; line-height:1.25; margin:0 0 8px; color:#040529">Gypsum board &amp; POP ceiling installation</h3>
+          <p style="font-size:14px; line-height:1.6; margin:0; color:#040529">Framed, boarded and cast in-house, lighting set out first.</p>
+        </div>
+        <div class="cf-offer-card" tabindex="0" style="background:#E01E83; border-top:6px solid #E01E83; padding:clamp(24px,4vw,34px) clamp(20px,4vw,28px); min-height:210px; display:flex; flex-direction:column; justify-content:center">
+          <h3 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:17px; line-height:1.25; margin:0 0 8px; color:#ffffff">Decorative wall designs</h3>
+          <p style="font-size:14px; line-height:1.6; margin:0; color:#FDE7F1">Textured, Tyrollean and marble-stone feature work to an approved sample.</p>
+        </div>
+        <div class="cf-offer-card" tabindex="0" style="grid-column:1/-1; background:#FD5206; border-top:6px solid #FD5206; padding:clamp(24px,4vw,34px) clamp(20px,4vw,28px); min-height:180px; display:flex; flex-direction:column; justify-content:center">
+          <h3 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:17px; line-height:1.25; margin:0 0 8px; color:#040529">Floors</h3>
+          <p style="font-size:14px; line-height:1.6; margin:0; max-width:60ch; color:#5a2600">Tiling, epoxy flooring and decorative floor painting — laid flat, sealed and built for daily footfall.</p>
+        </div>
+      </div>
+      <div class="cf-offer-card" tabindex="0" style="background:#ffffff; border:2px solid #040529; border-top:0; display:flex; align-items:center; gap:20px; padding:22px 28px; flex-wrap:wrap">
+        <span style="width:40px; height:40px; background:#FD5206; flex-shrink:0"></span>
+        <div style="flex:1; min-width:200px">
+          <h3 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:17px; line-height:1.25; margin:0 0 6px">Project support</h3>
+          <p style="font-size:14px; line-height:1.6; margin:0; color:#5a5b70">Scheduling, measurement and site coordination alongside your builders.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div style="max-width:1240px; margin:0 auto; padding:0 clamp(20px, 5vw, 72px)">
+
+    <section id="products" style="padding:clamp(52px,6vw,84px) 0 clamp(44px,5vw,64px)">
+      <div style="max-width:60ch; margin-bottom:clamp(32px,4vw,48px)">
+        <span style="display:block; font-size:13px; line-height:1.3; letter-spacing:0.1em; text-transform:uppercase; color:#B01166; margin:0 0 16px">Our products</span>
+        <h2 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:clamp(28px,3.4vw,44px); line-height:1.06; letter-spacing:-0.022em; margin:0 0 12px -0.045em">Classik Finishes, in the can.</h2>
+        <p style="font-size:14.5px; line-height:1.7; margin:0; max-width:42ch; color:#3c3d55">Our own line of paints and coatings — the same materials our crews use on site, available to buy directly.</p>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:clamp(16px,2vw,24px)">
+        <sc-for list="{{ productRows }}" as="row" hint-placeholder-count="6">
+          <div class="cf-rate-card" style="position:relative; overflow:hidden; background:{{ row.cardBg }}; border:2px solid {{ row.cardBorder }}; display:flex; flex-direction:column">
+            <div style="aspect-ratio:1/1; overflow:hidden; background:#ffffff; display:flex; align-items:center; justify-content:center; padding:16px">
+              <img src="{{ row.img }}" alt="{{ row.name }}" style="max-width:100%; max-height:100%; object-fit:contain" />
+            </div>
+            <div style="padding:20px 22px 22px; display:flex; flex-direction:column; flex:1">
+              <h4 style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:18px; line-height:1.2; letter-spacing:-0.01em; margin:0 0 8px">{{ row.name }}</h4>
+              <p style="font-size:13.5px; line-height:1.55; margin:0 0 18px; color:#5a5b70; flex:1">{{ row.note }}</p>
+              <p style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:clamp(20px,2.2vw,24px); line-height:1.1; letter-spacing:-0.02em; margin:0 0 14px; color:#040529">{{ row.amount }}</p>
+              <button type="button" onClick="{{ row.toggle }}" style="background:transparent; color:{{ row.actionFg }}; border:0; border-top:2px solid #dcdde6; width:100%; text-align:left; font-family:var(--font-body); font-size:12px; letter-spacing:0.09em; text-transform:uppercase; padding:14px 0 0; cursor:pointer">{{ row.action }}</button>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+  </div>
+
+  <div style="max-width:1240px; margin:0 auto; padding:0 clamp(20px, 5vw, 72px)">
 
     <section id="work" style="padding:54px 0">
       <div style="display:flex; justify-content:space-between; align-items:baseline; gap:24px; flex-wrap:wrap; margin-bottom:32px">
@@ -253,28 +292,28 @@ a:hover { color: #E01E83; }
         <p style="font-size:15.5px; line-height:1.7; margin:0; max-width:44ch; color:#2a2b45">Photographed as delivered — no staging, no filters. Hover any photo below for what was done.</p>
       </div>
       <div class="cf-gallery-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:clamp(14px,2vw,22px)">
-        <figure class="cf-tile" tabindex="0" style="margin:0; position:relative; aspect-ratio:1/1; overflow:hidden; background:#040529">
+        <figure class="cf-tile" tabindex="0" onClick="{{ onOpenLightbox0 }}" style="margin:0; position:relative; aspect-ratio:1/1; overflow:hidden; background:#040529; cursor:pointer">
           <video ref="{{ galleryVideoRef }}" src="{{ workVideo }}" muted loop playsInline preload="none" style="width:100%; height:100%; object-fit:cover; display:block"></video>
           <figcaption class="cf-cap" style="position:absolute; inset:auto 0 0 0; padding:16px 18px 14px; background:linear-gradient(to top, rgba(4,5,41,0.92), rgba(4,5,41,0))">
             <p style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:14.5px; line-height:1.3; margin:0; color:#ffffff">Empire City — entrance gatehouse</p>
             <p style="font-size:12px; line-height:1.5; margin:5px 0 0; color:#E2F8FF">Exterior coating and feature walls for <a href="https://www.instagram.com/jomavhomesofficial/" target="_blank" rel="noreferrer" style="color:#32C0F0">@jomavhomesofficial</a> on the newly launched estate.</p>
           </figcaption>
         </figure>
-        <figure class="cf-tile" tabindex="0" style="margin:0; position:relative; aspect-ratio:1/1; overflow:hidden; background:#E2F8FF">
+        <figure class="cf-tile" tabindex="0" onClick="{{ onOpenLightbox1 }}" style="margin:0; position:relative; aspect-ratio:1/1; overflow:hidden; background:#E2F8FF; cursor:pointer">
           <img src="recents-work/classik1.jpg" alt="Corridor POP ceiling and wall paneling" style="width:100%; height:100%; object-fit:cover; display:block" />
           <figcaption class="cf-cap" style="position:absolute; inset:auto 0 0 0; padding:16px 18px 14px; background:linear-gradient(to top, rgba(4,5,41,0.92), rgba(4,5,41,0))">
             <p style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:14.5px; line-height:1.3; margin:0; color:#ffffff">POP ceiling &amp; wall paneling</p>
             <p style="font-size:12px; line-height:1.5; margin:5px 0 0; color:#E2F8FF">Corridor ceiling and panel work, ready for paint.</p>
           </figcaption>
         </figure>
-        <figure class="cf-tile" tabindex="0" style="margin:0; position:relative; aspect-ratio:1/1; overflow:hidden; background:#E2F8FF">
+        <figure class="cf-tile" tabindex="0" onClick="{{ onOpenLightbox2 }}" style="margin:0; position:relative; aspect-ratio:1/1; overflow:hidden; background:#E2F8FF; cursor:pointer">
           <img src="recents-work/classik2.jpg" alt="Textured exterior render on a facade" style="width:100%; height:100%; object-fit:cover; display:block" />
           <figcaption class="cf-cap" style="position:absolute; inset:auto 0 0 0; padding:16px 18px 14px; background:linear-gradient(to top, rgba(4,5,41,0.92), rgba(4,5,41,0))">
             <p style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:14.5px; line-height:1.3; margin:0; color:#ffffff">Textured exterior render</p>
             <p style="font-size:12px; line-height:1.5; margin:5px 0 0; color:#E2F8FF">Sprayed texture and banding on a finished facade.</p>
           </figcaption>
         </figure>
-        <figure class="cf-tile" tabindex="0" style="margin:0; position:relative; aspect-ratio:1/1; overflow:hidden; background:#E2F8FF">
+        <figure class="cf-tile" tabindex="0" onClick="{{ onOpenLightbox3 }}" style="margin:0; position:relative; aspect-ratio:1/1; overflow:hidden; background:#E2F8FF; cursor:pointer">
           <img src="recents-work/classik3.webp" alt="Painter applying interior wall paint" style="width:100%; height:100%; object-fit:cover; display:block" />
           <figcaption class="cf-cap" style="position:absolute; inset:auto 0 0 0; padding:16px 18px 14px; background:linear-gradient(to top, rgba(4,5,41,0.92), rgba(4,5,41,0))">
             <p style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:14.5px; line-height:1.3; margin:0; color:#ffffff">Interior wall painting</p>
@@ -417,6 +456,36 @@ a:hover { color: #E01E83; }
     </div>
   </footer>
 
+  <div style="display:{{ lightboxDisplay }}; position:fixed; top:0; right:0; bottom:0; left:0; width:100%; height:100%; z-index:999; background:rgba(4,5,41,0.94); flex-direction:column; align-items:center; justify-content:center; overflow-y:auto; padding:clamp(16px,4vw,32px)">
+    <button type="button" onClick="{{ onLightboxClose }}" aria-label="Close" style="position:absolute; top:20px; right:20px; width:44px; height:44px; background:rgba(255,255,255,0.1); border:2px solid #ffffff; color:#ffffff; font-size:20px; line-height:1; cursor:pointer">✕</button>
+    <button type="button" onClick="{{ onLightboxPrev }}" aria-label="Previous photo" style="position:absolute; left:clamp(10px,3vw,28px); top:50%; transform:translateY(-50%); width:48px; height:48px; background:rgba(255,255,255,0.1); border:2px solid #ffffff; color:#ffffff; font-size:22px; cursor:pointer">‹</button>
+    <button type="button" onClick="{{ onLightboxNext }}" aria-label="Next photo" style="position:absolute; right:clamp(10px,3vw,28px); top:50%; transform:translateY(-50%); width:48px; height:48px; background:rgba(255,255,255,0.1); border:2px solid #ffffff; color:#ffffff; font-size:22px; cursor:pointer">›</button>
+
+    <div style="position:relative; max-width:min(90vw,900px); max-height:60vh; display:flex; align-items:center; justify-content:center">
+      <img src="{{ lightboxImgSrc }}" alt="{{ lightboxTitle }}" style="display:{{ lightboxImgDisplay }}; max-width:100%; max-height:60vh; object-fit:contain; border:2px solid #ffffff" />
+      <video ref="{{ lightboxVideoRef }}" src="{{ lightboxVideoSrc }}" muted loop playsInline style="display:{{ lightboxVideoDisplay }}; max-width:100%; max-height:60vh; object-fit:contain; border:2px solid #ffffff"></video>
+      <button type="button" onClick="{{ onLightboxToggleVideo }}" aria-label="{{ lightboxPlayPauseLabel }}" style="display:{{ lightboxVideoBtnDisplay }}; position:absolute; left:16px; bottom:16px; width:44px; height:44px; background:rgba(4,5,41,0.75); border:2px solid #ffffff; color:#ffffff; font-size:16px; cursor:pointer; align-items:center; justify-content:center">{{ lightboxPlayPauseIcon }}</button>
+    </div>
+
+    <div style="max-width:min(90vw,700px); margin-top:18px; text-align:center">
+      <p style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:18px; margin:0; color:#ffffff">{{ lightboxTitle }}</p>
+      <p style="font-size:14px; line-height:1.5; margin:8px 0 0; color:#E2F8FF">{{ lightboxNote }}</p>
+    </div>
+
+    <div style="display:flex; gap:10px; margin-top:22px; max-width:92vw; overflow-x:auto; padding:4px">
+      <button type="button" onClick="{{ onOpenLightbox0 }}" aria-label="View site walkthrough video" style="flex-shrink:0; width:60px; height:60px; padding:0; border:3px solid {{ lightboxThumbBorder0 }}; cursor:pointer; background:#040529; color:#ffffff; font-size:18px; display:flex; align-items:center; justify-content:center">▶</button>
+      <button type="button" onClick="{{ onOpenLightbox1 }}" aria-label="View POP ceiling and wall paneling photo" style="flex-shrink:0; width:60px; height:60px; padding:0; border:3px solid {{ lightboxThumbBorder1 }}; cursor:pointer; overflow:hidden">
+        <img src="recents-work/classik1.jpg" alt="" style="width:100%; height:100%; object-fit:cover; display:block" />
+      </button>
+      <button type="button" onClick="{{ onOpenLightbox2 }}" aria-label="View textured exterior render photo" style="flex-shrink:0; width:60px; height:60px; padding:0; border:3px solid {{ lightboxThumbBorder2 }}; cursor:pointer; overflow:hidden">
+        <img src="recents-work/classik2.jpg" alt="" style="width:100%; height:100%; object-fit:cover; display:block" />
+      </button>
+      <button type="button" onClick="{{ onOpenLightbox3 }}" aria-label="View interior wall painting photo" style="flex-shrink:0; width:60px; height:60px; padding:0; border:3px solid {{ lightboxThumbBorder3 }}; cursor:pointer; overflow:hidden">
+        <img src="recents-work/classik3.webp" alt="" style="width:100%; height:100%; object-fit:cover; display:block" />
+      </button>
+    </div>
+  </div>
+
 </div>
 
 </x-dc>
@@ -425,28 +494,44 @@ const SERVICES = {
   overhead: [
     { id: "pop", name: "POP ceilings", price: 11920, note: "Coving, trays and recesses cast to your drawing or ours, finished smooth." },
     { id: "gypsum", name: "Gypsum board ceilings", price: 14500, note: "Board work on true lines, joints taped and feathered before any paint." },
-    { id: "suspended", name: "Suspended ceilings", price: null, note: "Grid systems for offices and commercial floors, access kept where you need it." }
+    { id: "suspended", name: "Suspended ceilings", price: null, note: "Grid systems for offices and commercial floors" }
   ],
   walls: [
-    { id: "paint", name: "Paint application", price: 700, note: "Primer plus two coats, interior or exterior, cut by hand at every edge." },
-    { id: "screed", name: "Wall screeding", price: 1900, note: "Skimmed and sanded dead flat so raking light finds nothing to catch on." },
-    { id: "tyrollean", name: "Tyrollean application", price: 1400, note: "Hard-wearing sprayed exterior render that holds up to sun and rain." },
-    { id: "textured", name: "Textured designs", price: 13000, note: "Feature walls worked to a sample you approve before we touch the room." },
-    { id: "marble", name: "Marble stone designs", price: null, note: "Stone-effect finishes for lobbies, gate houses and statement elevations." }
+    { id: "paint", name: "Paint Application", price: 700, note: "Interior or exterior, properly primed and finished with two coats." },
+    { id: "screed", name: "Wall Screeding", price: 1900, note: "Smooth, even surfaces that give your walls a clean final finish." },
+    { id: "tyrollean", name: "Tyrolean Application", price: 1400, note: "A hard-wearing exterior texture designed for lasting performance." },
+    { id: "textured", name: "Textured Designs", price: 13000, note: "Decorative wall textures tailored to your preferred design." }
   ],
   underfoot: [
-    { id: "tiling", name: "Tiling", price: 2500, note: "Floor and wall tiles set true, grouted and cleaned before handover." },
-    { id: "epoxy", name: "Epoxy flooring", price: null, note: "Seamless, chemical-resistant coating for garages, warehouses and wet areas." },
-    { id: "floorpaint", name: "Floor paint", price: null, note: "Durable floor coating finished to a smooth, easy-clean surface." }
+    { id: "tiling", name: "Tiling", price: 2500, note: "Floor and wall tiles laid neatly and perfectly." },
+    { id: "epoxy", name: "Epoxy flooring", price: null, note: "Smooth, seamless and durable floor coating with a clean finish." },
+    { id: "floorpaint", name: "Stamped Floor Painting", price: null, note: "Decorative floor painting that adds colour, character and a finished look." }
   ]
 };
 
+const PRODUCTS = [
+  { id: "emulsion", name: "Emulsion Finish", price: 23000, img: "products/Emulsion Finish-web.webp", note: "For walls & ceilings, interior and exterior. 20L." },
+  { id: "gloss", name: "Gloss Finish", price: 22600, img: "products/GLOSS FINISH-web.webp", note: "Durable surface protection. 4L." },
+  { id: "graphitex", name: "Graphitex", price: 58700, img: "products/GRAPHITEX-web.webp", note: "Lifetime anti-crack & peel formula. 20L." },
+  { id: "marble", name: "Marble Stone", price: null, img: "products/MARBLE STONE-web.webp", note: "Bold decorative texture finish. 20L." },
+  { id: "silk", name: "Silk Finish", price: 68000, img: "products/SILK FINISH-web.webp", note: "Rich coverage, smooth application, elegant sheen. 20L." },
+  { id: "undercoat", name: "Undercoat", price: 19000, img: "products/UNDERCOAT-web.webp", note: "Smooth base for a better finish. 4L." }
+];
+
+const GALLERY_ITEMS = [
+  { type: "video", title: "Empire City — entrance gatehouse", note: "Exterior coating and feature walls for @jomavhomesofficial on the newly launched estate." },
+  { type: "image", src: "recents-work/classik1.jpg", title: "POP ceiling & wall paneling", note: "Corridor ceiling and panel work, ready for paint." },
+  { type: "image", src: "recents-work/classik2.jpg", title: "Textured exterior render", note: "Sprayed texture and banding on a finished facade." },
+  { type: "image", src: "recents-work/classik3.webp", title: "Interior wall painting", note: "Two-coat finish, cut in by hand at every edge." }
+];
+
 class Component extends DCLogic {
-  state = { selected: {}, contactName: "", contactReach: "", contactDetail: "", contactMessage: "", navOpen: false };
+  state = { selected: {}, contactName: "", contactReach: "", contactDetail: "", contactMessage: "", navOpen: false, lightboxOpen: false, lightboxIndex: 0, lightboxVideoPlaying: true };
   heroArt = React.createRef();
   heroText = React.createRef();
   heroVideo = React.createRef();
   galleryVideo = React.createRef();
+  lightboxVideo = React.createRef();
 
   fmt(n) { return "₦" + n.toLocaleString("en-NG"); }
 
@@ -459,7 +544,7 @@ class Component extends DCLogic {
     this.setState(s => {
       const next = Object.assign({}, s.selected);
       if (turningOn) { next[id] = true; } else { delete next[id]; }
-      const all = SERVICES.overhead.concat(SERVICES.walls, SERVICES.underfoot);
+      const all = SERVICES.overhead.concat(SERVICES.walls, SERVICES.underfoot, PRODUCTS);
       const names = all.filter(i => next[i.id]).map(i => i.name).join(", ");
       return { selected: next, contactDetail: names };
     });
@@ -489,6 +574,65 @@ class Component extends DCLogic {
       };
     });
   }
+
+  buildProductRows() {
+    return PRODUCTS.map(item => {
+      const on = !!this.state.selected[item.id];
+      return {
+        id: item.id,
+        img: item.img,
+        name: item.name,
+        note: item.note,
+        amount: item.price === null ? "On request" : this.fmt(item.price),
+        action: on ? "Added — in your enquiry" : "Add to enquiry",
+        cardBg: on ? "#E2F8FF" : "#ffffff",
+        cardBorder: on ? "#040529" : "#dcdde6",
+        actionFg: on ? "#040529" : "#B01166",
+        toggle: () => this.selectAndQuote(item.id)
+      };
+    });
+  }
+
+  openLightbox(i) {
+    this.setState({ lightboxOpen: true, lightboxIndex: i, lightboxVideoPlaying: true });
+    document.body.style.overflow = "hidden";
+    this.syncLightboxVideo();
+  }
+  closeLightbox() {
+    this.setState({ lightboxOpen: false });
+    document.body.style.overflow = "";
+    const v = this.lightboxVideo.current;
+    if (v) v.pause();
+  }
+  stepLightbox(delta) {
+    this.setState(s => ({ lightboxIndex: (s.lightboxIndex + delta + GALLERY_ITEMS.length) % GALLERY_ITEMS.length, lightboxVideoPlaying: true }));
+    this.syncLightboxVideo();
+  }
+  syncLightboxVideo() {
+    setTimeout(() => {
+      const v = this.lightboxVideo.current;
+      if (!v) return;
+      const item = GALLERY_ITEMS[this.state.lightboxIndex];
+      if (this.state.lightboxOpen && item.type === "video") {
+        v.muted = true;
+        v.play().catch(() => {});
+      } else {
+        v.pause();
+      }
+    }, 0);
+  }
+  toggleLightboxVideo() {
+    const v = this.lightboxVideo.current;
+    if (!v) return;
+    if (v.paused) {
+      v.play().catch(() => {});
+      this.setState({ lightboxVideoPlaying: true });
+    } else {
+      v.pause();
+      this.setState({ lightboxVideoPlaying: false });
+    }
+  }
+
   componentDidMount() {
     const armVideo = v => {
       v.muted = true;
@@ -554,6 +698,14 @@ class Component extends DCLogic {
       hero.addEventListener("pointerleave", this._onLeave);
       this._hero = hero;
     }
+
+    this._onLightboxKeydown = e => {
+      if (!this.state.lightboxOpen) return;
+      if (e.key === "Escape") this.closeLightbox();
+      if (e.key === "ArrowLeft") this.stepLightbox(-1);
+      if (e.key === "ArrowRight") this.stepLightbox(1);
+    };
+    document.addEventListener("keydown", this._onLightboxKeydown);
   }
 
   componentWillUnmount() {
@@ -564,6 +716,9 @@ class Component extends DCLogic {
     if (this._navLinks && this._onNavLinkClick) {
       this._navLinks.removeEventListener("click", this._onNavLinkClick);
     }
+    if (this._onLightboxKeydown) {
+      document.removeEventListener("keydown", this._onLightboxKeydown);
+    }
   }
   renderVals() {
     const bodyLines = [];
@@ -572,12 +727,15 @@ class Component extends DCLogic {
     if (this.state.contactDetail) bodyLines.push("What needs finishing: " + this.state.contactDetail);
     if (this.state.contactMessage) bodyLines.push("Message: " + this.state.contactMessage);
     const mailBody = bodyLines.length ? bodyLines.join("\n") : "Hello Classik Finishes, I'd like to enquire about a project.";
+    const workVideoSrc = this.props.workVideo || "uploads/videos/empire-city-walkthrough-web.mp4";
+    const activeItem = GALLERY_ITEMS[this.state.lightboxIndex];
+    const isVideoActive = activeItem.type === "video";
 
     return {
       navOpen: !!this.state.navOpen,
       navOpenSuffix: this.state.navOpen ? " cf-open" : "",
       onToggleNav: () => this.toggleNav(),
-      workVideo: this.props.workVideo || "uploads/videos/empire-city-walkthrough-web.mp4",
+      workVideo: workVideoSrc,
       heroArt: this.heroArt,
       heroVideoRef: this.heroVideo,
       heroVideo: this.props.heroVideo || "uploads/videos/new-heroVideo-web.mp4",
@@ -585,7 +743,31 @@ class Component extends DCLogic {
       heroText: this.heroText,
       overheadRows: this.buildRows(SERVICES.overhead, "Overhead", "#32C0F0"),
       wallRows: this.buildRows(SERVICES.walls, "Walls", "#E01E83"),
-      underfootRows: this.buildRows(SERVICES.underfoot, "Under Foot", "#FD5206"),
+      underfootRows: this.buildRows(SERVICES.underfoot, "Underfoot", "#FD5206"),
+      productRows: this.buildProductRows(),
+      onOpenLightbox0: () => this.openLightbox(0),
+      onOpenLightbox1: () => this.openLightbox(1),
+      onOpenLightbox2: () => this.openLightbox(2),
+      onOpenLightbox3: () => this.openLightbox(3),
+      onLightboxClose: () => this.closeLightbox(),
+      onLightboxPrev: () => this.stepLightbox(-1),
+      onLightboxNext: () => this.stepLightbox(1),
+      lightboxDisplay: this.state.lightboxOpen ? "flex" : "none",
+      lightboxVideoRef: this.lightboxVideo,
+      lightboxImgSrc: isVideoActive ? "" : activeItem.src,
+      lightboxImgDisplay: isVideoActive ? "none" : "block",
+      lightboxVideoSrc: isVideoActive ? workVideoSrc : "",
+      lightboxVideoDisplay: isVideoActive ? "block" : "none",
+      lightboxVideoBtnDisplay: isVideoActive ? "flex" : "none",
+      onLightboxToggleVideo: () => this.toggleLightboxVideo(),
+      lightboxPlayPauseLabel: this.state.lightboxVideoPlaying ? "Pause video" : "Play video",
+      lightboxPlayPauseIcon: this.state.lightboxVideoPlaying ? "❚❚" : "▶",
+      lightboxTitle: activeItem.title,
+      lightboxNote: activeItem.note,
+      lightboxThumbBorder0: this.state.lightboxIndex === 0 ? "#E01E83" : "transparent",
+      lightboxThumbBorder1: this.state.lightboxIndex === 1 ? "#E01E83" : "transparent",
+      lightboxThumbBorder2: this.state.lightboxIndex === 2 ? "#E01E83" : "transparent",
+      lightboxThumbBorder3: this.state.lightboxIndex === 3 ? "#E01E83" : "transparent",
       contactName: this.state.contactName,
       onContactName: e => this.setState({ contactName: e.target.value }),
       contactReach: this.state.contactReach,
