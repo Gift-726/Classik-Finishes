@@ -1,0 +1,4 @@
+# Netlify: plain static site, no build step. Every branch can get its own preview URL.
+[build]
+  publish = "."
+  command = ""
