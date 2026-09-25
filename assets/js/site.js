@@ -246,7 +246,8 @@
     var colors = ["#8FC706", "#32C0F0", "#E01E83"];
     $("[data-testimonial-list]", el).innerHTML = list.map(function (t, i) {
       return '<figure class="quote-block quote-card" style="--c:' + colors[i % colors.length] + '"><blockquote>' + esc(t.quote) + "</blockquote>" +
-        "<figcaption><strong>" + esc(t.name || "") + "</strong>" + (t.detail ? "<span>" + esc(t.detail) + "</span>" : "") + "</figcaption></figure>";
+        "<figcaption><strong>" + esc(t.name || "") + "</strong>" +
+        ((t.position || t.company) ? "<span>" + esc([t.position, t.company].filter(Boolean).join(", ")) + "</span>" : "") + "</figcaption></figure>";
     }).join("");
   }
 

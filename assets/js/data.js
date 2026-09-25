@@ -24,10 +24,14 @@ CF.site = {
   ]
 };
 
-/* Client testimonials. The "What clients say" section on the home and About pages
-   stays hidden until at least one entry is added here. Up to 3 fit side by side.
-   Example: { quote: "They finished our duplex in two weeks…", name: "Client name", detail: "Project, location" } */
-CF.testimonials = [];
+/* Client testimonials, shown in the "What clients say" section on the Home and About pages.
+   The section hides itself if this list is empty.
+   PLACEHOLDERS: replace each entry with a real client's words and details before launch. */
+CF.testimonials = [
+  { quote: "Client testimonial goes here. Replace with the client's own words.", name: "Client name", position: "Position", company: "Company name" },
+  { quote: "Client testimonial goes here. Replace with the client's own words.", name: "Client name", position: "Position", company: "Company name" },
+  { quote: "Client testimonial goes here. Replace with the client's own words.", name: "Client name", position: "Position", company: "Company name" }
+];
 
 /* Priced services. price: null means "on request, after a site visit". */
 CF.services = [

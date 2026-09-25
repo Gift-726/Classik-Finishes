@@ -55,9 +55,10 @@
       blurb: "A professional finishing brand for walls, ceilings, floors and interiors.",
       img: "assets/img/interior-painting.webp",
       links: [
-        { label: "Our story", href: "about/#story", desc: "Who we are and what we stand for" },
+        { label: "What we stand for", href: "about/#values", desc: "Our mission and who we work with" },
         { label: "How we work", href: "about/#process", desc: "From first contact to handover" },
-        { label: "Why Classik", href: "about/#why", desc: "Workmanship, materials, detail" }
+        { label: "Why Classik", href: "about/#why", desc: "Workmanship, materials, detail" },
+        { label: "Testimonials", href: "about/#testimonials", desc: "What our clients say" }
       ]
     },
     {
@@ -77,9 +78,9 @@
       blurb: "Transparent rates by the square metre, with materials and labour included.",
       img: "assets/img/pop-ceiling-install.webp",
       links: [
-        { label: "Ceiling rates", href: "offerings/#overhead", desc: "From ₦11,920 per sqm" },
-        { label: "Wall rates", href: "offerings/#walls", desc: "From ₦700 per sqm" },
-        { label: "Floor rates", href: "offerings/#floors", desc: "From ₦2,500 per sqm" },
+        { label: "Ceiling rates", href: "offerings/#overhead", desc: "POP, gypsum and suspended" },
+        { label: "Wall rates", href: "offerings/#walls", desc: "Paint, screeding and textures" },
+        { label: "Floor rates", href: "offerings/#floors", desc: "Tiling, epoxy and stamped" },
         { label: "Build an enquiry", href: "contact/#enquiry", desc: "Send your picks in one go" }
       ]
     },
