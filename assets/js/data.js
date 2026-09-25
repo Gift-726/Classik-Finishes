@@ -15,6 +15,8 @@ CF.site = {
   email: "Classikfinishesltd@gmail.com",
   instagram: "https://www.instagram.com/classik_finishes/",
   instagramHandle: "@classik_finishes",
+  tiktok: "https://www.tiktok.com/@classik_finishes",
+  tiktokHandle: "@classik_finishes",
   serviceArea: "Nigeria",
   stats: [
     { value: "3", label: "Years in the trade", color: "#E01E83" },
@@ -24,7 +26,7 @@ CF.site = {
   ]
 };
 
-/* Client testimonials, shown in the "What clients say" section on the Home and About pages.
+/* Client testimonials, shown on the /testimonials/ page.
    The section hides itself if this list is empty.
    PLACEHOLDERS: replace each entry with a real client's words and details before launch. */
 CF.testimonials = [

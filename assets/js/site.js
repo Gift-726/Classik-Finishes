@@ -137,18 +137,7 @@
     }).join("");
   }
 
-  function renderRateTeaser(el) {
-    var picks = ["paint", "screed", "tyrolean", "pop", "gypsum", "tiling"];
-    el.innerHTML = picks.map(function (id) {
-      var s = CF.services.filter(function (x) { return x.id === id; })[0];
-      var g = CF.serviceGroups.filter(function (x) { return x.id === s.group; })[0];
-      return '<li><span class="sw" style="background:' + g.color + '"></span>' +
-        '<span><span class="rate-group">' + g.name + '</span><span class="rate-name">' + s.name + "</span></span>" +
-        '<span class="rate-price"><small>per sqm, from</small>' + fmt(s.price) + "</span></li>";
-    }).join("");
-  }
-
-  function productCard(p) {
+  function productCard(p, hidePrice) {
     var cat = CF.productCategories.filter(function (c) { return c.id === p.category; })[0];
     return '<article class="product-card" id="' + p.id + '" data-category="' + p.category + '">' +
       '<div class="product-media"><span class="product-size">' + p.size + '</span><img src="' + asset(p.img) + '" alt="' + esc(p.name) + ' tin" loading="lazy"></div>' +
@@ -156,13 +145,14 @@
         '<p class="product-cat">' + cat.name + "</p>" +
         "<h3>" + p.name + "</h3>" +
         '<p class="muted">' + p.note + "</p>" +
-        '<p class="product-price">' + (p.price === null ? "Price on request" : fmt(p.price)) + "</p>" +
+        (hidePrice ? "" : '<p class="product-price">' + (p.price === null ? "Price on request" : fmt(p.price)) + "</p>") +
         addButton(p.id) +
       "</div></article>";
   }
 
   function renderProducts(el) {
-    el.innerHTML = CF.products.map(productCard).join("");
+    var hide = el.hasAttribute("data-hide-price");
+    el.innerHTML = CF.products.map(function (p) { return productCard(p, hide); }).join("");
   }
 
   function renderProductFilters(el) {
@@ -256,7 +246,6 @@
     "testimonials": renderTestimonials,
     "cap-list": renderCapList,
     "rate-groups": renderRateGroups,
-    "rate-teaser": renderRateTeaser,
     "products": renderProducts,
     "product-filters": renderProductFilters,
     "projects": renderProjects,

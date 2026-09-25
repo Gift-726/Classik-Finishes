@@ -6,12 +6,11 @@ A multi-page static site for **Classik Finishes**, a Nigerian painting, screedin
 
 | URL | File | What's on it |
 |---|---|---|
-| `/` | `index.html` | Hero slider (3 slides, each over one of the estate videos `shiju-video1–3`), who we are + stats, "What we do" cards, rate teaser, product scroller, featured projects, testimonials (once added) |
-| `/about/` | `about/index.html` | Story, stats, what we stand for, how we work (4 steps), why Classik, testimonials (once added), Empire City case |
-| `/what-we-do/` | `what-we-do/index.html` | Five capabilities (Overheads, Walls, Decorative, Floors, Project support) with rates pulled from data |
+| `/` | `index.html` | Hero slider over the 3 estate videos, Who we are (company text + stats), What we do (colour-block cards), offerings band (no prices; **See all rates** goes to `/offerings/`), products carousel (no prices), featured projects, How we work |
 | `/offerings/` | `offerings/index.html` | Per-sqm rate cards by group (Overhead / Walls / Floors) with **Add to enquiry** |
 | `/products/` | `products/index.html` | Paint catalogue with category filters and **Add to enquiry** |
 | `/projects/` | `projects/index.html` | Filterable photo/video gallery with lightbox, plus a before/after strip |
+| `/testimonials/` | `testimonials/index.html` | Client testimonials from `CF.testimonials` in `data.js` |
 | `/contact/` | `contact/index.html` | Contact cards, enquiry list + indicative estimate, form that sends via WhatsApp or email, FAQ |
 
 Every page has the same header (top utility bar, mega-menu navigation, enquiry counter, mobile drawer) and the same footer (CTA band, link columns, contact details, legal bar). Both are defined once, in `assets/js/layout.js`.
@@ -55,5 +54,5 @@ Ink `#040529` · pale blue `#E2F8FF` · pink `#E01E83` (deep `#B01166`) · green
 
 ## Before launch
 
-- **Testimonials:** the client is collecting 3. Add them to `CF.testimonials` in `assets/js/data.js`. The "What clients say" section on the Home and About pages appears automatically once there's at least one entry.
+- **Testimonials:** the client is collecting 3. Add them to `CF.testimonials` in `assets/js/data.js`. They show on the `/testimonials/` page. The 3 entries in the file are placeholders until then.
 - There's no physical office yet, so no address is shown anywhere. Add one to the footer and Contact page if that changes.

@@ -48,7 +48,7 @@
         <p class="hero-copy hero-anim">Screeded, primed and coated to last. See what a Classik finish does for a building, from bare render to handover.</p>
         <div class="btn-row hero-anim">
           <a class="btn btn-primary" href="projects/">View our projects <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-          <a class="btn btn-outline-light" href="what-we-do/#walls">Wall finishes</a>
+          <a class="btn btn-outline-light" href="offerings/#walls">Wall finishes</a>
         </div>
       </div>
     </div>
@@ -61,7 +61,7 @@
         <p class="hero-copy hero-anim">Emulsion, silk, gloss, Graphitex and more. Our own line of paints and coatings, available to buy directly.</p>
         <div class="btn-row hero-anim">
           <a class="btn btn-primary" href="products/">Shop products <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-          <a class="btn btn-outline-light" href="what-we-do/">What we do</a>
+          <a class="btn btn-outline-light" href="#what-we-do">What we do</a>
         </div>
       </div>
     </div>
@@ -82,7 +82,7 @@
   </section>
 
   <!-- Who we are + stats -->
-  <section class="section">
+  <section class="section" id="who-we-are">
     <div class="container split">
       <div class="split-body reveal">
         <p class="eyebrow">Who we are</p>
@@ -95,7 +95,7 @@
   </section>
 
   <!-- What we do -->
-  <section class="section section-soft" style="border-top:2px solid var(--ink)">
+  <section class="section section-soft" id="what-we-do" style="border-top:2px solid var(--ink)">
     <div class="container">
       <div class="section-head reveal">
         <div>
@@ -105,32 +105,31 @@
         <p class="lead">Take one trade or the full package, from overhead to underfoot.</p>
       </div>
       <div class="offer-grid reveal-stagger">
-        <a class="offer-card" href="what-we-do/#walls" style="--bg:#8FC706; --fg:#040529; --sub:#1a2b08">
+        <div class="offer-card" style="--bg:#8FC706; --fg:#040529; --sub:#1a2b08">
           <h3>Paint application on walls and objects</h3>
           <p>Interior, exterior and joinery, primed and finished in two coats.</p>
-        </a>
-        <a class="offer-card" href="what-we-do/#walls" style="--bg:#32C0F0; --fg:#040529; --sub:#062733">
+        </div>
+        <div class="offer-card" style="--bg:#32C0F0; --fg:#040529; --sub:#062733">
           <h3>Effective wall screeding</h3>
           <p>Flat, sanded substrate so every finish above it sits true.</p>
-        </a>
-        <a class="offer-card" href="what-we-do/#overheads" style="--bg:#BB5AD7; --fg:#040529; --sub:#040529">
+        </div>
+        <div class="offer-card" style="--bg:#BB5AD7; --fg:#040529; --sub:#040529">
           <h3>Gypsum board &amp; POP ceiling installation</h3>
           <p>Framed, boarded and cast, with lighting set out first.</p>
-        </a>
-        <a class="offer-card" href="what-we-do/#decorative" style="--bg:#E01E83; --fg:#ffffff; --sub:#FDE7F1">
+        </div>
+        <div class="offer-card" style="--bg:#E01E83; --fg:#ffffff; --sub:#FDE7F1">
           <h3>Decorative wall designs</h3>
           <p>Textured, Tyrolean and marble-stone feature work to an approved sample.</p>
-        </a>
-        <a class="offer-card offer-card-wide" href="what-we-do/#floors" style="--bg:#FD5206; --fg:#040529; --sub:#5a2600">
+        </div>
+        <div class="offer-card offer-card-wide" style="--bg:#FD5206; --fg:#040529; --sub:#5a2600">
           <h3>Floors</h3>
           <p>Tiling, epoxy flooring and decorative floor painting: laid flat, sealed and built for daily footfall.</p>
-        </a>
+        </div>
       </div>
-      <a class="offer-support" href="what-we-do/#support">
+      <div class="offer-support">
         <span class="offer-support-sw" aria-hidden="true"></span>
         <span><strong>Project support</strong><span>Scheduling, measurement and site coordination alongside your builders.</span></span>
-        <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-      </a>
+      </div>
     </div>
   </section>
 
@@ -163,7 +162,7 @@
           <button type="button" class="icon-btn" data-scroll-target="#home-products" data-dir="1" aria-label="Scroll products right"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
         </div>
       </div>
-      <div class="scroller reveal" id="home-products" data-render="products"></div>
+      <div class="scroller reveal" id="home-products" data-render="products" data-hide-price></div>
       <p style="margin-top:28px"><a class="link-arrow" href="products/">View all products <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></p>
     </div>
   </section>
@@ -183,16 +182,22 @@
     </div>
   </section>
 
-  <!-- Testimonials: hidden until entries are added to CF.testimonials in assets/js/data.js -->
-  <section class="section" id="testimonials" data-render="testimonials" hidden>
+  <!-- How we work -->
+  <section class="section section-ink" id="how-we-work">
     <div class="container">
       <div class="section-head reveal">
         <div>
-          <p class="eyebrow">What clients say</p>
-          <h2 class="h-2">In our clients' words.</h2>
+          <p class="eyebrow eyebrow-light">How we work</p>
+          <h2 class="h-2">From first contact to handover.</h2>
         </div>
+        <p class="lead" style="color:#c9ccdf">What to expect once you get in touch.</p>
       </div>
-      <div class="testimonial-grid reveal-stagger" data-testimonial-list></div>
+      <ol class="steps reveal-stagger" style="list-style:none; padding:0; margin:0">
+        <li class="step" style="--c:#8FC706"><div class="step-marker"><b>01</b><i></i></div><h3>Site visit</h3><p>We visit, measure the space and look at the surfaces to be finished.</p></li>
+        <li class="step" style="--c:#32C0F0"><div class="step-marker"><b>02</b><i></i></div><h3>Quote</h3><p>We confirm the price based on the measurements and the finishes you choose.</p></li>
+        <li class="step" style="--c:#E01E83"><div class="step-marker"><b>03</b><i></i></div><h3>Preparation</h3><p>Surfaces are prepared and protected before any finish goes on.</p></li>
+        <li class="step" style="--c:#FD5206"><div class="step-marker"><b>04</b><i></i></div><h3>Finishing &amp; handover</h3><p>We apply the finish and go over the completed work with you.</p></li>
+      </ol>
     </div>
   </section>
 

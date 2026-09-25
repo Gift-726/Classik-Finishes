@@ -24,6 +24,7 @@
     mail: '<rect x="2" y="4" width="20" height="16" rx="1"/><path d="m22 7-10 6L2 7"/>',
     instagram: '<rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>',
     whatsapp: '<path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"/><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1"/>',
+    tiktok: '<path d="M9 12a4 4 0 1 0 4 4V3c.5 2.6 2.4 4.5 5 5"/>',
     pin: '<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/>',
     arrow: '<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>',
     arrowLeft: '<path d="M19 12H5"/><path d="m12 19-7-7 7-7"/>',
@@ -50,29 +51,7 @@
 
   /* Navigation — one list drives the desktop mega menus, the mobile drawer and the footer. */
   var NAV = [
-    {
-      id: "about", label: "About us", href: "about/",
-      blurb: "A professional finishing brand for walls, ceilings, floors and interiors.",
-      img: "assets/img/interior-painting.webp",
-      links: [
-        { label: "What we stand for", href: "about/#values", desc: "Our mission and who we work with" },
-        { label: "How we work", href: "about/#process", desc: "From first contact to handover" },
-        { label: "Why Classik", href: "about/#why", desc: "Workmanship, materials, detail" },
-        { label: "Testimonials", href: "about/#testimonials", desc: "What our clients say" }
-      ]
-    },
-    {
-      id: "what-we-do", label: "What we do", href: "what-we-do/",
-      blurb: "Everything your space needs to stand out, from overheads to walls, surfaces and details.",
-      img: "assets/img/corridor-pop-paneling.webp",
-      links: [
-        { label: "Overheads", href: "what-we-do/#overheads", desc: "POP, gypsum and suspended ceilings" },
-        { label: "Walls", href: "what-we-do/#walls", desc: "Paint, screeding and Tyrolean" },
-        { label: "Decorative finishes", href: "what-we-do/#decorative", desc: "Textured and marble-stone designs" },
-        { label: "Floors", href: "what-we-do/#floors", desc: "Tiling, epoxy and stamped floors" },
-        { label: "Project support", href: "what-we-do/#support", desc: "Measurement and site coordination" }
-      ]
-    },
+    { id: "what-we-do", label: "What we do", href: "#what-we-do" },
     {
       id: "offerings", label: "Offerings", href: "offerings/",
       blurb: "Transparent rates by the square metre, with materials and labour included.",
@@ -93,6 +72,7 @@
       })
     },
     { id: "projects", label: "Projects", href: "projects/" },
+    { id: "testimonials", label: "Testimonials", href: "testimonials/" },
     { id: "contact", label: "Contact", href: "contact/" }
   ];
   CF.nav = NAV;
@@ -147,6 +127,7 @@
             '<li><a href="tel:' + S.phoneIntl + '">' + CF.icon("phone", 14) + S.phone + "</a></li>" +
             '<li><a href="mailto:' + S.email + '">' + CF.icon("mail", 14) + S.email + "</a></li>" +
             '<li><a href="' + S.instagram + '" target="_blank" rel="noreferrer" aria-label="Instagram">' + CF.icon("instagram", 14) + "<span>Instagram</span></a></li>" +
+            '<li><a href="' + S.tiktok + '" target="_blank" rel="noreferrer" aria-label="TikTok">' + CF.icon("tiktok", 14) + "<span>TikTok</span></a></li>" +
             '<li><a href="https://wa.me/' + S.whatsapp + '" target="_blank" rel="noreferrer" aria-label="WhatsApp">' + CF.icon("whatsapp", 14) + "<span>WhatsApp</span></a></li>" +
           "</ul>" +
         "</div></div>" +
@@ -205,19 +186,21 @@
             "<p>From overheads to walls and surfaces to details, we deliver quality finishing solutions for homes, estates and commercial spaces across " + S.serviceArea + ".</p>" +
             '<ul class="social">' +
               '<li><a href="' + S.instagram + '" target="_blank" rel="noreferrer" aria-label="Instagram">' + CF.icon("instagram", 18) + "</a></li>" +
+              '<li><a href="' + S.tiktok + '" target="_blank" rel="noreferrer" aria-label="TikTok">' + CF.icon("tiktok", 18) + "</a></li>" +
               '<li><a href="https://wa.me/' + S.whatsapp + '" target="_blank" rel="noreferrer" aria-label="WhatsApp">' + CF.icon("whatsapp", 18) + "</a></li>" +
               '<li><a href="tel:' + S.phoneIntl + '" aria-label="Call">' + CF.icon("phone", 18) + "</a></li>" +
               '<li><a href="mailto:' + S.email + '" aria-label="Email">' + CF.icon("mail", 18) + "</a></li>" +
             "</ul>" +
           "</div>" +
-          col("Company", [{ label: "Home", href: "" }].concat(byId("about").links, [{ label: "Projects", href: "projects/" }, { label: "Contact", href: "contact/" }])) +
-          col("What we do", byId("what-we-do").links) +
-          col("Offerings", byId("offerings").links.slice(0, 3).concat([{ label: "All products", href: "products/" }, { label: "Your enquiry", href: "contact/#enquiry" }])) +
+          col("Company", [{ label: "Home", href: "" }, { label: "What we do", href: "#what-we-do" }, { label: "How we work", href: "#how-we-work" }, { label: "Projects", href: "projects/" }, { label: "Testimonials", href: "testimonials/" }, { label: "Contact", href: "contact/" }]) +
+          col("Offerings", byId("offerings").links) +
+          col("Products", CF.products.slice(0, 5).map(function (p) { return { label: p.name, href: "products/#" + p.id }; }).concat([{ label: "All products", href: "products/" }])) +
           '<div class="footer-col footer-contact"><h2 class="footer-title">Get in touch</h2><ul>' +
             '<li><a href="tel:' + S.phoneIntl + '">' + CF.icon("phone", 16) + S.phone + "</a></li>" +
             '<li><a href="tel:' + S.phone2Intl + '">' + CF.icon("phone", 16) + S.phone2 + "</a></li>" +
             '<li><a href="mailto:' + S.email + '">' + CF.icon("mail", 16) + S.email + "</a></li>" +
             '<li><a href="' + S.instagram + '" target="_blank" rel="noreferrer">' + CF.icon("instagram", 16) + S.instagramHandle + "</a></li>" +
+            '<li><a href="' + S.tiktok + '" target="_blank" rel="noreferrer">' + CF.icon("tiktok", 16) + S.tiktokHandle + " on TikTok</a></li>" +
             "<li><span>" + CF.icon("pin", 16) + "Serving clients across " + S.serviceArea + "</span></li>" +
           "</ul></div>" +
         "</div></div>" +
