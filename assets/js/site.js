@@ -152,7 +152,8 @@
 
   function renderProducts(el) {
     var hide = el.hasAttribute("data-hide-price");
-    el.innerHTML = CF.products.map(function (p) { return productCard(p, hide); }).join("");
+    var limit = Number(el.getAttribute("data-limit")) || CF.products.length;
+    el.innerHTML = CF.products.slice(0, limit).map(function (p) { return productCard(p, hide); }).join("");
   }
 
   function renderProductFilters(el) {
