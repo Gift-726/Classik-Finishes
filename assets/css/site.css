@@ -248,14 +248,24 @@ body.drawer-open { overflow: hidden; }
 @media (min-width: 901px) and (max-width: 1280px) { .hero-slide.is-product .hero-content > * { max-width: 56%; } }
 .hero-slide.is-product::after { background: linear-gradient(180deg, rgba(4,5,41,.75) 0%, rgba(4,5,41,0) 24%), linear-gradient(90deg, rgba(4,5,41,.92) 0%, rgba(4,5,41,.78) 32%, rgba(4,5,41,.15) 58%, rgba(4,5,41,0) 72%), linear-gradient(0deg, rgba(4,5,41,.75) 0%, rgba(4,5,41,0) 30%); }
 @media (max-width: 900px) { .hero-slide.is-product::after { background: linear-gradient(0deg, rgba(4,5,41,.95) 0%, rgba(4,5,41,.8) 55%, rgba(4,5,41,.25) 100%); } }
-.hero-content { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: center; padding-top: calc(var(--topbar-h) + var(--mainbar-h) + 40px); padding-bottom: 150px; min-height: max(620px, 100svh); }
+/* Auto margins centre the text but, unlike justify-content: center, never push it up under the header when it runs tall */
+.hero-content { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: flex-start; padding-top: calc(var(--topbar-h) + var(--mainbar-h) + 40px); padding-bottom: 150px; min-height: max(620px, 100svh); }
+.hero-content > :first-child { margin-top: auto; }
+.hero-content > :last-child { margin-bottom: auto; }
 .hero-content > * { max-width: 820px; }
 .hero-kicker { display: inline-flex; align-items: center; gap: 14px; font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--cyan); margin-bottom: 22px; }
-.hero h1, .hero .hero-title { font-size: clamp(42px, 6.4vw, 88px); line-height: 1.0; letter-spacing: -0.032em; color: #fff; font-weight: 800; }
+.hero h1, .hero .hero-title { font-size: clamp(38px, min(6.4vw, 10.5svh), 88px); line-height: 1.0; letter-spacing: -0.032em; color: #fff; font-weight: 800; }
 .hero-title .hl-cyan { color: var(--cyan); }
 .hero-title .hl-green { color: var(--green); }
 .hero-title .hl-amber { color: var(--amber); }
 .hero-copy { font-size: clamp(16px, 1.4vw, 19px); line-height: 1.65; color: #E2F8FF; max-width: 54ch; margin-top: 26px; }
+/* Short screens (laptops with browser chrome): tighten the vertical rhythm */
+@media (max-height: 760px) and (min-width: 721px) {
+  .hero-content { padding-top: calc(var(--topbar-h) + var(--mainbar-h) + 28px); padding-bottom: 128px; }
+  .hero-kicker { margin-bottom: 16px; }
+  .hero-copy { margin-top: 18px; line-height: 1.55; }
+  .hero .btn-row { margin-top: 24px; }
+}
 .hero .btn-row { margin-top: 34px; }
 .hero-slide.is-active .hero-anim { animation: rise 800ms var(--ease) both; }
 .hero-slide.is-active .hero-anim:nth-child(2) { animation-delay: 120ms; }
