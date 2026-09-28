@@ -6,7 +6,7 @@ A multi-page static site for **Classik Finishes**, a Nigerian painting, screedin
 
 | URL | File | What's on it |
 |---|---|---|
-| `/` | `index.html` | Hero slider over the 3 estate videos, Who we are (company text + stats), What we do (colour-block cards), offerings band (no prices; **See all rates** goes to `/offerings/`), products carousel (no prices), featured projects, How we work |
+| `/` | `index.html` | Hero slider (slides 1–2 over the estate videos, slide 3 over the product showcase image), Who we are (company text + stats), What we do (colour-block cards), offerings band (no prices; **See all rates** goes to `/offerings/`), products carousel (no prices), featured projects, How we work |
 | `/offerings/` | `offerings/index.html` | Per-sqm rate cards by group (Overhead / Walls / Floors) with **Add to enquiry** |
 | `/products/` | `products/index.html` | Paint catalogue with category filters and **Add to enquiry** |
 | `/projects/` | `projects/index.html` | Filterable photo/video gallery with lightbox, plus a before/after strip |
@@ -29,7 +29,7 @@ uploads/videos/       *-web.mp4 videos used by the hero and gallery
 
 ## Common edits
 
-- **Hero slides:** each slide in `index.html` has its own background video, and a slide stays up for the length of its video.
+- **Hero slides:** each slide in `index.html` has its own background. Video slides stay up for the length of their video; image slides stay up for 8 seconds.
 
 - **Change a rate, phone number, product or stat:** edit `assets/js/data.js`. Every page updates.
 - **Add a project photo:** put a web-sized image in `assets/img/`, then add an entry to `CF.projects` in `data.js`. Tag it with `ceilings`, `exteriors`, `interiors` and/or `videos` so the filters pick it up. `featured: true` puts it on the homepage (the layout expects 4).
