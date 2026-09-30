@@ -26,13 +26,20 @@ CF.site = {
   ]
 };
 
-/* Client testimonials, shown on the /testimonials/ page.
-   The section hides itself if this list is empty.
-   PLACEHOLDERS: replace each entry with a real client's words and details before launch. */
+/* Client testimonials, shown on the /testimonials/ page. The section hides itself if this list is empty. */
 CF.testimonials = [
-  { quote: "Client testimonial goes here. Replace with the client's own words.", name: "Client name", position: "Position", company: "Company name" },
-  { quote: "Client testimonial goes here. Replace with the client's own words.", name: "Client name", position: "Position", company: "Company name" },
-  { quote: "Client testimonial goes here. Replace with the client's own words.", name: "Client name", position: "Position", company: "Company name" }
+  {
+    quote: "One thing I appreciate about Classik Finishes is their understanding of the relationship between workmanship, material quality, cost, and the final value delivered on a project. Their team approaches finishing with attention to detail and a clear focus on delivering quality work. For a construction professional, having a finishing team that understands project expectations and can execute accordingly is a valuable advantage. I would gladly recommend Classik Finishes for finishing projects.",
+    name: "Olajumoke Idowu", position: "Quantity Surveyor", company: ""
+  },
+  {
+    quote: "For me, finishing is where the quality and character of a space truly come together, and this is an area where Classik Finishes has demonstrated a good understanding. Their attention to detail, workmanship, and approach to delivering different finishing solutions are commendable. They have shown themselves to be a team that takes the outcome of a project seriously. I would recommend Classik Finishes to clients, developers, and professionals who value quality finishing.",
+    name: "Akinsiku Simeon", position: "CEO", company: "Proxima Construction"
+  },
+  {
+    quote: "Classik Finishes has proven to be a dependable finishing partner on our projects. Their team understands the importance of proper surface preparation, workmanship, and attention to detail, and they have consistently shown professionalism in the execution of their work. Their ability to deliver quality finishes while working within project requirements is commendable. I’m pleased to recommend Classik Finishes for construction and finishing projects.",
+    name: "Engr. Femi Ibitayo", position: "Head of Construction", company: "Jomav Homes"
+  }
 ];
 
 /* Priced services. price: null means "on request, after a site visit". */

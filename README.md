@@ -54,5 +54,5 @@ Ink `#040529` · pale blue `#E2F8FF` · pink `#E01E83` (deep `#B01166`) · green
 
 ## Before launch
 
-- **Testimonials:** the client is collecting 3. Add them to `CF.testimonials` in `assets/js/data.js`. They show on the `/testimonials/` page. The 3 entries in the file are placeholders until then.
+- **Testimonials:** edit `CF.testimonials` in `assets/js/data.js` (quote, name, position, company) to add or change one.
 - There's no physical office yet, so no address is shown anywhere. Add one to the footer and Contact page if that changes.
