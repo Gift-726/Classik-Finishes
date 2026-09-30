@@ -389,6 +389,14 @@
     var slides = $$(".hero-slide", hero);
     var tabs = $$(".hero-tab", hero);
     var FALLBACK = 8000;
+    // Visitors with data saver on get the still poster frames instead of the background videos.
+    var saveData = !!(navigator.connection && navigator.connection.saveData);
+    var playVideo = !reduceMotion && !saveData;
+    var warmTimer = null;
+    // Hero videos carry data-src, not src, so nothing downloads until a video is actually needed.
+    var loadVideo = function (v) {
+      if (v && !v.getAttribute("src") && v.getAttribute("data-src")) { v.preload = "auto"; v.src = v.getAttribute("data-src"); }
+    };
     var idx = 0, timer = null, paused = false;
     var videoOf = function (i) { return $("video", slides[i]); };
     var durationOf = function (i) {
@@ -414,17 +422,19 @@
         $$("a, button", s).forEach(function (a) { a.tabIndex = on ? 0 : -1; });
         var v = videoOf(i);
         if (!v) return;
-        if (on && !reduceMotion) {
-          if (v.preload !== "auto") v.preload = "auto";
+        if (on && playVideo) {
+          loadVideo(v);
           try { v.currentTime = 0; } catch (e) {}
           v.play().catch(function () {});
         } else {
           v.pause();
         }
       });
-      // Warm up the next slide's video so the cross-fade isn't to a blank frame.
+      // Start loading the next slide's video only once this slide has been up a few seconds,
+      // so a first visit doesn't download every video at once (saves mobile data).
+      clearTimeout(warmTimer);
       var next = videoOf((idx + 1) % slides.length);
-      if (next && next.preload !== "auto") next.preload = "auto";
+      if (next && playVideo && !next.getAttribute("src")) warmTimer = setTimeout(function () { loadVideo(next); }, 3500);
       tabs.forEach(function (t, i) {
         t.classList.toggle("is-active", i === idx);
         t.setAttribute("aria-current", i === idx ? "true" : "false");
