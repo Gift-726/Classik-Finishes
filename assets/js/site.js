@@ -202,7 +202,8 @@
     if (variant === "home") {
       el.innerHTML = CF.projects.map(function (p, i) { return p.featured ? tile(p, i) : ""; }).join("");
     } else {
-      var layout = ["is-wide is-tall", "", "", "is-tall", "", "", "is-wide", "", "is-tall", "", "is-wide", "", "is-wide", "", "is-wide", "", "", "is-wide"];
+      // Tile sizes by position, tuned so the full 17-item grid has no gaps at 4 or 2 columns.
+      var layout = ["is-wide is-tall", "", "", "is-tall", "", "", "is-wide", "is-tall", "", "", "is-tall", "is-tall", "is-wide", "", "is-wide", "", "is-wide"];
       el.innerHTML = CF.projects.map(function (p, i) { return tile(p, i, layout[i] || ""); }).join("");
     }
     // Videos preview on hover (desktop) — they don't all play at once.

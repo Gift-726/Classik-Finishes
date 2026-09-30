@@ -20,8 +20,8 @@ CF.site = {
   serviceArea: "Nigeria",
   stats: [
     { value: "3", label: "Years in the trade", color: "#E01E83" },
-    { value: "65+", label: "Projects delivered", color: "#FD5206" },
-    { value: "9", label: "States covered", color: "#BB5AD7" },
+    { value: "35+", label: "Projects delivered", color: "#FD5206" },
+    { value: "8", label: "States covered", color: "#BB5AD7" },
     { value: "17+", label: "Team size", color: "#32C0F0" }
   ]
 };
@@ -58,7 +58,7 @@ CF.serviceGroups = [
 /* Products. Use `prices` instead of `price` when a product has more than one price. */
 CF.products = [
   /* Order matters: the first 4 show on the homepage. */
-  { id: "screeding", name: "Screeding Finish", price: null, prices: [{ label: "Packaged", price: 26000 }, { label: "On-site production", price: 22000, unit: "per drum" }], size: "20L", category: "protective", img: "products/Screeding Finish-web.webp", note: "Strong, fast-drying screed for interior and exterior walls, with wider coverage." },
+  { id: "screeding", name: "Screeding Finish", price: null, prices: [{ label: "Packaged", price: 26000 }, { label: "On-site production", price: 22000, unit: "" }], size: "20L", category: "protective", img: "products/Screeding Finish-web.webp", note: "Strong, fast-drying screed for interior and exterior walls, with wider coverage." },
   { id: "emulsion", name: "Emulsion Finish", price: 23000, size: "20L", category: "walls", img: "products/Emulsion Finish-web.webp", note: "For walls and ceilings, interior and exterior." },
   { id: "matt", name: "Matt Finish", price: null, size: "20L", category: "walls", img: "products/Matt Finish-web.webp", note: "Flat, non-reflective finish for walls and ceilings, interior and exterior." },
   { id: "silk", name: "Silk Finish", price: 68000, size: "20L", category: "walls", img: "products/SILK FINISH-web.webp", note: "Rich coverage, smooth application, elegant sheen." },
@@ -83,12 +83,11 @@ CF.projects = [
   { type: "image", src: "assets/img/pop-ceiling-install.webp", title: "POP ceiling — on site", note: "Our crew casting a stepped POP ceiling.", tags: ["ceilings"] },
   { type: "image", src: "assets/img/textured-exterior.webp", title: "Textured exterior render", note: "Sprayed texture and banding on a finished facade.", tags: ["exteriors"] },
   { type: "image", src: "assets/img/interior-painting.webp", title: "Interior wall painting", note: "Two-coat finish, cut in by hand at every edge.", tags: ["interiors"] },
-  { type: "video", src: "uploads/videos/shiju-video2-web.mp4", poster: "assets/img/poster-shiju-video2.jpg", title: "Estate duplex — exterior finish", note: "Clean white exterior coat on a two-storey estate home.", tags: ["exteriors", "videos"] },
+  { type: "image", src: "assets/img/gypsum-ceiling-coffers.webp", title: "Gypsum board ceiling — stepped coffers", note: "Boarded ceiling with a run of recessed coffers, wired for lighting.", tags: ["ceilings", "interiors"] },
   { type: "image", src: "assets/img/pop-ceiling-bedroom.webp", title: "POP ceiling — bedroom tray", note: "Tray ceiling with a recessed drop, finished smooth.", tags: ["ceilings", "interiors"] },
   { type: "image", src: "assets/img/exterior-before.webp", title: "Bungalow exterior — before", note: "Where the job started: bare, patchy render.", tags: ["exteriors"] },
-  { type: "image", src: "assets/img/exterior-in-progress.webp", title: "Bungalow exterior — in progress", note: "Screeding the facade before any paint goes on.", tags: ["exteriors"] },
-  { type: "image", src: "assets/img/exterior-after-front.webp", title: "Bungalow exterior — after", note: "The same house, finished.", tags: ["exteriors"] },
-  { type: "video", src: "uploads/videos/shiju-video1-web.mp4", poster: "assets/img/poster-shiju-video1.jpg", title: "Estate bungalow — exterior finish", note: "Walk-round of a finished estate bungalow.", tags: ["exteriors", "videos"] },
+  { type: "image", src: "assets/img/gypsum-ceiling-corridor.webp", title: "Gypsum board ceiling — corridor", note: "Dropped gypsum bulkheads framing a corridor ceiling.", tags: ["ceilings", "interiors"] },
+  { type: "image", src: "assets/img/suspended-ceiling-corridor.webp", title: "Suspended ceiling — commercial corridor", note: "Grid ceiling installed along an office corridor.", tags: ["ceilings", "interiors"] },
   { type: "image", src: "assets/img/pop-ceiling-pattern.webp", title: "POP ceiling — geometric pattern", note: "Interlocking step pattern cast in POP.", tags: ["ceilings"] },
   { type: "image", src: "assets/img/pop-ceiling-tray.webp", title: "POP ceiling — double tray", note: "Two-level tray ceiling ahead of painting.", tags: ["ceilings", "interiors"] },
   { type: "video", src: "uploads/videos/shiju-video3-web.mp4", poster: "assets/img/poster-shiju-video3.jpg", title: "Estate block — exterior finish", note: "Exterior coating across an estate block.", tags: ["exteriors", "videos"] },
