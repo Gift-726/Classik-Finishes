@@ -26,6 +26,37 @@ CF.site = {
   ]
 };
 
+/* Upcoming features, linked from the top bar (and the phone menu).
+   While live is false, the link opens a "coming soon" page at /<id>/ built from this entry.
+   To launch one: build its real page at the same address and set live: true (the "Soon" tag disappears).
+   launch: optional text such as "Launching 2027"; leave empty to show no date. */
+CF.upcoming = {
+  labels: {
+    badge: "Soon",
+    status: "Coming soon",
+    notifyTitle: "Want to know when it launches?",
+    notifyCopy: "Follow us for updates, or send us a message and we'll let you know when it's ready.",
+    notifyWhatsApp: "Message us on WhatsApp",
+    notifyMessage: "Hello Classik Finishes, please let me know when {name} launches.",
+    followInstagram: "Follow on Instagram",
+    followTikTok: "Follow on TikTok",
+    home: "Home",
+    back: "Back to home"
+  },
+  items: [
+    {
+      id: "finishers-hub", name: "Finishers Hub", live: false, launch: "", img: "assets/img/pop-ceiling-install.webp",
+      summary: "A community for finishers.",
+      description: "A space for finishers to connect, share their work and grow together. We're putting the finishing touches on it."
+    },
+    {
+      id: "finishers-academy", name: "Finishers Academy", live: false, launch: "", img: "assets/img/interior-painting.webp",
+      summary: "Training for finishers.",
+      description: "Practical training to help finishers build their skills and deliver better work. We're putting the finishing touches on it."
+    }
+  ]
+};
+
 /* Client testimonials, shown on the /testimonials/ page. The section hides itself if this list is empty. */
 CF.testimonials = [
   {

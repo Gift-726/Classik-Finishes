@@ -77,6 +77,15 @@
   ];
   CF.nav = NAV;
 
+  /* Upcoming features (CF.upcoming in data.js): each links to /<id>/, tagged "Soon" until live. */
+  var UP = CF.upcoming || { labels: {}, items: [] };
+  function upcomingLinks(cls) {
+    return UP.items.map(function (f) {
+      return '<li><a class="' + cls + '" href="' + u(f.id + "/") + '">' + f.name +
+        (f.live ? "" : ' <span class="soon-tag">' + UP.labels.badge + "</span>") + "</a></li>";
+    }).join("");
+  }
+
   function header() {
     var page = document.body.getAttribute("data-page") || "";
 
@@ -122,7 +131,10 @@
       '<a class="skip-link" href="#main">Skip to content</a>' +
       '<header class="site-header" data-header>' +
         '<div class="topbar"><div class="container topbar-inner">' +
-          '<p class="topbar-tag">' + brandBar + S.tagline + "</p>" +
+          '<div class="topbar-left">' +
+            '<p class="topbar-tag">' + brandBar + S.tagline + "</p>" +
+            (UP.items.length ? '<ul class="topbar-upcoming">' + upcomingLinks("topbar-feature") + "</ul>" : "") +
+          "</div>" +
           '<ul class="topbar-links">' +
             '<li><a href="tel:' + S.phoneIntl + '">' + CF.icon("phone", 14) + S.phone + "</a></li>" +
             '<li><a href="mailto:' + S.email + '">' + CF.icon("mail", 14) + S.email + "</a></li>" +
@@ -147,6 +159,7 @@
         "</div></div>" +
         '<div class="drawer" id="drawer" data-drawer hidden>' +
           '<ul class="drawer-nav">' + mobile + "</ul>" +
+          (UP.items.length ? '<ul class="drawer-upcoming">' + upcomingLinks("drawer-feature") + "</ul>" : "") +
           '<div class="drawer-foot">' +
             '<a class="btn btn-primary btn-block" href="' + u("contact/") + '">Get an estimate ' + CF.icon("arrow", 16) + "</a>" +
             '<a class="btn btn-outline btn-block" href="https://wa.me/' + S.whatsapp + '" target="_blank" rel="noreferrer">' + CF.icon("whatsapp", 16) + " Chat on WhatsApp</a>" +

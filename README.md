@@ -11,6 +11,7 @@ A multi-page static site for **Classik Finishes**, a Nigerian painting, screedin
 | `/products/` | `products/index.html` | Paint catalogue with category filters and **Add to enquiry** |
 | `/projects/` | `projects/index.html` | Filterable photo/video gallery with lightbox, plus a before/after strip |
 | `/testimonials/` | `testimonials/index.html` | Client testimonials from `CF.testimonials` in `data.js` |
+| `/finishers-hub/`, `/finishers-academy/` | `finishers-*/index.html` | "Coming soon" pages for upcoming features, built from `CF.upcoming` in `data.js` (not indexed by search engines) |
 | `/contact/` | `contact/index.html` | Contact cards, enquiry list + indicative estimate, form that sends via WhatsApp or email, FAQ |
 
 Every page has the same header (top utility bar, mega-menu navigation, enquiry counter, mobile drawer) and the same footer (CTA band, link columns, contact details, legal bar). Both are defined once, in `assets/js/layout.js`.
@@ -29,6 +30,7 @@ uploads/videos/       *-web.mp4 videos used by the hero and gallery
 
 ## Common edits
 
+- **Upcoming features (Finishers Hub, Finishers Academy):** all their text lives in `CF.upcoming` in `data.js`: names, descriptions, the "Soon" tag, the coming-soon page wording and an optional launch date (`launch`). They're linked from the top bar and the phone menu. To launch one, build its real page at the same address (`finishers-hub/index.html`, removing the `noindex` line) and set `live: true`, which drops the "Soon" tag. To add another, add an item and copy one of the two page folders, renaming it to the new `id`.
 - **Hero slides:** each slide in `index.html` has its own background. Video slides stay up for the length of their video; image slides stay up for 8 seconds.
 
 - **Change a rate, phone number, product or stat:** edit `assets/js/data.js`. Every page updates.

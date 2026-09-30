@@ -281,7 +281,39 @@
     }).join("");
   }
 
+  /* Coming-soon page for an upcoming feature: everything comes from CF.upcoming in data.js */
+  function renderComingSoon(el) {
+    var U = CF.upcoming, L = U.labels;
+    var f = U.items.filter(function (x) { return x.id === el.getAttribute("data-feature"); })[0];
+    if (!f) return;
+    document.title = f.name + " — " + L.status + " | " + S.name;
+    var wa = "https://wa.me/" + S.whatsapp + "?text=" + encodeURIComponent(L.notifyMessage.replace("{name}", f.name));
+    el.innerHTML =
+      '<section class="page-hero page-hero-soon">' +
+        '<div class="page-hero-media"><img src="' + asset(f.img) + '" alt=""></div>' +
+        '<div class="container page-hero-inner">' +
+          '<ol class="breadcrumb"><li><a href="' + CF.url("") + '">' + esc(L.home) + "</a></li><li>" + esc(f.name) + "</li></ol>" +
+          '<p class="soon-status"><span class="soon-dot" aria-hidden="true"></span>' + esc(L.status) + (f.launch ? " · " + esc(f.launch) : "") + "</p>" +
+          "<h1>" + esc(f.name) + "</h1>" +
+          '<p class="lead">' + esc(f.description) + "</p>" +
+          '<span class="brandbar brandbar-lg" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>' +
+        "</div>" +
+      "</section>" +
+      '<section class="section section-pale">' +
+        '<div class="container head-with-actions" style="margin-bottom:0; align-items:center">' +
+          '<div><h2 class="h-2">' + esc(L.notifyTitle) + '</h2><p class="lead" style="margin-top:16px">' + esc(L.notifyCopy) + "</p></div>" +
+          '<div class="btn-row">' +
+            '<a class="btn btn-primary" href="' + wa + '" target="_blank" rel="noreferrer">' + CF.icon("whatsapp", 16) + " " + esc(L.notifyWhatsApp) + "</a>" +
+            '<a class="btn btn-outline" href="' + S.instagram + '" target="_blank" rel="noreferrer">' + CF.icon("instagram", 16) + " " + esc(L.followInstagram) + "</a>" +
+            '<a class="btn btn-outline" href="' + S.tiktok + '" target="_blank" rel="noreferrer">' + CF.icon("tiktok", 16) + " " + esc(L.followTikTok) + "</a>" +
+          "</div>" +
+        "</div>" +
+        '<div class="container" style="margin-top:32px"><a class="link-arrow" href="' + CF.url("") + '">' + CF.icon("arrowLeft", 16) + " " + esc(L.back) + "</a></div>" +
+      "</section>";
+  }
+
   var renderers = {
+    "coming-soon": renderComingSoon,
     "stats": renderStats,
     "testimonials": renderTestimonials,
     "cap-list": renderCapList,
