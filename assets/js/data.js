@@ -62,10 +62,11 @@ CF.serviceGroups = [
   { id: "floors", name: "Floors", color: "#FD5206", intro: "Floor finishes laid flat, sealed and built for daily footfall." }
 ];
 
-/* Products. Use `prices` instead of `price` when a product has more than one price. */
+/* Products. Use `prices` instead of `price` when a product has more than one price;
+   `short` is an optional shorter label for the product card (the full label is used in enquiries). */
 CF.products = [
   /* Order matters: the first 4 show on the homepage. */
-  { id: "screeding", name: "Screeding Finish", price: null, prices: [{ label: "Packaged", price: 26000 }, { label: "On-site production", price: 22000, unit: "" }], size: "20L", category: "protective", img: "products/Screeding Finish-web.webp", note: "Strong, fast-drying screed for interior and exterior walls, with wider coverage." },
+  { id: "screeding", name: "Screeding Finish", price: null, prices: [{ label: "Packaged", price: 26000 }, { label: "On-site production", short: "On-site", price: 22000, unit: "" }], size: "20L", category: "protective", img: "products/Screeding Finish-web.webp", note: "Strong, fast-drying screed for interior and exterior walls, with wider coverage." },
   { id: "emulsion", name: "Emulsion Finish", price: 23000, size: "20L", category: "walls", img: "products/Emulsion Finish-web.webp", note: "For walls and ceilings, interior and exterior." },
   { id: "matt", name: "Matt Finish", price: null, size: "20L", category: "walls", img: "products/Matt Finish-web.webp", note: "Flat, non-reflective finish for walls and ceilings, interior and exterior." },
   { id: "silk", name: "Silk Finish", price: 68000, size: "20L", category: "walls", img: "products/SILK FINISH-web.webp", note: "Rich coverage, smooth application, elegant sheen." },

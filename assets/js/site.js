@@ -53,7 +53,23 @@
     remove: function (id) { writeStore(readStore().filter(function (x) { return x !== id; })); },
     clear: function () { writeStore([]); }
   };
-  window.addEventListener("storage", function (e) { if (e.key === KEY) syncEnquiryUI(); });
+  // For products with several priced options (e.g. Screeding: packaged / on-site), remember which one was chosen.
+  var OPT_KEY = "cf-enquiry-options-v1";
+  var memoryOpts = {};
+  function readOpts() {
+    try { var v = JSON.parse(localStorage.getItem(OPT_KEY) || "{}"); return v && typeof v === "object" ? v : {}; }
+    catch (e) { return memoryOpts; }
+  }
+  CF.enquiry.option = function (id) {
+    var item = catalog[id], n = Number(readOpts()[id]) || 0;
+    return item && item.prices && n < item.prices.length ? n : 0;
+  };
+  CF.enquiry.setOption = function (id, n) {
+    var o = readOpts(); o[id] = n; memoryOpts = o;
+    try { localStorage.setItem(OPT_KEY, JSON.stringify(o)); } catch (e) {}
+    syncEnquiryUI();
+  };
+  window.addEventListener("storage", function (e) { if (e.key === KEY || e.key === OPT_KEY) syncEnquiryUI(); });
 
   var toastEl, toastTimer;
   function toast(msg) {
@@ -76,11 +92,14 @@
   }
 
   document.addEventListener("click", function (e) {
+    var ob = e.target.closest("[data-opt]");
+    if (ob) { CF.enquiry.setOption(ob.getAttribute("data-opt"), Number(ob.getAttribute("data-opt-index"))); return; }
     var btn = e.target.closest("[data-add]");
     if (!btn) return;
     var id = btn.getAttribute("data-add");
     var added = CF.enquiry.toggle(id);
-    toast(added ? catalog[id].name + " added to your enquiry" : catalog[id].name + " removed");
+    var label = catalog[id].prices ? catalog[id].name + " (" + chosen(catalog[id]).label + ")" : catalog[id].name;
+    toast(added ? label + " added to your enquiry" : catalog[id].name + " removed");
     var pill = $(".enquiry-pill");
     if (pill && added) { pill.classList.remove("bump"); void pill.offsetWidth; pill.classList.add("bump"); }
   });
@@ -100,6 +119,9 @@
       if (label) label.textContent = on ? "Added to enquiry" : "Add to enquiry";
       var card = b.closest(".rate-card, .product-card");
       if (card) card.classList.toggle("is-selected", on);
+    });
+    $$("[data-opt]").forEach(function (b) {
+      b.setAttribute("aria-checked", Number(b.getAttribute("data-opt-index")) === CF.enquiry.option(b.getAttribute("data-opt")) ? "true" : "false");
     });
     if (enquiryBar) {
       enquiryBar.classList.toggle("is-visible", ids.length > 0);
@@ -140,14 +162,16 @@
   // One price, several priced options (e.g. packaged vs on-site), or on request.
   function priceBlock(p) {
     if (p.prices && p.prices.length) {
-      return '<dl class="product-prices">' + p.prices.map(function (o) {
-        return "<div><dt>" + esc(o.label) + "</dt><dd>" + fmt(o.price) + (o.unit ? " <small>" + esc(o.unit) + "</small>" : "") + "</dd></div>";
-      }).join("") + "</dl>";
+      return '<div class="product-prices" role="radiogroup" aria-label="Choose ' + esc(p.name) + ' option">' + p.prices.map(function (o, n) {
+        return '<button type="button" role="radio" data-opt="' + p.id + '" data-opt-index="' + n + '" aria-checked="false" aria-label="' + esc(o.label + ", " + fmt(o.price)) + '">' +
+          '<span class="opt-price">' + fmt(o.price) + (o.unit ? " <small>" + esc(o.unit) + "</small>" : "") + '</span><span class="opt-label">' + esc(o.short || o.label) + "</span></button>";
+      }).join("") + "</div>";
     }
     return '<p class="product-price">' + (p.price === null ? "Price on request" : fmt(p.price)) + "</p>";
   }
+  function chosen(i) { return i.prices[CF.enquiry.option(i.id)]; }
   function priceText(i) {
-    if (i.prices && i.prices.length) return i.prices.map(function (o) { return o.label + " " + fmt(o.price) + (o.unit ? " " + o.unit : ""); }).join(" / ");
+    if (i.prices && i.prices.length) { var o = chosen(i); return o.label + ", " + fmt(o.price) + (o.unit ? " " + o.unit : ""); }
     return i.price === null ? "On request" : fmt(i.price) + (i.kind === "service" ? "/sqm" : "");
   }
 
@@ -515,9 +539,15 @@
       body = '<p class="enquiry-empty">Nothing added yet. Pick services from <a href="' + CF.url("offerings/") + '">Offerings</a> or paints from <a href="' + CF.url("products/") + '">Products</a>, or just describe the job below.</p>';
     } else {
       body = '<ul class="enquiry-items">' + items.map(function (i) {
+        var opts = "";
+        if (i.prices) {
+          opts = '<span class="enquiry-opts" role="radiogroup" aria-label="' + esc(i.name) + ' option">' + i.prices.map(function (o, n) {
+            return '<button type="button" role="radio" data-opt="' + i.id + '" data-opt-index="' + n + '" aria-checked="' + (n === CF.enquiry.option(i.id)) + '">' + esc(o.label) + "</button>";
+          }).join("") + "</span>";
+        }
         return '<li><span class="sw" style="background:' + i.color + '"></span><span><strong>' + i.name + "</strong><small>" + i.group + "</small></span>" +
-          '<span class="price">' + (i.prices ? "From " + fmt(Math.min.apply(null, i.prices.map(function (o) { return o.price; }))) : priceText(i)) + "</span>" +
-          '<button type="button" data-remove="' + i.id + '" aria-label="Remove ' + esc(i.name) + '">' + CF.icon("trash", 15) + "</button></li>";
+          '<span class="price">' + (i.prices ? fmt(chosen(i).price) : priceText(i)) + "</span>" +
+          '<button type="button" data-remove="' + i.id + '" aria-label="Remove ' + esc(i.name) + '">' + CF.icon("trash", 15) + "</button>" + opts + "</li>";
       }).join("") + "</ul>";
     }
     var priced = services.filter(function (s) { return s.price !== null; });
@@ -570,7 +600,7 @@
       if (val("type")) lines.push("Project type: " + val("type"));
       if (items.length) {
         lines.push("", "Enquiry list:");
-        items.forEach(function (i) { lines.push("- " + i.name + " (" + priceText(i) + ")"); });
+        items.forEach(function (i) { lines.push("- " + i.name + " (" + priceText(i) + ")"); });  // e.g. "Screeding Finish (Packaged, ₦26,000)"
       }
       if (val("area")) lines.push("", "Area to cover: " + val("area") + " sqm");
       if (val("message")) lines.push("", "Message: " + val("message"));
