@@ -37,7 +37,7 @@ CF.testimonials = [
 
 /* Priced services. price: null means "on request, after a site visit". */
 CF.services = [
-  { group: "overhead", id: "pop", name: "POP ceilings", price: 11920, note: "Coving, trays and recesses cast to your drawing or ours, finished smooth." },
+  { group: "overhead", id: "pop", name: "POP ceilings", price: 12000, note: "Coving, trays and recesses cast to your drawing or ours, finished smooth." },
   { group: "overhead", id: "gypsum", name: "Gypsum board ceilings", price: 14500, note: "Board work on true lines, joints taped and feathered before any paint." },
   { group: "overhead", id: "suspended", name: "Suspended ceilings", price: null, note: "Grid systems for offices and commercial floors." },
   { group: "walls", id: "paint", name: "Paint application", price: 700, note: "Interior or exterior, properly primed and finished with two coats." },
@@ -55,11 +55,13 @@ CF.serviceGroups = [
   { id: "floors", name: "Floors", color: "#FD5206", intro: "Floor finishes laid flat, sealed and built for daily footfall." }
 ];
 
+/* Products. Use `prices` instead of `price` when a product has more than one price. */
 CF.products = [
+  /* Order matters: the first 4 show on the homepage. */
+  { id: "screeding", name: "Screeding Finish", price: null, prices: [{ label: "Packaged", price: 26000 }, { label: "On-site production", price: 22000, unit: "per drum" }], size: "20L", category: "protective", img: "products/Screeding Finish-web.webp", note: "Strong, fast-drying screed for interior and exterior walls, with wider coverage." },
   { id: "emulsion", name: "Emulsion Finish", price: 23000, size: "20L", category: "walls", img: "products/Emulsion Finish-web.webp", note: "For walls and ceilings, interior and exterior." },
   { id: "matt", name: "Matt Finish", price: null, size: "20L", category: "walls", img: "products/Matt Finish-web.webp", note: "Flat, non-reflective finish for walls and ceilings, interior and exterior." },
   { id: "silk", name: "Silk Finish", price: 68000, size: "20L", category: "walls", img: "products/SILK FINISH-web.webp", note: "Rich coverage, smooth application, elegant sheen." },
-  { id: "screeding", name: "Screeding Finish", price: null, size: "20L", category: "protective", img: "products/Screeding Finish-web.webp", note: "Strong, fast-drying screed for interior and exterior walls, with wider coverage." },
   { id: "gloss", name: "Gloss Finish", price: 22600, size: "4L", category: "protective", img: "products/GLOSS FINISH-web.webp", note: "Durable surface protection for wood and metal." },
   { id: "undercoat", name: "Undercoat", price: 19000, size: "4L", category: "protective", img: "products/UNDERCOAT-web.webp", note: "A smooth base for a better finish." },
   { id: "graphitex", name: "Graphitex", price: 58700, size: "20L", category: "specialty", img: "products/GRAPHITEX-web.webp", note: "Lifetime anti-crack and anti-peel formula." },

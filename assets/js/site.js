@@ -26,7 +26,7 @@
     catalog[s.id] = { id: s.id, kind: "service", name: s.name, price: s.price, group: g.name, color: g.color };
   });
   CF.products.forEach(function (p) {
-    catalog[p.id] = { id: p.id, kind: "product", name: p.name, price: p.price, group: "Product · " + p.size, color: "#BB5AD7", size: p.size };
+    catalog[p.id] = { id: p.id, kind: "product", name: p.name, price: p.price, prices: p.prices, group: "Product · " + p.size, color: "#BB5AD7", size: p.size };
   });
 
   function readStore() {
@@ -137,6 +137,20 @@
     }).join("");
   }
 
+  // One price, several priced options (e.g. packaged vs on-site), or on request.
+  function priceBlock(p) {
+    if (p.prices && p.prices.length) {
+      return '<dl class="product-prices">' + p.prices.map(function (o) {
+        return "<div><dt>" + esc(o.label) + "</dt><dd>" + fmt(o.price) + (o.unit ? " <small>" + esc(o.unit) + "</small>" : "") + "</dd></div>";
+      }).join("") + "</dl>";
+    }
+    return '<p class="product-price">' + (p.price === null ? "Price on request" : fmt(p.price)) + "</p>";
+  }
+  function priceText(i) {
+    if (i.prices && i.prices.length) return i.prices.map(function (o) { return o.label + " " + fmt(o.price) + (o.unit ? " " + o.unit : ""); }).join(" / ");
+    return i.price === null ? "On request" : fmt(i.price) + (i.kind === "service" ? "/sqm" : "");
+  }
+
   function productCard(p, hidePrice) {
     var cat = CF.productCategories.filter(function (c) { return c.id === p.category; })[0];
     return '<article class="product-card" id="' + p.id + '" data-category="' + p.category + '">' +
@@ -145,7 +159,7 @@
         '<p class="product-cat">' + cat.name + "</p>" +
         "<h3>" + p.name + "</h3>" +
         '<p class="muted">' + p.note + "</p>" +
-        (hidePrice ? "" : '<p class="product-price">' + (p.price === null ? "Price on request" : fmt(p.price)) + "</p>") +
+        (hidePrice ? "" : priceBlock(p)) +
         addButton(p.id) +
       "</div></article>";
   }
@@ -501,7 +515,7 @@
     } else {
       body = '<ul class="enquiry-items">' + items.map(function (i) {
         return '<li><span class="sw" style="background:' + i.color + '"></span><span><strong>' + i.name + "</strong><small>" + i.group + "</small></span>" +
-          '<span class="price">' + (i.price === null ? "On request" : fmt(i.price) + (i.kind === "service" ? "/sqm" : "")) + "</span>" +
+          '<span class="price">' + (i.prices ? "From " + fmt(Math.min.apply(null, i.prices.map(function (o) { return o.price; }))) : priceText(i)) + "</span>" +
           '<button type="button" data-remove="' + i.id + '" aria-label="Remove ' + esc(i.name) + '">' + CF.icon("trash", 15) + "</button></li>";
       }).join("") + "</ul>";
     }
@@ -555,7 +569,7 @@
       if (val("type")) lines.push("Project type: " + val("type"));
       if (items.length) {
         lines.push("", "Enquiry list:");
-        items.forEach(function (i) { lines.push("- " + i.name + " (" + (i.price === null ? "on request" : fmt(i.price) + (i.kind === "service" ? "/sqm" : "")) + ")"); });
+        items.forEach(function (i) { lines.push("- " + i.name + " (" + priceText(i) + ")"); });
       }
       if (val("area")) lines.push("", "Area to cover: " + val("area") + " sqm");
       if (val("message")) lines.push("", "Message: " + val("message"));

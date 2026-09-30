@@ -6,7 +6,7 @@ A multi-page static site for **Classik Finishes**, a Nigerian painting, screedin
 
 | URL | File | What's on it |
 |---|---|---|
-| `/` | `index.html` | Hero slider (slides 1–2 over the estate videos, slide 3 over the product showcase image), Who we are (company text + stats), What we do (colour-block cards), offerings band (no prices; **See all rates** goes to `/offerings/`), products carousel (no prices), featured projects, How we work |
+| `/` | `index.html` | Hero slider (slide 1 over an estate video, slide 2 over `hero-image2-web.mp4`, slide 3 over the product showcase image), Who we are (company text + stats), What we do (colour-block cards), offerings band (no prices; **See all rates** goes to `/offerings/`), products carousel (no prices), featured projects, How we work |
 | `/offerings/` | `offerings/index.html` | Per-sqm rate cards by group (Overhead / Walls / Floors) with **Add to enquiry** |
 | `/products/` | `products/index.html` | Paint catalogue with category filters and **Add to enquiry** |
 | `/projects/` | `projects/index.html` | Filterable photo/video gallery with lightbox, plus a before/after strip |
