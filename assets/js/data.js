@@ -22,7 +22,7 @@ CF.site = {
     { value: "3", label: "Years in the trade", color: "#E01E83" },
     { value: "35+", label: "Projects delivered", color: "#FD5206" },
     { value: "8", label: "States covered", color: "#BB5AD7" },
-    { value: "17+", label: "Team size", color: "#32C0F0" }
+    { value: "12+", label: "Team size", color: "#32C0F0" }
   ]
 };
 
@@ -99,7 +99,7 @@ CF.products = [
   /* Order matters: the first 4 show on the homepage. */
   { id: "screeding", name: "Screeding Finish", price: null, prices: [{ label: "Packaged", price: 26000 }, { label: "On-site production", short: "On-site", price: 22000, unit: "" }], size: "20L", category: "protective", img: "products/Screeding Finish-web.webp", note: "Strong, fast-drying screed for interior and exterior walls, with wider coverage." },
   { id: "emulsion", name: "Emulsion Finish", price: 23000, size: "20L", category: "walls", img: "products/Emulsion Finish-web.webp", note: "For walls and ceilings, interior and exterior." },
-  { id: "matt", name: "Matt Finish", price: null, size: "20L", category: "walls", img: "products/Matt Finish-web.webp", note: "Flat, non-reflective finish for walls and ceilings, interior and exterior." },
+  { id: "matt", name: "Matt Finish", price: null, size: "20L", category: "walls", img: "products/Matt Finish-web.webp", note: "For walls and ceilings, interior and exterior." },
   { id: "silk", name: "Silk Finish", price: 68000, size: "20L", category: "walls", img: "products/SILK FINISH-web.webp", note: "Rich coverage, smooth application, elegant sheen." },
   { id: "gloss", name: "Gloss Finish", price: 22600, size: "4L", category: "protective", img: "products/GLOSS FINISH-web.webp", note: "Durable surface protection for wood and metal." },
   { id: "undercoat", name: "Undercoat", price: 19000, size: "4L", category: "protective", img: "products/UNDERCOAT-web.webp", note: "A smooth base for a better finish." },
