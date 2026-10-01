@@ -215,7 +215,9 @@ body.drawer-open { overflow: hidden; }
 .has-hero .site-header.is-solid { background: #fff; box-shadow: 0 10px 30px -18px rgba(4,5,41,.4); }
 .has-hero .site-header.is-solid .mainbar { border-bottom-color: var(--ink); }
 .has-hero .site-header.is-solid .topbar { background: var(--ink); }
-.has-hero .site-header.is-scrolled { transform: translateY(calc(-1 * var(--topbar-h))); }
+/* Slide the top strip away on scroll. Desktop only: a transform turns the header into the containing
+   block for the fixed mobile drawer inside it, which squashed the drawer to the header's height. */
+@media (min-width: 1081px) { .has-hero .site-header.is-scrolled { transform: translateY(calc(-1 * var(--topbar-h))); } }
 .brand img { transition: opacity 200ms ease; }
 
 /* ---------- Footer ---------- */
@@ -474,6 +476,9 @@ body.drawer-open { overflow: hidden; }
 .work-grid-all { grid-auto-flow: dense; }
 .work-grid-all .tile.is-wide { grid-column: span 2; }
 .work-grid-all .tile.is-tall { grid-row: span 2; }
+.more-work { display: grid; justify-items: start; gap: 8px; margin-top: clamp(32px, 4vw, 48px); padding-top: clamp(24px, 3vw, 32px); border-top: 2px solid var(--ink); }
+.more-work-title { font-size: clamp(20px, 2vw, 24px); font-weight: 800; letter-spacing: -.015em; color: var(--ink); }
+.more-work .btn-row { margin-top: 10px; }
 .work-grid.is-filtered .tile { grid-column: auto; grid-row: auto; }
 @media (max-width: 900px) { .work-grid-all .tile.is-tall { grid-row: auto; } }
 
