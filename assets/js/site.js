@@ -34,6 +34,13 @@
     catch (e) { return memoryStore; }
   }
   var memoryStore = [];
+  // Forget a product's quantity (or all of them) once it leaves the list.
+  function resetQty(id) {
+    var q = id ? readQty() : {};
+    if (id) delete q[id];
+    memoryQty = q;
+    try { localStorage.setItem(QTY_KEY, JSON.stringify(q)); } catch (e) {}
+  }
   function writeStore(ids) {
     memoryStore = ids;
     try { localStorage.setItem(KEY, JSON.stringify(ids)); } catch (e) { /* private mode: keep in memory */ }
@@ -46,12 +53,12 @@
     toggle: function (id) {
       var ids = readStore();
       var i = ids.indexOf(id);
-      if (i > -1) ids.splice(i, 1); else ids.push(id);
+      if (i > -1) { ids.splice(i, 1); resetQty(id); } else ids.push(id);
       writeStore(ids);
       return i === -1;
     },
-    remove: function (id) { writeStore(readStore().filter(function (x) { return x !== id; })); },
-    clear: function () { writeStore([]); }
+    remove: function (id) { resetQty(id); writeStore(readStore().filter(function (x) { return x !== id; })); },
+    clear: function () { resetQty(); writeStore([]); }
   };
   // For products with several priced options (e.g. Screeding: packaged / on-site), remember which one was chosen.
   var OPT_KEY = "cf-enquiry-options-v1";
@@ -69,7 +76,20 @@
     try { localStorage.setItem(OPT_KEY, JSON.stringify(o)); } catch (e) {}
     syncEnquiryUI();
   };
-  window.addEventListener("storage", function (e) { if (e.key === KEY || e.key === OPT_KEY) syncEnquiryUI(); });
+  // How many of each product (services are priced per sqm, so they have no quantity).
+  var QTY_KEY = "cf-enquiry-qty-v1";
+  var memoryQty = {};
+  function readQty() {
+    try { var v = JSON.parse(localStorage.getItem(QTY_KEY) || "{}"); return v && typeof v === "object" ? v : {}; }
+    catch (e) { return memoryQty; }
+  }
+  CF.enquiry.qty = function (id) { var n = Math.floor(Number(readQty()[id])); return n > 0 ? n : 1; };
+  CF.enquiry.setQty = function (id, n) {
+    var q = readQty(); q[id] = Math.max(1, Math.min(999, n)); memoryQty = q;
+    try { localStorage.setItem(QTY_KEY, JSON.stringify(q)); } catch (e) {}
+    syncEnquiryUI();
+  };
+  window.addEventListener("storage", function (e) { if (e.key === KEY || e.key === OPT_KEY || e.key === QTY_KEY) syncEnquiryUI(); });
 
   var toastEl, toastTimer;
   function toast(msg) {
@@ -174,6 +194,7 @@
     if (i.prices && i.prices.length) { var o = chosen(i); return o.label + ", " + fmt(o.price) + (o.unit ? " " + o.unit : ""); }
     return i.price === null ? "On request" : fmt(i.price) + (i.kind === "service" ? "/sqm" : "");
   }
+  function unitPrice(i) { return i.prices && i.prices.length ? chosen(i).price : i.price; }
 
   function productCard(p, hidePrice) {
     var cat = CF.productCategories.filter(function (c) { return c.id === p.category; })[0];
@@ -587,9 +608,18 @@
             return '<button type="button" role="radio" data-opt="' + i.id + '" data-opt-index="' + n + '" aria-checked="' + (n === CF.enquiry.option(i.id)) + '">' + esc(o.label) + "</button>";
           }).join("") + "</span>";
         }
+        var price = i.prices ? fmt(chosen(i).price) : priceText(i), qty = "";
+        if (i.kind === "product") {
+          var n = CF.enquiry.qty(i.id), each = unitPrice(i);
+          if (each !== null) price = fmt(each * n) + (n > 1 ? "<small>" + fmt(each) + " each</small>" : "");
+          qty = '<span class="enquiry-qty" role="group" aria-label="Quantity of ' + esc(i.name) + '">' +
+            '<button type="button" data-qty="' + i.id + '" data-step="-1" aria-label="One less"' + (n <= 1 ? " disabled" : "") + ">" + CF.icon("minus", 14) + "</button>" +
+            '<output aria-live="polite">' + n + "</output>" +
+            '<button type="button" data-qty="' + i.id + '" data-step="1" aria-label="One more">' + CF.icon("plus", 14) + "</button></span>";
+        }
         return '<li><span class="sw" style="background:' + i.color + '"></span><span><strong>' + i.name + "</strong><small>" + i.group + "</small></span>" +
-          '<span class="price">' + (i.prices ? fmt(chosen(i).price) : priceText(i)) + "</span>" +
-          '<button type="button" data-remove="' + i.id + '" aria-label="Remove ' + esc(i.name) + '">' + CF.icon("trash", 15) + "</button>" + opts + "</li>";
+          '<span class="price">' + price + "</span>" +
+          '<button type="button" data-remove="' + i.id + '" aria-label="Remove ' + esc(i.name) + '">' + CF.icon("trash", 15) + "</button>" + opts + qty + "</li>";
       }).join("") + "</ul>";
     }
     var priced = services.filter(function (s) { return s.price !== null; });
@@ -613,6 +643,13 @@
     listEl.addEventListener("click", function (e) {
       var r = e.target.closest("[data-remove]");
       if (r) CF.enquiry.remove(r.getAttribute("data-remove"));
+      var q = e.target.closest("[data-qty]");
+      if (q) {
+        var qid = q.getAttribute("data-qty");
+        CF.enquiry.setQty(qid, CF.enquiry.qty(qid) + Number(q.getAttribute("data-step")));
+        var again = $('[data-qty="' + qid + '"][data-step="' + q.getAttribute("data-step") + '"]', listEl);
+        if (again && !again.disabled) again.focus();
+      }
       if (e.target.closest("[data-clear]")) CF.enquiry.clear();
     });
     var areaInput = $("#f-area");
@@ -642,7 +679,10 @@
       if (val("type")) lines.push("Project type: " + val("type"));
       if (items.length) {
         lines.push("", "Enquiry list:");
-        items.forEach(function (i) { lines.push("- " + i.name + " (" + priceText(i) + ")"); });  // e.g. "Screeding Finish (Packaged, ₦26,000)"
+        items.forEach(function (i) {  // e.g. "Screeding Finish x 2 (Packaged, ₦26,000 each)"
+          var n = i.kind === "product" ? CF.enquiry.qty(i.id) : 1;
+          lines.push("- " + i.name + (i.kind === "product" ? " x " + n : "") + " (" + priceText(i) + (n > 1 && unitPrice(i) !== null ? " each" : "") + ")");
+        });
       }
       if (val("area")) lines.push("", "Area to cover: " + val("area") + " sqm");
       if (val("message")) lines.push("", "Message: " + val("message"));

@@ -442,6 +442,12 @@ body.drawer-open { overflow: hidden; }
 .enquiry-opts button { white-space: nowrap; padding: 5px 10px; background: #fff; border: 2px solid var(--rule); color: var(--text-2); font: inherit; font-size: 12.5px; font-weight: 600; cursor: pointer; }
 .enquiry-opts button:hover { border-color: var(--ink); color: var(--ink); }
 .enquiry-opts button[aria-checked="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+.enquiry-qty { grid-column: 2 / -1; display: inline-flex; align-items: stretch; justify-self: start; border: 2px solid var(--rule); background: #fff; }
+.enquiry-qty button { width: 34px; height: 32px; display: grid; place-items: center; background: transparent; border: 0; color: var(--ink); cursor: pointer; }
+.enquiry-qty button:hover:not(:disabled) { background: var(--pale); }
+.enquiry-qty button:disabled { color: var(--rule); cursor: default; }
+.enquiry-qty output { min-width: 36px; display: grid; place-items: center; border-inline: 2px solid var(--rule); font-weight: 700; font-size: 14px; }
+.enquiry-items .price small { text-align: right; font-weight: 500; }
 
 .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: clamp(28px, 3.5vw, 40px); }
 .chip { background: #fff; border: 2px solid var(--ink); color: var(--ink); padding: 10px 18px; font-size: 14px; font-weight: 600; cursor: pointer; transition: background 200ms ease, color 200ms ease; }

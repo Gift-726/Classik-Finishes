@@ -49,11 +49,11 @@ CF.upcoming = {
       summary: "A community for finishers.",
       description: "A space for finishers to connect, share their work and grow together. We're putting the finishing touches on it."
     },
-    {
-      id: "finishers-academy", name: "Finishers Academy", live: false, launch: "", img: "assets/img/interior-painting.webp",
-      summary: "Training for finishers.",
-      description: "Practical training to help finishers build their skills and deliver better work. We're putting the finishing touches on it."
-    }
+    // {
+    //   id: "finishers-academy", name: "Finishers Academy", live: false, launch: "", img: "assets/img/interior-painting.webp",
+    //   summary: "Training for finishers.",
+    //   description: "Practical training to help finishers build their skills and deliver better work. We're putting the finishing touches on it."
+    // }
   ]
 };
 
@@ -99,8 +99,8 @@ CF.products = [
   /* Order matters: the first 4 show on the homepage. */
   { id: "screeding", name: "Screeding Finish", price: null, prices: [{ label: "Packaged", price: 26000 }, { label: "On-site production", short: "On-site", price: 22000, unit: "" }], size: "20L", category: "protective", img: "products/Screeding Finish-web.webp", note: "Strong, fast-drying screed for interior and exterior walls, with wider coverage." },
   { id: "emulsion", name: "Emulsion Finish", price: 23000, size: "20L", category: "walls", img: "products/Emulsion Finish-web.webp", note: "For walls and ceilings, interior and exterior." },
-  { id: "matt", name: "Matt Finish", price: null, size: "20L", category: "walls", img: "products/Matt Finish-web.webp", note: "For walls and ceilings, interior and exterior." },
-  { id: "silk", name: "Silk Finish", price: 68000, size: "20L", category: "walls", img: "products/SILK FINISH-web.webp", note: "Rich coverage, smooth application, elegant sheen." },
+  { id: "matt", name: "Matt Finish", price: 65000, size: "20L", category: "walls", img: "products/Matt Finish-web.webp", note: "For walls and ceilings, interior and exterior." },
+  { id: "silk", name: "Silk Finish", price: 72000, size: "20L", category: "walls", img: "products/SILK FINISH-web.webp", note: "Rich coverage, smooth application, elegant sheen." },
   { id: "gloss", name: "Gloss Finish", price: 22600, size: "4L", category: "protective", img: "products/GLOSS FINISH-web.webp", note: "Durable surface protection for wood and metal." },
   { id: "undercoat", name: "Undercoat", price: 19000, size: "4L", category: "protective", img: "products/UNDERCOAT-web.webp", note: "A smooth base for a better finish." },
   { id: "graphitex", name: "Graphitex", price: 58700, size: "20L", category: "specialty", img: "products/GRAPHITEX-web.webp", note: "Lifetime anti-crack and anti-peel formula." },
@@ -123,15 +123,16 @@ CF.projects = [
   { type: "image", src: "assets/img/textured-exterior.webp", title: "Textured exterior render", note: "Sprayed texture and banding on a finished facade.", tags: ["exteriors"] },
   { type: "image", src: "assets/img/interior-painting.webp", title: "Interior wall painting", note: "Two-coat finish, cut in by hand at every edge.", tags: ["interiors"] },
   { type: "image", src: "assets/img/gypsum-ceiling-coffers.webp", title: "Gypsum board ceiling — stepped coffers", note: "Boarded ceiling with a run of recessed coffers, wired for lighting.", tags: ["ceilings", "interiors"] },
-  { type: "image", src: "assets/img/pop-ceiling-bedroom.webp", title: "POP ceiling — bedroom tray", note: "Tray ceiling with a recessed drop, finished smooth.", tags: ["ceilings", "interiors"] },
   { type: "image", src: "assets/img/exterior-before.webp", title: "Bungalow exterior — before", note: "Where the job started: bare, patchy render.", tags: ["exteriors"] },
   { type: "image", src: "assets/img/gypsum-ceiling-corridor.webp", title: "Gypsum board ceiling — corridor", note: "Dropped gypsum bulkheads framing a corridor ceiling.", tags: ["ceilings", "interiors"] },
   { type: "image", src: "assets/img/suspended-ceiling-corridor.webp", title: "Suspended ceiling — commercial corridor", note: "Grid ceiling installed along an office corridor.", tags: ["ceilings", "interiors"] },
-  { type: "image", src: "assets/img/pop-ceiling-pattern.webp", title: "POP ceiling — geometric pattern", note: "Interlocking step pattern cast in POP.", tags: ["ceilings"] },
   { type: "image", src: "assets/img/pop-ceiling-tray.webp", title: "POP ceiling — double tray", note: "Two-level tray ceiling ahead of painting.", tags: ["ceilings", "interiors"] },
   { type: "video", src: "uploads/videos/shiju-video3-web.mp4", poster: "assets/img/poster-shiju-video3.jpg", title: "Estate block — exterior finish", note: "Exterior coating across an estate block.", tags: ["exteriors", "videos"] },
   { type: "image", src: "assets/img/pop-ceiling-detail.webp", title: "POP ceiling — edge detail", note: "Crisp step lines at the ceiling edge.", tags: ["ceilings"] },
-  { type: "image", src: "assets/img/pop-ceiling-room.webp", title: "Room ready for finishing", note: "Ceiling cast and walls prepared for paint.", tags: ["ceilings", "interiors"] }
+  { type: "video", src: "uploads/videos/projectsVideo1-web.mp4", poster: "assets/img/poster-projectsVideo1.jpg", title: "Suspended ceiling — office", note: "Tiled grid ceiling with fitted lighting panels.", tags: ["ceilings", "interiors", "videos"] },
+  { type: "video", src: "uploads/videos/projectsVideo2-web.mp4", poster: "assets/img/poster-projectsVideo2.jpg", title: "Perimeter fence — wall finish", note: "Boundary wall and kerbs being brought back to life.", tags: ["exteriors", "videos"] },
+  { type: "video", src: "uploads/videos/projectsVideo3-web.mp4", poster: "assets/img/poster-projectsVideo3.jpg", title: "New build — exterior screeding", note: "Exterior walls screeded and ready for coating.", tags: ["exteriors", "videos"] },
+  { type: "video", src: "uploads/videos/projectsVideo4-web.mp4", poster: "assets/img/poster-projectsVideo4.jpg", title: "Staircase & hallway — interior finish", note: "Smooth white walls and soffit, finished to the last step.", tags: ["interiors", "videos"] }
 ];
 
 CF.projectFilters = [

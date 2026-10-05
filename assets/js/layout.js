@@ -33,6 +33,7 @@
     menu: '<line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/>',
     close: '<path d="M18 6 6 18"/><path d="m6 6 12 12"/>',
     plus: '<path d="M12 5v14"/><path d="M5 12h14"/>',
+    minus: '<path d="M5 12h14"/>',
     check: '<path d="M20 6 9 17l-5-5"/>',
     list: '<path d="M9 6h11"/><path d="M9 12h11"/><path d="M9 18h11"/><path d="M4 6h.01"/><path d="M4 12h.01"/><path d="M4 18h.01"/>',
     play: '<polygon points="7 4 20 12 7 20 7 4"/>',
