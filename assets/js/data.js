@@ -130,8 +130,8 @@ CF.projects = [
   { type: "video", src: "uploads/videos/shiju-video3-web.mp4", poster: "assets/img/poster-shiju-video3.jpg", title: "Estate block — exterior finish", note: "Exterior coating across an estate block.", tags: ["exteriors", "videos"] },
   { type: "image", src: "assets/img/pop-ceiling-detail.webp", title: "POP ceiling — edge detail", note: "Crisp step lines at the ceiling edge.", tags: ["ceilings"] },
   { type: "video", src: "uploads/videos/projectsVideo1-web.mp4", poster: "assets/img/poster-projectsVideo1.jpg", title: "Suspended ceiling — office", note: "Tiled grid ceiling with fitted lighting panels.", tags: ["ceilings", "interiors", "videos"] },
-  { type: "video", src: "uploads/videos/projectsVideo2-web.mp4", poster: "assets/img/poster-projectsVideo2.jpg", title: "Perimeter fence — wall finish", note: "Boundary wall and kerbs being brought back to life.", tags: ["exteriors", "videos"] },
-  { type: "video", src: "uploads/videos/projectsVideo3-web.mp4", poster: "assets/img/poster-projectsVideo3.jpg", title: "New build — exterior screeding", note: "Exterior walls screeded and ready for coating.", tags: ["exteriors", "videos"] },
+  { type: "video", src: "uploads/videos/projectsVideo2-web.mp4", poster: "assets/img/poster-projectsVideo2.jpg", title: "Tyrolean application — perimeter wall", note: "Hard-wearing Tyrolean texture applied to a boundary wall.", tags: ["exteriors", "videos"] },
+  { type: "video", src: "uploads/videos/projectsVideo3-web.mp4", poster: "assets/img/poster-projectsVideo3.jpg", title: "Wall screeding — new build", note: "Exterior walls screeded smooth and even, ready for the final finish.", tags: ["exteriors", "videos"] },
   { type: "video", src: "uploads/videos/projectsVideo4-web.mp4", poster: "assets/img/poster-projectsVideo4.jpg", title: "Staircase & hallway — interior finish", note: "Smooth white walls and soffit, finished to the last step.", tags: ["interiors", "videos"] }
 ];
 
