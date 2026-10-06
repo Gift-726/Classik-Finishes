@@ -19,7 +19,7 @@ CF.site = {
   tiktokHandle: "@classik_finishes",
   serviceArea: "Nigeria",
   stats: [
-    { value: "3", label: "Years in the trade", color: "#E01E83" },
+    { value: "2", label: "Years in the trade", color: "#E01E83" },
     { value: "35+", label: "Projects delivered", color: "#FD5206" },
     { value: "8", label: "States covered", color: "#BB5AD7" },
     { value: "12+", label: "Team size", color: "#32C0F0" }
