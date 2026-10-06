@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /uploads/
+Disallow: /recents-work/
+Disallow: /corr/
+Disallow: /_ds/
+Disallow: /Classik%20Finishes.dc.html
+Disallow: /image-slot.js
+Disallow: /support.js
+
+Sitemap: https://classssik.vercel.app/sitemap.xml
