@@ -58,3 +58,15 @@ Ink `#040529` · pale blue `#E2F8FF` · pink `#E01E83` (deep `#B01166`) · green
 
 - **Testimonials:** edit `CF.testimonials` in `assets/js/data.js` (quote, name, position, company) to add or change one.
 - There's no physical office yet, so no address is shown anywhere. Add one to the footer and Contact page if that changes.
+
+## Search engines & AI search
+
+Search and AI crawlers (Google, Bing, ChatGPT, Claude, Perplexity) need the business details in the HTML itself, and many of them don't run JavaScript. `tools/seo.js` generates that from `data.js`:
+
+- a block in each page's `<head>`: canonical link, WhatsApp/social share preview (`assets/img/og-image.jpg`) and schema.org structured data (business, services with per-sqm rates, products with prices, FAQ)
+- plain-HTML copies of the rates, products, projects and testimonials, inside `<noscript>`, so crawlers can read them
+- `sitemap.xml`, `robots.txt` and `llms.txt` (a plain-text summary for AI assistants)
+
+**After changing prices, products, contact details or the FAQ, run `node tools/seo.js` and commit the result.** If the site moves to its own domain, change `url` in `CF.site` first.
+
+`robots.txt` keeps crawlers out of folders the live site doesn't use and away from the video files, to save bandwidth. `vercel.json` lets browsers cache images and videos for a week, so repeat visitors don't download them again (scripts and styles aren't cached, so edits show up straight away).

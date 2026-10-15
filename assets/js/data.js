@@ -5,6 +5,7 @@ window.CF = window.CF || {};
 
 CF.site = {
   name: "Classik Finishes",
+  url: "https://classssik.vercel.app",  // the live address; change it here if you move to your own domain, then run: node tools/seo.js
   legalName: "Classik Finishes Ltd",
   tagline: "Towards aesthetics and value",
   phone: "0704 502 2891",
